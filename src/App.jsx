@@ -1351,8 +1351,8 @@ body {
   padding: 14px;
 
  box-shadow:
-  0 3px 3px rgba(0, 0, 0, 0.5),
-  0 10px 10px rgba(0, 0, 0, 0.4);
+  0 3px 3px rgba(0, 0, 0, 0.3),
+  0 10px 10px rgba(0, 0, 0, 0.2);
 
   transition:
     transform 0.3s ease,
@@ -1362,8 +1362,8 @@ body {
   transform: translateY(-10px) rotate(-1deg);
 
   box-shadow:
-    0 3px 3px rgba(0, 0, 0, 0.5),
-    0 10px 10px rgba(0, 0, 0, 0.4);
+    0 3px 3px rgba(0, 0, 0, 0.3),
+    0 10px 10px rgba(0, 0, 0, 0.2);
 }
 .featured-cat {
   font-family: "elite", sans-serif !important;
