@@ -1367,7 +1367,8 @@ body {
 }
 .featured-cat {
   margin: 2px 0 0 !important;
-
+  color: red !important;
+  font-size: 2rem !important;
   font-family: "elite", sans-serif !important;
   font-size: 0.9rem;
   font-weight: 500;
@@ -1915,52 +1916,5 @@ body {
   transform: none !important;
   margin-left: auto !important;
   margin-right: auto !important;
-}
-
-/* --- AJUSTEMENTS FINAUX CARTES --- */
-
-.featured-tile {
-  border-radius: 30px !important;
-  overflow: hidden;
-}
-
-.featured-art {
-  border-radius: 30px 30px 0 0 !important;
-}
-
-.featured-art img {
-  border-radius: 30px 30px 0 0 !important;
-}
-
-/* On ne change pas la taille de la zone blanche */
-.featured-meta {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-}
-
-/* On centre mieux uniquement le bloc texte */
-.featured-text {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-  align-self: center !important;
-}
-
-/* Titre */
-.featured-title {
-  margin: 0 !important;
-  line-height: 1.05 !important;
-}
-
-/* Sous-titre en Elite */
-.featured-cat {
-  margin: 3px 0 0 0 !important;
-  font-family: "elite", sans-serif !important;
-  font-weight: 300 !important;
-  font-style: normal !important;
-  line-height: 1 !important;
 }
 `;
