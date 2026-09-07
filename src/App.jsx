@@ -486,7 +486,11 @@ function Home({ go, openProject }) {
               onClick={() => openProject(p.id)}
             >
               <div className="featured-art">
-                <img src={p.image} alt={p.title} />
+                <img
+                   src={p.image}
+                  alt={p.title}
+                  className={p.id === "binche" ? "image-binche" : ""}
+/>
               </div>
               
               <div className="featured-meta">
@@ -1275,11 +1279,14 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.08);
   display: block;
   border-radius: 30px 30px 0 0 !important;
   filter: grayscale(100%);
   transition: filter 0.45s ease, transform 0.45s ease;
+  overflow: hidden;
+}
+.image-binche {
+  transform: scale(1.1);
 }
   
 .featured-tile:hover .featured-art svg { transform: scale(1.06); }
