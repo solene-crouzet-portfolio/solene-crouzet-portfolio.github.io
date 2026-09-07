@@ -1238,7 +1238,7 @@ body {
   height: 330px;
   position: relative;
   overflow: hidden;
-  border-radius: 10px 10px 0 0;
+  border-radius: 24px 24px 0 0;
   flex-shrink: 0;
 }
   .featured-art::after {
@@ -1263,6 +1263,7 @@ body {
   .featured-tile:hover .featured-art img {
   filter: grayscale(0%);
   transform: scale(1.03);
+
 }
 
 .featured-tile:hover .featured-art::after {
@@ -1286,16 +1287,16 @@ body {
 
 .featured-meta {
   width: 100%;
-  min-height: 72px;
+  min-height: 64px;
 
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 
-  gap: 12px;
+  gap: 10px;
 
-  padding: 10px 14px;
+  padding: 8px 12px;
   box-sizing: border-box;
 
   text-align: left;
@@ -1334,23 +1335,6 @@ body {
   color: #111111;
 }
 
-.featured-cat {
-  margin: 2px 0 0 !important;
-
-  font-family: "elite", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 500;
-
-  color: #111111;
-}
-  .featured-title {
-  margin: 0;
-}
-
-.featured-cat {
-  margin: 3px 0 0;
-}
-  
 .featured-tile {
   position: relative;
   overflow: hidden;
@@ -1382,10 +1366,13 @@ body {
     0 28px 45px rgba(17, 17, 17, 0.18);
 }
 .featured-cat {
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.78rem;
-  font-weight: 400;
-  color: color-mix(in srgb, var(--ink) 55%, transparent);
+  margin: 2px 0 0 !important;
+
+  font-family: "elite", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  color: #111111;
 }
 /* ---------- MARQUEE ---------- */
 .marquee {
