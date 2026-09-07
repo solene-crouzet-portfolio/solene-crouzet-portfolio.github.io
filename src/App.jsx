@@ -1287,7 +1287,7 @@ body {
 
 .featured-meta {
   width: 100%;
-  height: 60px;
+  height: 85px;
 
   display: flex;
   flex-direction: row;
