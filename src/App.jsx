@@ -486,11 +486,17 @@ function Home({ go, openProject }) {
               onClick={() => openProject(p.id)}
             >
               <div className="featured-art">
-                <img
-                   src={p.image}
-                  alt={p.title}
-                  className={p.id === "binche" ? "image-binche" : ""}
-/>
+              <img
+                src={p.image}
+                alt={p.title}
+                className={
+                  p.id === "binche"
+                  ? "image-binche"
+                  : p.id === "elmer"
+                  ? "image-elmer"
+                  : ""
+                }
+              />
               </div>
               
               <div className="featured-meta">
@@ -1293,6 +1299,12 @@ body {
 }
 .featured-tile:hover .featured-art img {
   transform: scale(1.06);
+}
+  .image-elmer {
+  transform: translateX(-12px);
+}
+.featured-tile:hover .featured-art img.image-elmer {
+  transform: translateX(-12px) !important;
 }
 
 .featured-meta {
