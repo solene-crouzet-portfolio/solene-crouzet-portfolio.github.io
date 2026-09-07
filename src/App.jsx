@@ -1292,10 +1292,10 @@ body {
   overflow: hidden;
 }
 .image-binche {
-  transform: scale(1.2) translateY(12px) !important;
+  transform: scale(1.2) translateY(15px) !important;
 }
 .featured-tile:hover .featured-art img.image-binche {
-  transform: scale(1.27) translateY(12px) !important;
+  transform: scale(1.27) translateY(15px) !important;
 }
 .featured-tile:hover .featured-art img {
   transform: scale(1.06);
