@@ -1916,4 +1916,42 @@ body {
   margin-left: auto !important;
   margin-right: auto !important;
 }
+
+/* AJUSTEMENTS CARTES */
+
+.featured-tile {
+  border-radius: 28px !important;
+  overflow: hidden;
+}
+
+.featured-art {
+  border-radius: 28px 28px 0 0 !important;
+}
+
+.featured-art img {
+  border-radius: 28px 28px 0 0 !important;
+}
+
+/* On garde la taille du rond et de la zone blanche */
+.featured-meta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Centre mieux les deux textes dans la zone blanche */
+.featured-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Petit texte : Elite Light */
+.featured-cat {
+  font-family: "elite", sans-serif !important;
+  font-weight: 300 !important;
+  font-style: normal;
+  line-height: 1.1;
+}
 `;
