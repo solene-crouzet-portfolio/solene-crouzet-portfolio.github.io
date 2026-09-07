@@ -1286,16 +1286,16 @@ body {
 
 .featured-meta {
   width: 100%;
-  min-height: 88px;
+  min-height: 72px;
 
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 
-  gap: 14px;
+  gap: 12px;
 
-  padding: 14px 16px;
+  padding: 10px 14px;
   box-sizing: border-box;
 
   text-align: left;
@@ -1335,10 +1335,12 @@ body {
 }
 
 .featured-cat {
-  margin: 3px 0 0 !important;
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.78rem;
-  font-weight: 400;
+  margin: 2px 0 0 !important;
+
+  font-family: "elite", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+
   color: #111111;
 }
   .featured-title {
