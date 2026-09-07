@@ -432,7 +432,7 @@ function Home({ go, openProject }) {
     return () => clearTimeout(t);
   }, []);
 
-  const featured = [PROJECTS[1], PROJECTS[2], PROJECTS[3], PROJECTS[4]];
+  const featured = [PROJECTS[0], PROJECTS[1], PROJECTS[2], PROJECTS[3]];
 
   return (
     <div className="page">
