@@ -43,7 +43,7 @@ const PROJECTS = [
   {
     id: "elmer",
     title: "Elmer",
-    image: "/images/elmer_projet_2.png",
+    image: "/images/elmer_projet_2.jpg",
     category: "Branding",
     year: "2023",
     accent: "#FF5B39",
@@ -432,7 +432,7 @@ function Home({ go, openProject }) {
     return () => clearTimeout(t);
   }, []);
 
-  const featured = [PROJECTS[0], PROJECTS[1], PROJECTS[4], PROJECTS[5]];
+  const featured = [PROJECTS[1], PROJECTS[2], PROJECTS[3], PROJECTS[4]];
 
   return (
     <div className="page">
