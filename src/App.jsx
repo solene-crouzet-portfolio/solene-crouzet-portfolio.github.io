@@ -1372,7 +1372,7 @@ body {
   font-weight: 500 !important;
   font-size: 1rem !important;
   line-height: 1 !important;
-  margin: 2px 0 0 !important;
+  margin: 6px 0 0 !important;
   color: #111111 !important;
 }
 /* ---------- MARQUEE ---------- */
