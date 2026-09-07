@@ -1254,7 +1254,19 @@ body {
   );
 
   mix-blend-mode: multiply;
+
+  opacity: 1;
+  transition: opacity 0.45s ease;
+
   pointer-events: none;
+}
+  .featured-tile:hover .featured-art img {
+  filter: grayscale(0%);
+  transform: scale(1.03);
+}
+
+.featured-tile:hover .featured-art::after {
+  opacity: 0;
 }
 
 .featured-art svg,
@@ -1263,7 +1275,13 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+
+  border-radius: 10px 10px 0 0;
+
+  filter: grayscale(100%);
+  transition: filter 0.45s ease, transform 0.45s ease;
 }
+  
 .featured-tile:hover .featured-art svg { transform: scale(1.06); }
 
 .featured-meta {
