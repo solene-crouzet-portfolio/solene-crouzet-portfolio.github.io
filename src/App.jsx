@@ -1286,7 +1286,7 @@ body {
   overflow: hidden;
 }
 .image-binche {
-  transform: scale(1.2) translateY(18px);
+  transform: scale(1.2) translateY(16px);
 }
   
 .featured-tile:hover .featured-art svg { transform: scale(1.06); }
