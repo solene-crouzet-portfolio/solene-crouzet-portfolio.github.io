@@ -1290,13 +1290,13 @@ body {
 
   display: flex;
   flex-direction: row;
-
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
   gap: 12px;
 
-  text-align: left;
+  padding: 0 18px;
+  box-sizing: border-box;
 }
   .featured-arrow {
   width: 46px;
@@ -1328,9 +1328,10 @@ body {
 .featured-title {
   margin: 0 !important;
   font-family: "Montserrat", sans-serif;
-  font-size: 1rem;
+  font-size: 1.08rem !important;
   font-weight: 700;
   color: #111111;
+  line-height: 1.05;
 }
 
 .featured-tile {
