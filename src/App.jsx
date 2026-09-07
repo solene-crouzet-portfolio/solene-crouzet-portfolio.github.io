@@ -1287,17 +1287,14 @@ body {
 
 .featured-meta {
   width: 100%;
-  min-height: 64px;
 
   display: flex;
   flex-direction: row;
+
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 
-  gap: 10px;
-
-  padding: 8px 12px;
-  box-sizing: border-box;
+  gap: 12px;
 
   text-align: left;
 }
@@ -1326,8 +1323,6 @@ body {
   flex-direction: column !important;
   justify-content: center !important;
   align-items: flex-start !important;
-
-  transform: translateY(-1px);
 }
 
 .featured-title {
@@ -1370,8 +1365,8 @@ body {
 }
 .featured-cat {
   font-family: "elite", sans-serif !important;
-  font-weight: 300 !important;
-  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
   line-height: 1 !important;
   margin: 2px 0 0 !important;
   color: #111111 !important;
