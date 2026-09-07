@@ -1287,14 +1287,14 @@ body {
 
 .featured-meta {
   width: 100%;
-  height: 85px;
+  height: 90px;
 
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 
-  gap: 12px;
+  gap: 18px;
 
   padding: 0 18px;
   box-sizing: border-box;
