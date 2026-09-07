@@ -1287,6 +1287,7 @@ body {
 
 .featured-meta {
   width: 100%;
+  height: 72px;
 
   display: flex;
   flex-direction: row;
@@ -1297,6 +1298,8 @@ body {
 
   padding: 0 18px;
   box-sizing: border-box;
+
+  text-align: left;
 }
   .featured-arrow {
   width: 46px;
