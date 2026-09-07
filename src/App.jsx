@@ -1362,8 +1362,8 @@ body {
   transform: translateY(-10px) rotate(-1deg);
 
   box-shadow:
-    0 12px 0 rgba(17, 17, 17, 0.12),
-    0 28px 45px rgba(17, 17, 17, 0.18);
+    0 3px 3px rgba(0, 0, 0, 0.5),
+    0 10px 10px rgba(0, 0, 0, 0.4);
 }
 .featured-cat {
   font-family: "elite", sans-serif !important;
