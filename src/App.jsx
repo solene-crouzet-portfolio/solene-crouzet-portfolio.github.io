@@ -1369,9 +1369,9 @@ body {
     0 28px 45px rgba(17, 17, 17, 0.18);
 }
 .featured-cat {
-  font-family: "elite", sans-serif !important;
-  font-weight: 700 !important;
-  font-size: 1.2rem !important;
+  font-family: "elite" !important;
+  font-weight: 300 !important;
+  font-size: 1.4rem !important;
 }
 /* ---------- MARQUEE ---------- */
 .marquee {
