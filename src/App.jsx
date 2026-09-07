@@ -1286,14 +1286,14 @@ body {
   overflow: hidden;
 }
 .image-binche {
-  transform: scale(1.2) translateY(16px);
+  transform: scale(1.1) translateY(12px) !important;
 }
   
-.featured-tile:hover .featured-art img {
-  transform: scale(1.1);
+.featured-tile:hover .featured-art img.image-binche {
+  transform: scale(1.17) translateY(12px) !important;
 }
-  .featured-tile:hover .image-binche {
-  transform: scale(1.1) translateY(12px);
+.featured-tile:hover .featured-art img {
+  transform: scale(1.06);
 }
 
 .featured-meta {
