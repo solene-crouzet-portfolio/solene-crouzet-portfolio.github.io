@@ -493,7 +493,9 @@ function Home({ go, openProject }) {
                   p.id === "binche"
                   ? "image-binche"
                   : p.id === "elmer"
-                  ? "image-elmer"
+                  ? "image-elmer": 
+                  p.title === "Pensée sur l'amour"
+                  ? "image-pensee"
                   : ""
                 }
               />
@@ -1305,6 +1307,13 @@ body {
   object-position: 54% center;
 }
 .featured-tile:hover .featured-art img.image-elmer {
+}
+.image-pensee {
+  object-fit: cover;
+  object-position: 56% 42% !important;
+}
+.featured-tile:hover .featured-art img.image-pensee {
+  object-position: 56% 42% !important;
 }
 
 .featured-meta {
