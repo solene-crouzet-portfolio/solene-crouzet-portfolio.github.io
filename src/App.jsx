@@ -1247,7 +1247,7 @@ body {
   inset: 0;
 
   background: linear-gradient(
-    0deg,
+    -0deg,
     #ffbee3 0%,
     #ff83d6 50%,
     #ff00aa 100%
