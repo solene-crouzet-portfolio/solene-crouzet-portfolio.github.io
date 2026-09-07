@@ -1369,16 +1369,10 @@ body {
     0 28px 45px rgba(17, 17, 17, 0.18);
 }
 .featured-cat {
-  margin: 2px 0 0 !important;
-
   font-family: "elite", sans-serif !important;
-  font-size: 0.82rem !important;
-  font-weight: 300 !important;
-
-  color: #111111 !important;
-  line-height: 1.05 !important;
+  font-weight: 700 !important;
+  font-size: 1.2rem !important;
 }
-
 /* ---------- MARQUEE ---------- */
 .marquee {
   overflow: hidden;
