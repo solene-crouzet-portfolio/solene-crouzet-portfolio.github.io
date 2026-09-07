@@ -1310,10 +1310,10 @@ body {
 }
 .image-pensee {
   object-fit: cover;
-  object-position: 90% 14% !important;
+  object-position: 80% 4% !important;
 }
 .featured-tile:hover .featured-art img.image-pensee {
-  object-position: 90% 14% !important;
+  object-position: 80% 4% !important;
 }
 
 .featured-meta {
