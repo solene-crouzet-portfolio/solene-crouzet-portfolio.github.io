@@ -44,7 +44,7 @@ const PROJECTS = [
     id: "elmer",
     title: "Elmer",
     image: "/images/elmer_projet_2.jpg",
-    category: "Branding",
+    category: "Illustration",
     year: "2023",
     accent: "#FF5B39",
     pattern: "stripes",
