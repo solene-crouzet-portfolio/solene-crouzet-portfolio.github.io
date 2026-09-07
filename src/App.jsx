@@ -1285,18 +1285,61 @@ body {
 .featured-tile:hover .featured-art svg { transform: scale(1.06); }
 
 .featured-meta {
-  height: 72px;
   width: 100%;
+  min-height: 88px;
 
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 
-  padding: 10px 4px 4px 4px;
+  gap: 14px;
+
+  padding: 14px 16px;
   box-sizing: border-box;
 
   text-align: left;
+}
+  .featured-arrow {
+  width: 46px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #111111;
+  color: white;
+
+  border-radius: 50%;
+
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.featured-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.featured-title {
+  margin: 0 !important;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111111;
+}
+
+.featured-cat {
+  margin: 3px 0 0 !important;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: #111111;
 }
   .featured-title {
   margin: 0;
