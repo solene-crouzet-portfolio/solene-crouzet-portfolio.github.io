@@ -495,7 +495,6 @@ function Home({ go, openProject }) {
                 <div className="featured-text">
                   <div className="featured-title">{p.title}</div>
                   <div className="featured-cat">{p.category}</div>
-                  <p className="elite-test">TEST ELITE ABCDEFG</p>
                 </div>
               </div>
             </button>
@@ -1370,9 +1369,12 @@ body {
     0 28px 45px rgba(17, 17, 17, 0.18);
 }
 .featured-cat {
-  font-family: "elite" !important;
+  font-family: "elite", sans-serif !important;
   font-weight: 300 !important;
-  font-size: 1.4rem !important;
+  font-size: 0.75rem !important;
+  line-height: 1 !important;
+  margin: 2px 0 0 !important;
+  color: #111111 !important;
 }
 /* ---------- MARQUEE ---------- */
 .marquee {
