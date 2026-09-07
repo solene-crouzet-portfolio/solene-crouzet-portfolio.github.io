@@ -1917,41 +1917,50 @@ body {
   margin-right: auto !important;
 }
 
-/* AJUSTEMENTS CARTES */
+/* --- AJUSTEMENTS FINAUX CARTES --- */
 
 .featured-tile {
-  border-radius: 28px !important;
+  border-radius: 30px !important;
   overflow: hidden;
 }
 
 .featured-art {
-  border-radius: 28px 28px 0 0 !important;
+  border-radius: 30px 30px 0 0 !important;
 }
 
 .featured-art img {
-  border-radius: 28px 28px 0 0 !important;
+  border-radius: 30px 30px 0 0 !important;
 }
 
-/* On garde la taille du rond et de la zone blanche */
+/* On ne change pas la taille de la zone blanche */
 .featured-meta {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
 }
 
-/* Centre mieux les deux textes dans la zone blanche */
+/* On centre mieux uniquement le bloc texte */
 .featured-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  align-self: center !important;
 }
 
-/* Petit texte : Elite Light */
+/* Titre */
+.featured-title {
+  margin: 0 !important;
+  line-height: 1.05 !important;
+}
+
+/* Sous-titre en Elite */
 .featured-cat {
+  margin: 3px 0 0 0 !important;
   font-family: "elite", sans-serif !important;
   font-weight: 300 !important;
-  font-style: normal;
-  line-height: 1.1;
+  font-style: normal !important;
+  line-height: 1 !important;
 }
 `;
