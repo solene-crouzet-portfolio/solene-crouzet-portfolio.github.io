@@ -1236,11 +1236,25 @@ body {
 .featured-art {
   width: 100%;
   height: 330px;
-
+  position: relative;
   overflow: hidden;
-  border-radius: 10px;
-
+  border-radius: 10px 10px 0 0;
   flex-shrink: 0;
+}
+  .featured-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    110deg,
+    rgba(255, 0, 168, 0.72) 0%,
+    rgba(255, 57, 178, 0.60) 50%,
+    rgba(245, 177, 208, 0.45) 100%
+  );
+
+  mix-blend-mode: multiply;
+  pointer-events: none;
 }
 
 .featured-art svg,
