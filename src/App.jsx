@@ -495,7 +495,7 @@ function Home({ go, openProject }) {
                 <div className="featured-text">
                   <div className="featured-title">{p.title}</div>
                   <div className="featured-cat">{p.category}</div>
-                  <p className="elite-test">Test Elite</p>
+                  <p className="elite-test">TEST ELITE ABCDEFG</p>
                 </div>
               </div>
             </button>
