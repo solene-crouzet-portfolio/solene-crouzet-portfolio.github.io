@@ -1277,7 +1277,7 @@ body {
   object-fit: cover;
   display: block;
 
-  border-radius: 10px 10px 0 0;
+  border-radius: 28px 28px 0 0 !important;
 
   filter: grayscale(100%);
   transition: filter 0.45s ease, transform 0.45s ease;
@@ -1322,9 +1322,12 @@ body {
 }
 
 .featured-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+
+  transform: translateY(-1px);
 }
 
 .featured-title {
@@ -1346,7 +1349,7 @@ body {
   flex-direction: column;
 
   background: #ffffff;
-  border-radius: 18px;
+  border-radius: 28px !important;
 
   padding: 14px;
 
@@ -1367,14 +1370,15 @@ body {
 }
 .featured-cat {
   margin: 2px 0 0 !important;
-  color: red !important;
-  font-size: 2rem !important;
-  font-family: "elite", sans-serif !important;
-  font-size: 0.9rem;
-  font-weight: 500;
 
-  color: #111111;
+  font-family: "elite", sans-serif !important;
+  font-size: 0.82rem !important;
+  font-weight: 300 !important;
+
+  color: #111111 !important;
+  line-height: 1.05 !important;
 }
+
 /* ---------- MARQUEE ---------- */
 .marquee {
   overflow: hidden;
