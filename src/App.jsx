@@ -1247,10 +1247,10 @@ body {
   inset: 0;
 
   background: linear-gradient(
-    110deg,
-    rgba(255, 0, 168, 0.72) 0%,
-    rgba(255, 57, 178, 0.60) 50%,
-    rgba(245, 177, 208, 0.45) 100%
+    90deg,
+    #ffbee3 0%,
+    #ff83d6 50%,
+    #ff00aa 100%
   );
 
   mix-blend-mode: multiply;
