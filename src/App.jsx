@@ -1368,7 +1368,7 @@ body {
 .featured-cat {
   margin: 2px 0 0 !important;
 
-  font-family: "elite", sans-serif;
+  font-family: "elite", sans-serif !important;
   font-size: 0.9rem;
   font-weight: 500;
 
