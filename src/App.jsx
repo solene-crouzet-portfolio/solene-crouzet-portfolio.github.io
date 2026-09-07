@@ -1300,8 +1300,9 @@ body {
 .featured-tile:hover .featured-art img {
   transform: scale(1.06);
 }
-  .image-elmer {
-  transform: translateX(-12px);
+.image-elmer {
+  object-fit: cover;
+  object-position: 45% center;
 }
 .featured-tile:hover .featured-art img.image-elmer {
   transform: translateX(-12px) !important;
