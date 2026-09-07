@@ -1238,7 +1238,7 @@ body {
   height: 330px;
   position: relative;
   overflow: hidden;
-  border-radius: 24px 24px 0 0;
+  border-radius: 30px 30px 0 0;
   flex-shrink: 0;
 }
   .featured-art::after {
@@ -1276,9 +1276,7 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
-
-  border-radius: 28px 28px 0 0 !important;
-
+  border-radius: 30px 30px 0 0 !important;
   filter: grayscale(100%);
   transition: filter 0.45s ease, transform 0.45s ease;
 }
@@ -1348,13 +1346,13 @@ body {
   flex-direction: column;
 
   background: #ffffff;
-  border-radius: 28px !important;
+  border-radius: 30px !important;
 
   padding: 14px;
 
  box-shadow:
-  0 6px 14px rgba(0, 0, 0, 0.12),
-  0 14px 24px rgba(0, 0, 0, 0.08);
+  0 -1px 1px rgba(0, 0, 0, 0.5),
+  0 -2px 2px rgba(0, 0, 0, 0.4);
 
   transition:
     transform 0.3s ease,
