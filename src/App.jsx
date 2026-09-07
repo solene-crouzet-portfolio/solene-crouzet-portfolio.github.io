@@ -18,8 +18,9 @@ const CATEGORIES = [
 
 const PROJECTS = [
   {
-    id: "ossature",
-    title: "Ossature",
+    id: "pamparina",
+    title: "Pamparina",
+    image: "/images/pamparina_projet_1.png",
     category: "Identité visuelle",
     year: "2024",
     accent: "#4640D6",
@@ -31,7 +32,7 @@ const PROJECTS = [
     objective:
       "Traduire une pratique architecturale rigoureuse et sensible en un système graphique simple, capable de vivre sur un plan comme sur une carte de visite.",
     concept:
-      "Le nom, Ossature, m'a menée vers la structure elle-même : une grille visible, presque brute, qui organise chaque support comme un plan organise un bâtiment. Le logotype se construit sur cette même trame, colonne par colonne.",
+      "Le nom, Pamparina, m'a menée vers la structure elle-même : une grille visible, presque brute, qui organise chaque support comme un plan organise un bâtiment. Le logotype se construit sur cette même trame, colonne par colonne.",
     role: "Direction artistique, identité de marque, système graphique",
     tools: ["Illustrator", "InDesign", "Figma"],
     process:
@@ -40,8 +41,9 @@ const PROJECTS = [
       "Un système d'identité modulaire décliné sur le papier à en-tête, les plaquettes de présentation, la signalétique de chantier et les réseaux sociaux du collectif, aujourd'hui utilisé pour chacun de leurs projets.",
   },
   {
-    id: "foudre",
-    title: "Foudre",
+    id: "elmer",
+    title: "Elmer",
+    image: "/images/elmer_projet_2.png",
     category: "Branding",
     year: "2023",
     accent: "#FF5B39",
@@ -53,7 +55,7 @@ const PROJECTS = [
     objective:
       "Créer une marque qui parle d'énergie sans crier, avec une identité assez forte pour tenir en rayon à côté des grands groupes.",
     concept:
-      "Foudre s'appuie sur un seul geste graphique : une diagonale franche, reprise sur chaque support à une intensité différente. Elle devient tour à tour éclair, ligne d'horizon ou trait de rature.",
+      "Elmer s'appuie sur un seul geste graphique : une diagonale franche, reprise sur chaque support à une intensité différente. Elle devient tour à tour éclair, ligne d'horizon ou trait de rature.",
     role: "Branding, packaging, direction artistique photo",
     tools: ["Illustrator", "Photoshop", "Cinema 4D"],
     process:
@@ -62,8 +64,9 @@ const PROJECTS = [
       "Une gamme de six parfums lancée en épicerie fine, un packaging remarqué par la presse spécialisée et un système extensible à de futures références.",
   },
   {
-    id: "nocturne",
-    title: "Nocturne",
+    id: "binche",
+    title: "Carnaval de Binche",
+    image: "/images/binche_projet_3.png",
     category: "Affiche",
     year: "2022",
     accent: "#8C2BD9",
@@ -84,9 +87,10 @@ const PROJECTS = [
       "Une série de cinq affiches déclinée en sérigraphie, exposée dans le hall du festival et vendue au profit d'une école de musique locale.",
   },
   {
-    id: "grain",
-    title: "Grain",
-    category: "Édition",
+    id: "vinyle",
+    title: "Pensée sur l'amour",
+    image: "/images/vinyle_projet_4.png",
+    category: "Identité visuelle",
     year: "2023",
     accent: "#7A7350",
     pattern: "type",
@@ -106,9 +110,10 @@ const PROJECTS = [
       "Un recueil de 96 pages, tiré à 500 exemplaires, salué pour son objet autant que pour son texte lors de sa sortie en librairie indépendante.",
   },
   {
-    id: "mousse",
-    title: "Mousse",
-    category: "Packaging",
+    id: "pokematch",
+    title: "Collaboration Roland Garros",
+    image: "/images/pokematch_projet_5.png",
+    category: "Identité visuelle",
     year: "2024",
     accent: "#4C7A54",
     pattern: "blob",
@@ -480,10 +485,17 @@ function Home({ go, openProject }) {
               className={"featured-tile featured-tile-" + (i % 2 === 0 ? "a" : "b")}
               onClick={() => openProject(p.id)}
             >
-              <div className="featured-art"><Art accent={p.accent} pattern={p.pattern} /></div>
+              <div className="featured-art">
+                <img src={p.image} alt={p.title} />
+              </div>
+              
               <div className="featured-meta">
-                <span className="featured-title">{p.title}</span>
-                <span className="featured-cat">{p.category}</span>
+                <span className="featured-arrow">›</span>
+                
+                <div className="featured-text">
+                  <div className="featured-title">{p.title}</div>
+                  <div className="featured-cat">{p.category}</div>
+                </div>
               </div>
             </button>
           ))}
@@ -1326,7 +1338,7 @@ body {
   gap: clamp(24px, 5vw, 60px);
   align-items: center;
 }
-  .about-teaser-image {
+.about-teaser-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
