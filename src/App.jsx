@@ -1275,6 +1275,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: scale(1.08);
   display: block;
   border-radius: 30px 30px 0 0 !important;
   filter: grayscale(100%);
