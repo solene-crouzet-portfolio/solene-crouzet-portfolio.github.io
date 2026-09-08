@@ -354,6 +354,25 @@ function Wordmark({ onClick }) {
 }
 
 function Nav({ page, go }) {
+  const handleNavClick = (id) => {
+  if (id === "projects") {
+    if (page !== "home") {
+      go("home");
+
+      setTimeout(() => {
+        document.getElementById("projets")?.scrollIntoView({
+          behavior: "smooth",
+        });
+      }, 100);
+    } else {
+      document.getElementById("projets")?.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  } else {
+    go(id);
+  }
+};
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -380,7 +399,7 @@ function Nav({ page, go }) {
       className="mobile-menu-link"
       style={{ "--delay": `${index * 0.08}s` }}
       onClick={() => {
-        go(item.id);
+        handleNavClick(item.id);
         setMenuOpen(false);
       }}
     >
@@ -393,7 +412,7 @@ function Nav({ page, go }) {
           <button
             key={item.id}
             className={"nav-link" + (page === item.id ? " is-active" : "")}
-            onClick={() => go(item.id)}
+            onClick={() => handleNavClick(item.id)}
           >
             {item.label}
           </button>
@@ -433,7 +452,7 @@ function Home({ go, openProject }) {
     return () => clearTimeout(t);
   }, []);
 
-  const featured = [PROJECTS[0], PROJECTS[1], PROJECTS[2], PROJECTS[3]];
+  const featured = PROJECTS;
 
   return (
     <div className="page">
