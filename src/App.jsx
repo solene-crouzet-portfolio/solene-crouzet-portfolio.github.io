@@ -1305,10 +1305,10 @@ body {
   transform: scale(1.24) translateY(-6px) !important;
 }
 .image-binche {
-  transform: scale(1.2) translateY(18px) !important;
+  transform: scale(1.24) translateY(18px) !important;
 }
 .featured-tile:hover .featured-art img.image-binche {
-  transform: scale(1.26) translateY(18px) !important;
+  transform: scale(1.3) translateY(18px) !important;
 }
 .image-elmer {
   object-fit: cover;
