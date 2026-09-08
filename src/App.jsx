@@ -481,6 +481,8 @@ function Home({ go, openProject }) {
       </section>
 <section className="presentation-home torn-paper">
 
+  <div className="tear tear-top"></div>
+
   <p className="presentation-home-text">
     Bienvenue dans mon univers ! J’imagine et conçois des identités visuelles et des projets créatifs, du print au digital. Vous avez un projet ou une idée en tête ? N’hésitez pas à me contacter, je serais ravie d’en discuter avec vous !
   </p>
@@ -491,6 +493,8 @@ function Home({ go, openProject }) {
   >
     Me contacter
   </button>
+
+  <div className="tear tear-bottom"></div>
 
 </section>
       <section id="projets" className="section">
@@ -2134,14 +2138,87 @@ body {
   margin-right: auto !important;
 }
 
-.presentation-home.torn-paper::before {
-  content: "" !important;
+.presentation-home {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.tear {
   position: absolute !important;
-  top: 0 !important;
   left: 0 !important;
   width: 100% !important;
-  height: 50px !important;
-  background: red !important;
-  z-index: 9999 !important;
+  height: 40px !important;
+  background: white !important;
+  z-index: 10 !important;
+}
+
+.tear-top {
+  top: 0 !important;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 25%,
+    96% 55%,
+    92% 30%,
+    88% 70%,
+    84% 38%,
+    80% 62%,
+    76% 28%,
+    72% 68%,
+    68% 35%,
+    64% 60%,
+    60% 25%,
+    56% 70%,
+    52% 36%,
+    48% 62%,
+    44% 30%,
+    40% 68%,
+    36% 35%,
+    32% 58%,
+    28% 25%,
+    24% 66%,
+    20% 38%,
+    16% 60%,
+    12% 30%,
+    8% 68%,
+    4% 38%,
+    0 55%
+  );
+}
+
+.tear-bottom {
+  bottom: 0 !important;
+
+  clip-path: polygon(
+    0 45%,
+    4% 65%,
+    8% 35%,
+    12% 70%,
+    16% 40%,
+    20% 62%,
+    24% 30%,
+    28% 68%,
+    32% 40%,
+    36% 60%,
+    40% 32%,
+    44% 70%,
+    48% 38%,
+    52% 62%,
+    56% 30%,
+    60% 68%,
+    64% 40%,
+    68% 60%,
+    72% 32%,
+    76% 70%,
+    80% 38%,
+    84% 62%,
+    88% 30%,
+    92% 68%,
+    96% 40%,
+    100% 60%,
+    100% 100%,
+    0 100%
+  );
 }
 `;
