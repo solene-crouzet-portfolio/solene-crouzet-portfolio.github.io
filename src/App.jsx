@@ -1299,9 +1299,6 @@ body {
 .featured-tile:hover .featured-art img.image-binche {
   transform: scale(1.27) translateY(18px) !important;
 }
-.featured-tile:hover .featured-art img {
-  transform: scale(1.06);
-}
 .image-elmer {
   object-fit: cover;
   object-position: 54% center;
