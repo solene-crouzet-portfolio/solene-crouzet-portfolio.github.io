@@ -495,8 +495,7 @@ function Home({ go, openProject }) {
 </section>
       <section id="projets" className="section">
         <div className="section-head">
-          <h2>Quelques projets</h2>
-          <button className="text-link" onClick={() => go("projects")}>Tous les projets</button>
+          <h2>Mes projets</h2>
         </div>
         <div className="projects-carousel">
           {featured.map((p, i) => (
