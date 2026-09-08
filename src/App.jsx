@@ -1115,79 +1115,85 @@ body {
   overflow: visible !important;
 }
 
-/* Déchirure en haut */
+.presentation-home.torn-paper {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Déchirure blanche en haut, à l'intérieur du rose */
 .presentation-home.torn-paper::before {
   content: "";
   position: absolute;
-  top: -22px;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 24px;
+  height: 28px;
   background: white !important;
+  z-index: 2;
 
   clip-path: polygon(
-    0% 100%,
-    3% 55%,
-    7% 80%,
-    11% 45%,
-    16% 70%,
-    21% 35%,
+    0 0,
+    100% 0,
+    100% 35%,
+    96% 55%,
+    91% 25%,
+    86% 65%,
+    81% 35%,
+    76% 75%,
+    71% 40%,
+    66% 70%,
+    61% 30%,
+    56% 65%,
+    51% 35%,
+    46% 75%,
+    41% 40%,
+    36% 70%,
+    31% 30%,
     26% 65%,
-    31% 40%,
-    36% 75%,
-    41% 50%,
-    46% 85%,
-    51% 45%,
-    56% 70%,
-    61% 35%,
-    66% 65%,
-    71% 45%,
-    76% 80%,
-    81% 40%,
-    86% 70%,
-    91% 50%,
-    96% 75%,
-    100% 45%,
-    100% 0%,
-    0% 0%
-  ) !important;
+    21% 35%,
+    16% 75%,
+    11% 40%,
+    6% 70%,
+    0 45%
+  );
 }
 
-/* Déchirure en bas */
+/* Déchirure blanche en bas, à l'intérieur du rose */
 .presentation-home.torn-paper::after {
   content: "";
   position: absolute;
-  bottom: -22px;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 24px;
+  height: 28px;
   background: white !important;
+  z-index: 2;
 
   clip-path: polygon(
-    0% 0%,
-    4% 45%,
-    9% 20%,
-    14% 60%,
-    19% 30%,
-    24% 70%,
-    29% 35%,
-    34% 65%,
-    39% 25%,
-    44% 55%,
-    49% 20%,
-    54% 65%,
-    59% 35%,
-    64% 70%,
-    69% 30%,
-    74% 60%,
-    79% 25%,
-    84% 65%,
-    89% 35%,
-    94% 70%,
-    100% 40%,
+    0 55%,
+    6% 30%,
+    11% 65%,
+    16% 25%,
+    21% 60%,
+    26% 35%,
+    31% 70%,
+    36% 30%,
+    41% 65%,
+    46% 25%,
+    51% 60%,
+    56% 35%,
+    61% 70%,
+    66% 30%,
+    71% 65%,
+    76% 25%,
+    81% 60%,
+    86% 35%,
+    91% 70%,
+    96% 45%,
+    100% 65%,
     100% 100%,
-    0% 100%
-  ) !important;
+    0 100%
+  );
 }
 
 .home-intro .hero-description {
