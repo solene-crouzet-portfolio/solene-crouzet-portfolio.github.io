@@ -474,12 +474,12 @@ function Home({ go, openProject }) {
   </button>
 
 </section>
-      <section className="section">
+      <section id="projets" className="section">
         <div className="section-head">
           <h2>Quelques projets</h2>
           <button className="text-link" onClick={() => go("projects")}>Tous les projets</button>
         </div>
-        <div className="featured-grid">
+        <div className="projects-carousel">
           {featured.map((p, i) => (
             <button
               key={p.id}
@@ -1525,7 +1525,30 @@ body {
 .projects-page .featured-art img {
   filter: none !important;
 }
+.projects-carousel {
+  display: flex;
+  gap: 24px;
 
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  padding-bottom: 20px;
+
+  scrollbar-width: none;
+}
+
+.projects-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.projects-carousel .featured-tile {
+  flex: 0 0 320px;
+  scroll-snap-align: start;
+}
+  
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
