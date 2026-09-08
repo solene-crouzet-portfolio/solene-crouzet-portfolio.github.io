@@ -490,15 +490,16 @@ function Home({ go, openProject }) {
                 src={p.image}
                 alt={p.title}
                 className={
-                  p.id === "binche"
+                  p.title === "Pamparina"
+                    ? "image-pamparina"
+                    : p.id === "binche"
                     ? "image-binche"
                     : p.id === "elmer"
                     ? "image-elmer"
                     : p.title === "Pensée sur l'amour"
                     ? "image-pensee"
-                    : p.id === "ossature"
-                    ? "image-pamparina"
-                    : ""
+                  : ""
+                   
                 }
               />
               </div>
