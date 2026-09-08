@@ -133,9 +133,10 @@ const PROJECTS = [
       "Une gamme de huit produits, un packaging entièrement recyclable et une identité immédiatement reconnaissable en rayon.",
   },
   {
-    id: "halo",
-    title: "Halo",
-    category: "UI / Digital",
+    id: "Ehpad",
+    title: "Ehpad",
+    image: "/images/ehpad_projet_6.png",
+    category: "Site UI/UX",
     year: "2024",
     accent: "#7C6FEE",
     pattern: "waves",
@@ -146,7 +147,7 @@ const PROJECTS = [
     objective:
       "Dessiner une interface calme mais habitée, avec une vraie identité graphique plutôt qu'un dégradé pastel générique.",
     concept:
-      "Halo s'organise autour d'un seul élément animé, un cercle qui respire littéralement au rythme de l'utilisateur, et d'une typographie ronde choisie pour sa douceur sans être enfantine.",
+      "Ehpad s'organise autour d'un seul élément animé, un cercle qui respire littéralement au rythme de l'utilisateur, et d'une typographie ronde choisie pour sa douceur sans être enfantine.",
     role: "UI design, direction artistique, motion",
     tools: ["Figma", "After Effects"],
     process:
