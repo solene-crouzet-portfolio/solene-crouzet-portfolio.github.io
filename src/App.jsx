@@ -557,43 +557,49 @@ function Projects({ openProject }) {
   const list = filter === "Tous" ? PROJECTS : PROJECTS.filter((p) => p.category === filter);
 
   return (
-    <div className="page">
-      <section className="section projects-head">
-        <h1>Projets</h1>
-        <p className="projects-intro">
-          Neuf projets, neuf terrains différents : identité, packaging,
-          édition, illustration, un peu de 3D. Cliquez sur un projet pour
-          voir la démarche complète.
-        </p>
-        <div className="chips" role="tablist">
-          <button className={"chip" + (filter === "Tous" ? " is-active" : "")} onClick={() => setFilter("Tous")}>Tous</button>
-          {CATEGORIES.map((c) => (
-            <button key={c} className={"chip" + (filter === c ? " is-active" : "")} onClick={() => setFilter(c)}>
-              {c}
-            </button>
-          ))}
-        </div>
-      </section>
+  <div className="page">
+    <section className="section projects-page">
+      <h1 className="projects-page-title">Tous les projets</h1>
 
-      <section className="editorial-grid" key={filter}>
-        {list.map((p) => (
+      <div className="projects-grid">
+        {PROJECTS.map((p) => (
           <button
             key={p.id}
-            className={"editorial-tile editorial-tile-" + p.size}
+            className="featured-tile"
             onClick={() => openProject(p.id)}
           >
-            <div className="editorial-art"><Art accent={p.accent} pattern={p.pattern} /></div>
-            <div className="editorial-overlay" style={{ "--tile-accent": p.accent }}>
-              <span className="editorial-cat">{p.category}</span>
-              <span className="editorial-title">{p.title}</span>
-              <span className="editorial-tagline">{p.tagline}</span>
+            <div className="featured-art">
+              <img
+                src={p.image}
+                alt={p.title}
+                className={
+                  p.title === "Pamparina"
+                    ? "image-pamparina"
+                    : p.id === "elmer"
+                    ? "image-elmer"
+                    : p.id === "binche"
+                    ? "image-binche"
+                    : p.title === "Pensée sur l'amour"
+                    ? "image-pensee"
+                    : ""
+                }
+              />
+            </div>
+
+            <div className="featured-meta">
+              <span className="featured-arrow">›</span>
+
+              <div className="featured-text">
+                <div className="featured-title">{p.title}</div>
+                <div className="featured-cat">{p.category}</div>
+              </div>
             </div>
           </button>
         ))}
-      </section>
-    </div>
-  );
-}
+      </div>
+    </section>
+  </div>
+);
 
 function ProjectDetail({ project, openProject, go }) {
   const index = PROJECTS.findIndex((p) => p.id === project.id);
@@ -1494,6 +1500,24 @@ body {
 .site-footer-line { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--ink); }
 
 /* ---------- PROJECTS PAGE ---------- */
+.projects-page {
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
+.projects-page-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 50px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
 .projects-head h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); margin-bottom: 18px; }
 .projects-intro { max-width: 50ch; margin-bottom: 28px; color: color-mix(in srgb, var(--ink) 75%, transparent); }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
