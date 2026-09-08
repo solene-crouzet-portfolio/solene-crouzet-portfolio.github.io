@@ -1312,12 +1312,11 @@ body {
   object-fit: cover;
   object-position: 80% center !important;
 
-  height: calc(100% + 16px);
-  transform: translateY(-8px);
+  transform: scale(1.08) translateY(-8px);
 }
 .featured-tile:hover .featured-art img.image-pensee {
   object-position: 80% center !important;
-  transform: scale(1.06) translateY(-8px);
+  transform: scale(1.14) translateY(-8px);
 }
 
 .featured-meta {
