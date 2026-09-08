@@ -22,11 +22,11 @@ const PROJECTS = [
     title: "Pamparina",
     image: "/images/pamparina_projet_1.png",
     category: "Identité visuelle",
-    year: "2024",
+    year: "2026",
     accent: "#4640D6",
     pattern: "grid",
     size: "tall",
-    tagline: "Identité pour un collectif d'architectes",
+    tagline: "Identité visuelle",
     context:
       "Un jeune collectif d'architectes basé à Lyon me contacte pour poser les bases visuelles de sa toute première identité, avant l'ouverture de son agence.",
     objective:
@@ -34,7 +34,7 @@ const PROJECTS = [
     concept:
       "Le nom, Pamparina, m'a menée vers la structure elle-même : une grille visible, presque brute, qui organise chaque support comme un plan organise un bâtiment. Le logotype se construit sur cette même trame, colonne par colonne.",
     role: "Direction artistique, identité de marque, système graphique",
-    tools: ["Illustrator", "InDesign", "Figma"],
+    tools: ["Illustrator", "Photoshop", "Indesign"],
     process:
       "J'ai commencé par dessiner la grille avant le logo : neuf colonnes, des marges strictes, un rapport hauteur/largeur repris de leurs plans d'exécution. Le logotype est ensuite venu se loger dans cette structure, comme une pièce dans un plan.",
     results:
@@ -86,6 +86,29 @@ const PROJECTS = [
     results:
       "Une série de cinq affiches déclinée en sérigraphie, exposée dans le hall du festival et vendue au profit d'une école de musique locale.",
   },
+    {
+    id: "Ehpad",
+    title: "Ehpad",
+    image: "/images/ehpad_projet_6.png",
+    category: "Site internet",
+    year: "2024",
+    accent: "#7C6FEE",
+    pattern: "waves",
+    size: "wide",
+    tagline: "Application de respiration et de sommeil",
+    context:
+      "Une application indépendante de respiration guidée cherche à se distinguer des interfaces de méditation trop lisses et interchangeables.",
+    objective:
+      "Dessiner une interface calme mais habitée, avec une vraie identité graphique plutôt qu'un dégradé pastel générique.",
+    concept:
+      "Ehpad s'organise autour d'un seul élément animé, un cercle qui respire littéralement au rythme de l'utilisateur, et d'une typographie ronde choisie pour sa douceur sans être enfantine.",
+    role: "UI design, direction artistique, motion",
+    tools: ["Figma", "After Effects"],
+    process:
+      "De nombreux prototypes de respiration animée ont été testés avec des utilisateurs pour trouver un rythme ni trop lent, ni trop mécanique.",
+    results:
+      "Une application lancée sur iOS et Android, un système de composants réutilisable et une identité qui se démarque clairement du reste du secteur.",
+  },
   {
     id: "vinyle",
     title: "Pensée sur l'amour",
@@ -132,95 +155,7 @@ const PROJECTS = [
     results:
       "Une gamme de huit produits, un packaging entièrement recyclable et une identité immédiatement reconnaissable en rayon.",
   },
-  {
-    id: "Ehpad",
-    title: "Ehpad",
-    image: "/images/ehpad_projet_6.png",
-    category: "Site internet",
-    year: "2024",
-    accent: "#7C6FEE",
-    pattern: "waves",
-    size: "wide",
-    tagline: "Application de respiration et de sommeil",
-    context:
-      "Une application indépendante de respiration guidée cherche à se distinguer des interfaces de méditation trop lisses et interchangeables.",
-    objective:
-      "Dessiner une interface calme mais habitée, avec une vraie identité graphique plutôt qu'un dégradé pastel générique.",
-    concept:
-      "Ehpad s'organise autour d'un seul élément animé, un cercle qui respire littéralement au rythme de l'utilisateur, et d'une typographie ronde choisie pour sa douceur sans être enfantine.",
-    role: "UI design, direction artistique, motion",
-    tools: ["Figma", "After Effects"],
-    process:
-      "De nombreux prototypes de respiration animée ont été testés avec des utilisateurs pour trouver un rythme ni trop lent, ni trop mécanique.",
-    results:
-      "Une application lancée sur iOS et Android, un système de composants réutilisable et une identité qui se démarque clairement du reste du secteur.",
-  },
-  {
-    id: "relief",
-    title: "Relief",
-    category: "3D",
-    year: "2023",
-    accent: "#C9B92C",
-    pattern: "stack",
-    size: "normal",
-    tagline: "Personnage et art toy expérimental",
-    context:
-      "Un projet personnel né d'une envie de faire sortir mes personnages illustrés du papier, et de les rendre manipulables.",
-    objective:
-      "Concevoir un art toy en édition limitée, pensé dès le départ pour la fabrication en résine.",
-    concept:
-      "Relief reprend un personnage récurrent de mes carnets, simplifié en formes empilées pour tenir debout et se décliner facilement en plusieurs coloris.",
-    role: "Design de personnage, modélisation 3D, direction de fabrication",
-    tools: ["Cinema 4D", "Blender", "Procreate"],
-    process:
-      "De l'esquisse au fichier d'impression 3D, en passant par plusieurs prototypes physiques pour ajuster l'équilibre de la figurine.",
-    results:
-      "Une première série de 50 pièces en résine peintes à la main, vendue lors d'un marché de créateurs et sur commande.",
-  },
-  {
-    id: "spectre",
-    title: "Spectre",
-    category: "Illustration",
-    year: "2022",
-    accent: "#D6398C",
-    pattern: "scatter",
-    size: "normal",
-    tagline: "Série d'illustrations pour la presse",
-    context:
-      "Un magazine culturel me commande une série d'illustrations pour accompagner un dossier sur la mémoire et les souvenirs qui s'effacent.",
-    objective:
-      "Traduire une idée abstraite et un peu triste sans verser dans le pathos, avec une palette et un vocabulaire graphique qui restent identifiables.",
-    concept:
-      "Chaque image superpose plusieurs couches semi-transparentes, comme des souvenirs qui se recouvrent les uns les autres sans jamais se figer.",
-    role: "Illustration éditoriale",
-    tools: ["Procreate", "Photoshop"],
-    process:
-      "Chaque illustration part d'un croquis rapide au feutre, scanné puis reconstruit numériquement par couches successives.",
-    results:
-      "Six illustrations publiées sur quatre pages du magazine, puis reprises dans une exposition collective sur le thème de la mémoire.",
-  },
-  {
-    id: "cabinet",
-    title: "Cabinet de curiosités",
-    category: "Projets personnels",
-    year: "2021 — en cours",
-    accent: "#4640D6",
-    pattern: "frame",
-    size: "big",
-    tagline: "Journal graphique et objets expérimentaux",
-    context:
-      "Un espace personnel, sans commanditaire ni contrainte, où j'accumule affiches auto-initiées, objets, typographies et expériences visuelles.",
-    objective:
-      "Garder un terrain d'essai vivant, où je peux me tromper, tester des idées trop risquées pour un client et nourrir mes projets commandés.",
-    concept:
-      "Le cabinet de curiosités fonctionne comme une collection plutôt qu'un portfolio : chaque pièce garde sa cohérence propre, l'ensemble prenant sens par accumulation.",
-    role: "Tout, du concept à la fabrication",
-    tools: ["Illustrator", "Procreate", "Cinema 4D", "Risographie"],
-    process:
-      "Une pièce par mois, sans exception, publiée qu'elle me plaise ou non : la contrainte de régularité compte plus que le résultat final.",
-    results:
-      "Plus de quarante pièces à ce jour, plusieurs reprises en commande par des clients ayant découvert le projet, et un vivier permanent d'idées.",
-  },
+
 ];
 
 const NAV_ITEMS = [
@@ -504,6 +439,10 @@ function Home({ go, openProject }) {
 
 </section>
       <section id="projets" className="section">
+      <section
+      id="projects"
+      className="projects-section"
+      ></section>
         <div className="section-head">
           <h2>Mes projets</h2>
         </div>
@@ -527,8 +466,12 @@ function Home({ go, openProject }) {
                 ? "image-binche"
                 : p.id === "elmer"
                 ? "image-elmer"
-                : p.title === "Pensée sur l’amour"
+                : p.title === "Pensée sur l'amour"
                 ? "image-pensee"
+                : p.title === "Collaboration Fictive"
+                ? "image-roland-garros"
+                : p.title === "Ehpad"
+                ? "image-ehpad"
                 : ""
             }
           />
@@ -637,6 +580,10 @@ function Projects({ openProject }) {
                     ? "image-binche"
                     : p.title === "Pensée sur l'amour"
                     ? "image-pensee"
+                    : p.title === "Collaboration Fictive"
+                    ? "image-roland-garros"
+                    : p.title === "Ehpad"
+                    ? "image-ehpad"
                     : ""
                 }
               />
@@ -664,71 +611,131 @@ function ProjectDetail({ project, openProject, go }) {
   const next = PROJECTS[(index + 1) % PROJECTS.length];
 
   return (
-    <div className="page">
+    <div className="page project-detail-page">
       <section className="project-header">
-        <button className="back-link" onClick={() => go("projects")}>Tous les projets</button>
-        <div className="project-header-row">
-          <h1>{project.title}</h1>
-          <dl className="project-meta">
-            <div><dt>Année</dt><dd>{project.year}</dd></div>
-            <div><dt>Catégorie</dt><dd>{project.category}</dd></div>
-            <div><dt>Rôle</dt><dd>{project.role}</dd></div>
-            <div><dt>Logiciels</dt><dd>{project.tools.join(", ")}</dd></div>
-          </dl>
-        </div>
-        <p className="project-tagline">{project.tagline}</p>
-      </section>
+       
+        <div className="project-intro-layout">
 
-      <div className="project-hero-art"><Art accent={project.accent} pattern={project.pattern} /></div>
+  <div className="project-intro-left"
+><button
+  className="back-link"
+  onClick={() => {
+    go("home");
 
-      <section className="project-body">
-        <div className="project-block">
-          <h3>Contexte</h3>
-          <p>{project.context}</p>
-        </div>
-        <div className="project-block">
-          <h3>Objectif</h3>
-          <p>{project.objective}</p>
-        </div>
-      </section>
+    setTimeout(() => {
+      document
+        .getElementById("projects")
+        ?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  }}
+>
+  ← Tous les projets
+</button>
 
-      <div className="project-two-art">
-        <div className="project-art-item"><Art accent={project.accent} pattern="scatter" /></div>
-        <div className="project-art-item"><Art accent={project.accent} pattern="grid" /></div>
+
+    <div className="project-title-block">
+      <h1>{project.title}</h1>
+      <p className="project-tagline">{project.tagline}</p>
+    </div>
+
+    <div className="project-meta">
+      <div>
+        <span>Année</span>
+        <p>{project.year}</p>
       </div>
 
-      <section className="project-body project-body-alt">
-        <div className="project-block">
-          <h3>Concept</h3>
-          <p>{project.concept}</p>
-        </div>
-        <div className="project-block">
-          <h3>Processus créatif</h3>
-          <p>{project.process}</p>
-        </div>
+      <div>
+        <span>Logiciels utilisés</span>
+        <p>{project.tools.join(", ")}</p>
+      </div>
+    </div>
+
+    <div className="project-intro-description">
+      <p>
+        Dans le cadre d’un workshop réalisé durant ma dernière année
+        de Bachelor, nous avons travaillé à partir d’un brief réel
+        sur la refonte de l’identité visuelle de la Pamparina.
+      </p>
+
+      <p>
+        Ma proposition a été sélectionnée par le client et est devenue
+        l’identité officielle de l’édition 2026 du festival. J’ai ensuite
+        développé l’affiche principale ainsi que différentes déclinaisons
+        graphiques autour de l’événement.
+      </p>
+    </div>
+
+  </div>
+  
+ <div className="project-intro-image">
+  <img
+    src="/images/Abris bus pamparina.png"
+    alt={project.title}
+  />
+</div>
+
+</div>
       </section>
 
-      <div className="project-hero-art project-hero-art-short"><Art accent={project.accent} pattern="stack" /></div>
+<section className="project-description">
+  <div className="project-description-title">
+    <p className="small-title">Le projet</p>
 
-      <section className="project-body">
-        <div className="project-block project-block-wide">
-          <h3>Résultats</h3>
-          <p>{project.results}</p>
-        </div>
-      </section>
+    <h2>
+      Une identité pensée pour faire vivre la Pamparina
+    </h2>
+  </div>
 
-      <nav className="project-pager">
-        <button onClick={() => openProject(prev.id)}>
-          <span className="project-pager-label">Projet précédent</span>
-          <span className="project-pager-title">{prev.title}</span>
-        </button>
-        <button onClick={() => openProject(next.id)} className="project-pager-next">
-          <span className="project-pager-label">Projet suivant</span>
-          <span className="project-pager-title">{next.title}</span>
-        </button>
-      </nav>
+  <div className="project-description-text">
+    <p>
+      Dans le cadre d’un workshop réalisé durant ma dernière année
+      de Bachelor, nous avons travaillé à partir d’un brief réel
+      sur la refonte de l’identité visuelle de la Pamparina.
+    </p>
 
-      <Footer go={go} />
+    <p>
+      Ma proposition a été sélectionnée par le client et est devenue
+      l’identité officielle de l’édition 2026 du festival. J’ai ensuite
+      développé l’affiche principale ainsi que différentes déclinaisons
+      graphiques autour de l’événement.
+    </p>
+  </div>
+</section>
+
+<section className="project-flipbook">
+  <div className="project-flipbook-frame">
+    <iframe
+      src="https://v.calameo.com/?bkcode=006690030f4c6d8226d01"
+      title="Programme Pamparina 2026"
+      frameBorder="0"
+      scrolling="no"
+      allowFullScreen
+    />
+  </div>
+</section>
+
+<div className="project-gallery-three">
+  <img
+    src="/images/ecocup_pamparina.png"
+    alt="Pamparina visuel 2"
+  />
+
+  <img
+    src="/images/badge_carte_pamparina.png"
+    alt="Pamparina visuel 3"
+  />
+
+  <img
+    src="/images/tote_bag_pamparina.png"
+    alt="Pamparina visuel 4"
+  />
+</div>
+
+<p className="project-gallery-caption">
+  Quelques déclinaisons de l’identité visuelle sur différents supports,
+  pour montrer comment l’univers de la Pamparina peut vivre au-delà de l’affiche.
+</p>
+
     </div>
   );
 }
@@ -1369,10 +1376,10 @@ body {
   transform: scale(1.24) translateY(-6px) !important;
 }
 .image-binche {
-  transform: scale(1.24) translateY(18px) !important;
+  transform: scale(1.26) translateY(18px) !important;
 }
 .featured-tile:hover .featured-art img.image-binche {
-  transform: scale(1.3) translateY(18px) !important;
+  transform: scale(1.32) translateY(18px) !important;
 }
 .image-elmer {
   object-fit: cover;
@@ -1384,14 +1391,35 @@ body {
 }
 .image-pensee {
   object-fit: cover;
-  object-position: 45% center !important;
-  transform: scale(1.2) !important;
+  object-position: 90% center !important;
+  transform: scale(1.4) translateY(-18px) !important;
   transform-origin: center center;
 }
 
 .featured-tile:hover .featured-art img.image-pensee {
+  object-position: 90% center !important;
+  transform: scale(1.46) translateY(-18px) !important;
+}
+
+.image-roland-garros {
+  object-fit: cover;
+  object-position: 46% center !important;
+  transform: scale(1.34) translateY(5px) !important;
+}
+
+.featured-tile:hover .featured-art img.image-roland-garros {
+  object-position: 46% center !important;
+  transform: scale(1.4) translateY(5px)!important;
+}
+.image-ehpad {
+  object-fit: cover;
   object-position: 45% center !important;
-  transform: scale(1.26) !important;
+  transform: scale(1.2) translateY(-20px) !important;
+}
+
+.featured-tile:hover .featured-art img.image-ehpad {
+  object-position: 45% center !important;
+  transform: scale(1.26) translateY(-20px)!important;
 }
 
 .featured-meta {
@@ -1489,6 +1517,7 @@ body {
 }
 /* ---------- MARQUEE ---------- */
 .marquee {
+  transform: translateY(5px);
   overflow: hidden;
   border-top: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
   border-bottom: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
@@ -1497,6 +1526,7 @@ body {
   background: linear-gradient(-90deg, #ff00a8, #e8a0c8);
   color: white;
 }
+
 .marquee-track { display: inline-flex; animation: marquee 26s linear infinite; }
 .marquee-set {
   font-family: "Montserrat", sans-serif;
@@ -1562,43 +1592,165 @@ body {
 .site-footer-line { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--ink); }
 
 /* ---------- PROJECTS PAGE ---------- */
-.projects-page {
-  padding-top: 80px;
-  padding-bottom: 100px;
+/* =========================================
+   NOUVELLE MISE EN PAGE DU HAUT DU PROJET
+========================================= */
+
+.project-intro-layout {
+  display: grid;
+  grid-template-columns: 42% 58%;
+  gap: 60px;
+  align-items: start !im;portant;
+  width: 100%;
+  margin-top: 30px;
 }
 
-.projects-page .featured-art::after {
-  display: none !important;
+.project-intro-left {
+  align-self: start !important;
 }
 
-.projects-page-title {
+.project-title-block h1 {
+  margin-top: 0 !important;
+}
+
+.project-title-block h1 {
+  margin: 0 0 18px;
   font-family: "Montserrat", sans-serif;
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 50px;
+  font-size: clamp(42px, 4.5vw, 68px);
+  font-weight: 700;
+  line-height: 1;
 }
 
-.projects-page .featured-art::after {
+.project-tagline {
+  font-size: 15px !important;
+  line-height: 1.4 !important;
+  margin-top: 10px !important;
+}
+
+/* ANNÉE + LOGICIELS */
+
+.project-meta {
+  display: flex;
+  gap: 55px;
+  margin-top: 45px;
+}
+
+.project-meta div {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.project-meta span {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.project-meta p {
+  margin-top: 28px !important;
+  margin-bottom: 0 !important;
+}
+
+/* DESCRIPTION */
+
+.project-intro-description {
+  margin-top: 28px !important;
+  max-width: 520px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.project-intro-description p {
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+}
+
+/* IMAGE À DROITE */
+
+.project-intro-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.project-intro-image img {
+  width: 100%;
+  height: auto;
+
+  display: block;
+  object-fit: contain;
+}
+
+/* IMPORTANT : on neutralise les anciens styles */
+
+.project-main-image {
   display: none !important;
 }
 
-.projects-page .featured-art img {
-  filter: none !important;
+.project-description {
+  display: none !important;
 }
-.projects-carousel {
-  display: flex;
-  gap: 24px;
 
-  overflow-x: auto;
-  overflow-y: visible;
+/* MOBILE */
 
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+@media (max-width: 800px) {
+  .project-intro-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
 
-  padding-top: 20px;
-  padding-bottom: 20px;
+  .project-meta {
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+}
+.project-header {
+  min-height: calc(100vh - 110px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  transform: translateY(-20px) !important;
 
-  scrollbar-width: none;
+  padding-top: 35px !important;
+  padding-bottom: 35px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.project-intro-layout {
+  margin-top: 0 !important;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr) !important;
+}
+
+.back-link {
+  align-self: flex-start !important;
+  margin: 0 0 30px 0 !important;
+  padding: 0 !important;
+}
+
+
+.project-intro-left {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.project-intro-image {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.project-intro-image img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  object-fit: contain !important;
 }
 
 .projects-carousel::-webkit-scrollbar {
@@ -1639,7 +1791,36 @@ body {
   flex: 0 0 calc((100% - 64px) / 3);
   scroll-snap-align: start;
 }
-
+.project-gallery-three {
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 24px !important;
+  margin-top: 20px !important;
+  margin-bottom: 10px !important;
+  box-sizing: border-box !important;
+}
+.project-gallery-three {
+  margin-top: 0 !important;
+  transform: translateY(-20px) !important;
+}
+.project-gallery-three img {
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 24px !important;
+}
+.project-gallery-caption {
+  width: 100% !important;
+  margin-top: 20px !important;
+  margin-bottom: 200px !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  font-weight: 600 !important;
+}
 /* FLÈCHE GAUCHE */
 .carousel-prev {
   position: absolute;
@@ -1837,7 +2018,40 @@ body {
 .editorial-tagline { font-size: 0.8rem; opacity: 0.85; max-width: 40ch; }
 
 /* ---------- PROJECT DETAIL ---------- */
-.project-header { padding: clamp(28px, 5vw, 60px) clamp(20px, 4vw, 48px) 20px; }
+.project-header {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0 30px;
+  box-sizing: border-box;
+}
+
+.project-header-row {
+  width: 100%;
+}
+
+.project-title-block {
+  margin: 0;
+  padding: 0;
+}
+
+.project-main-image {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  display: block;
+}
+
+.project-main-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  margin: 0;
+  padding: 0;
+  border-radius: 24px;
+}
 .back-link { font-size: 0.82rem; color: color-mix(in srgb, var(--ink) 60%, transparent); margin-bottom: 22px; display: inline-block; border-bottom: 1px solid transparent; }
 .back-link:hover { border-color: currentColor; color: var(--ink); }
 .project-header-row {
@@ -1850,10 +2064,21 @@ body {
   padding-bottom: 26px;
 }
 .project-header-row h1 { font-size: clamp(2.6rem, 7vw, 5rem); }
-.project-meta { display: flex; gap: clamp(16px, 3vw, 34px); flex-wrap: wrap; }
+.project-meta {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.project-meta div {
+  border-top: none;
+  padding: 0;
+}
 .project-meta dt { font-size: 0.7rem; color: color-mix(in srgb, var(--ink) 55%, transparent); margin-bottom: 4px; }
 .project-meta dd { margin: 0; font-size: 0.88rem; max-width: 22ch; }
-.project-tagline { font-family: var(--serif); font-style: italic; font-size: 1.3rem; margin-top: 22px; color: var(--accent-text); }
+.project.project-tagline {
+  margin-bottom: 34px !important;
+}
 
 .project-hero-art { margin: 0 clamp(20px, 4vw, 48px); border-radius: 4px; overflow: hidden; aspect-ratio: 16/8; }
 .project-hero-art-short { aspect-ratio: 16/6; }
@@ -1883,6 +2108,617 @@ body {
 .project-pager-label { font-size: 0.75rem; color: color-mix(in srgb, var(--ink) 55%, transparent); }
 .project-pager-title { font-family: var(--serif); font-size: 1.5rem; transition: color 0.2s ease; }
 .project-pager button:hover .project-pager-title { color: var(--accent-text); }
+
+/* =====================================================
+   PAGE PROJET — CONTENU APRÈS LE HEADER
+   Le header actuel reste inchangé
+===================================================== */
+
+
+/* =========================
+   GRANDE IMAGE PRINCIPALE
+========================= */
+
+.project-main-image {
+  width: calc(100% - 80px);
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 0;
+}
+
+.project-main-image img {
+  width: 95%;
+  height: auto;
+
+  object-fit: contain;
+  display: block;
+
+  border-radius: 24px;
+}
+
+
+/* =========================
+   DESCRIPTION DU PROJET
+========================= */
+
+.project-description {
+  width: calc(100% - 80px);
+  max-width: 1200px;
+
+  margin: 100px auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+
+  align-items: start;
+}
+
+
+/* Petit titre "LE PROJET" */
+
+.small-title {
+  margin: 0 0 15px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+
+  opacity: 0.5;
+}
+
+
+/* Gros titre de description */
+
+.project-description-title h2,
+.project-description h2 {
+  margin: 0;
+
+  max-width: 520px;
+
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1.05;
+
+  font-weight: 500;
+}
+
+
+/* Texte explicatif */
+
+.project-description-text {
+  max-width: 520px;
+
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.project-description-text p {
+  margin: 0 0 22px;
+}
+
+.project-description-text p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================
+   GALERIE DE MOCKUPS
+========================= */
+
+.project-gallery {
+  width: calc(100% - 80px);
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+
+/* Toutes les images */
+
+.project-gallery img {
+  display: block;
+
+  width: 100%;
+
+  object-fit: cover;
+
+  border-radius: 22px;
+}
+
+
+/* Grande image seule */
+
+.gallery-large {
+  width: 100%;
+  height: 720px;
+}
+
+
+/* Deux images côte à côte */
+
+.gallery-two {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 24px;
+}
+
+.gallery-two img {
+  width: 100%;
+  height: 560px;
+}
+
+
+/* =========================
+   LOGICIELS UTILISÉS
+========================= */
+
+.project-software {
+  width: calc(100% - 80px);
+  max-width: 1200px;
+
+  margin: 100px auto;
+}
+
+.project-software .small-title {
+  margin-bottom: 22px;
+}
+
+
+/* Liste des logiciels */
+
+.software-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+
+/* Pastilles */
+
+.software-list span {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 19px;
+
+  border: 1px solid rgba(0, 0, 0, 0.2);
+
+  border-radius: 999px;
+
+  font-size: 14px;
+
+  background: transparent;
+}
+
+
+/* =========================
+   NAVIGATION ENTRE PROJETS
+========================= */
+
+.project-navigation {
+  width: calc(100% - 80px);
+  max-width: 1200px;
+
+  margin: 120px auto 0;
+
+  padding-top: 35px;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 30px;
+}
+
+
+/* Boutons précédent / suivant */
+
+.project-navigation button {
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  font: inherit;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.project-navigation button:hover {
+  opacity: 0.55;
+}
+
+.project-navigation button:first-child:hover {
+  transform: translateX(-4px);
+}
+
+.project-navigation button:last-child:hover {
+  transform: translateX(4px);
+}
+#projects {
+  scroll-margin-top: 80px;
+}
+
+/* =========================
+   ESPACEMENT BAS DE PAGE
+========================= */
+
+/* ALIGNEMENT EXACT TEXTE + IMAGE */
+
+.project-detail-page {
+  padding-left: 6%;
+  padding-right: 6%;
+  box-sizing: border-box;
+}
+
+.project-header {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 55px 0 45px;
+  box-sizing: border-box;
+}
+
+.back-link {
+  margin-bottom: 32px;
+}
+
+.project-title-block h1 {
+  margin: 0 0 18px;
+}
+
+.project-tagline {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.project-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 80px;
+}
+
+.project-tagline {
+  margin-bottom: 34px !important;
+}
+
+.project-meta {
+  margin-top: 0 !important;
+  margin-bottom: 34px !important;
+}
+
+.project-meta div {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+
+.project-meta span {
+  margin: 0 !important;
+}
+
+.project-meta p {
+  margin: 0 !important;
+}
+
+.project-intro-description {
+  margin-top: 0 !important;
+}
+
+.project-main-image {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.project-main-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
+}
+/* Sous-titre */
+.project-tagline {
+  font-size: 15px !important;
+  margin: 14px 0 0 !important;
+  padding-bottom: 28px !important;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Année + logiciels */
+.project-meta {
+  margin-top: 28px !important;
+  margin-bottom: 32px !important;
+  gap: 65px !important;
+}
+
+/* Petit espace entre "Année" et "2026"
+   et entre "Logiciels" et les logiciels */
+.project-meta div {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 5px !important;
+}
+
+.project-meta span,
+.project-meta p {
+  margin: 0 !important;
+}
+
+/* Description */
+.project-intro-description {
+  margin-top: 0 !important;
+  line-height: 1.8 !important;
+  font-weight: 600 !important;
+}
+
+.project-intro-description p {
+  margin: 0 0 16px !important;
+}
+
+/* =====================================================
+   TABLETTE
+===================================================== */
+
+@media (max-width: 1000px) {
+
+  .project-main-image,
+  .project-gallery,
+  .project-description,
+  .project-software,
+  .project-navigation {
+    width: calc(100% - 50px);
+  }
+
+  .project-main-image img {
+    height: 560px;
+  }
+
+  .project-description {
+    gap: 60px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  .gallery-large {
+    height: 600px;
+  }
+
+  .gallery-two img {
+    height: 480px;
+  }
+}
+
+/* PREMIER ÉCRAN DU PROJET */
+
+.project-header {
+  min-height: calc(100vh - 80px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+
+  padding-top: 35px !important;
+  padding-bottom: 25px !important;
+}
+
+/* Descend légèrement texte + image */
+.project-intro-layout {
+  margin-top: 35px !important;
+  align-items: start !important;
+}
+
+/* La flèche reste en bas du premier écran */
+.scroll-indicator {
+  margin-top: auto !important;
+  text-align: center !important;
+  font-size: 26px !important;
+  line-height: 1 !important;
+  opacity: 0.45 !important;
+  padding-top: 20px !important;
+}
+
+/* Les 3 images commencent seulement après le premier écran */
+.project-gallery-three {
+  margin-top: 45px !important;
+}
+/* ==================================
+   TYPOGRAPHIES HEADER PROJET
+================================== */
+
+
+/* Pamparina */
+
+.project-title-block h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+}
+
+
+/* Tous les projets */
+
+.back-link {
+  font-family: "Montserrat", sans-serif;
+}
+
+
+/* Identité visuelle */
+
+.project-category {
+  font-family: "Montserrat", sans-serif;
+}
+
+
+/* Petite phrase sous Pamparina */
+
+.project-tagline {
+  font-family: "Elite", serif;
+}
+
+
+/* Année / Rôle / Logiciels */
+
+.project-meta,
+.project-meta span,
+.project-meta p {
+  font-family: "Montserrat", sans-serif;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 750px) {
+
+  /* Grande image */
+
+  .project-main-image {
+    width: calc(100% - 24px);
+  }
+
+  .project-main-image img {
+    height: auto;
+
+    aspect-ratio: 4 / 3;
+
+    border-radius: 16px;
+  }
+
+
+  /* Description */
+
+  .project-description {
+    width: calc(100% - 40px);
+
+    margin: 65px auto;
+
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+  .project-description-title h2,
+  .project-description h2 {
+    max-width: none;
+
+    font-size: 34px;
+  }
+
+  .project-description-text {
+    max-width: none;
+
+    font-size: 16px;
+  }
+
+
+  /* Galerie */
+
+  .project-gallery {
+    width: calc(100% - 24px);
+
+    gap: 12px;
+  }
+
+  .project-gallery img {
+    border-radius: 14px;
+  }
+
+  .gallery-large {
+    height: auto;
+  }
+
+  .gallery-two {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .gallery-two img {
+    height: auto;
+  }
+
+
+  /* Logiciels */
+
+  .project-software {
+    width: calc(100% - 40px);
+
+    margin: 65px auto;
+  }
+
+  .software-list span {
+    padding: 9px 15px;
+
+    font-size: 13px;
+  }
+
+
+  /* Navigation */
+
+  .project-navigation {
+    width: calc(100% - 40px);
+
+    margin-top: 80px;
+
+    padding-top: 25px;
+  }
+
+  .project-navigation button {
+    font-size: 14px;
+  }
+}
+
+.project-flipbook {
+  width: 100% !important;
+  margin: 30px 0 70px !important;
+}
+
+.project-flipbook-frame {
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  overflow: hidden !important;
+  border-radius: 24px !important;
+}
+
+.project-flipbook-frame iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  display: block !important;
+}
 
 /* ---------- ABOUT ---------- */
 .about-hero {
