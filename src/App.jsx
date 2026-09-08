@@ -1530,11 +1530,12 @@ body {
   gap: 24px;
 
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible;
 
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 
+  padding-top: 20px;
   padding-bottom: 20px;
 
   scrollbar-width: none;
@@ -1548,7 +1549,7 @@ body {
   flex: 0 0 320px;
   scroll-snap-align: start;
 }
-  
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
