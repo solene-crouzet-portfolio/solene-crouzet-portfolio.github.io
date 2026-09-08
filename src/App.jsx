@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import HTMLFlipBook from "react-pageflip";
 
 /* ------------------------------------------------------------------ */
 /*  DATA                                                                */
@@ -604,7 +605,67 @@ function Projects({ openProject }) {
   </div>
 );
 }
+function PamparinaBook() {
+ const pages = [
+  null,
+  "/images/page_1_pamparina.png",
+  "/images/page_2_pamparina.png",
+  "/images/page_3_pamparina.png",
+  "/images/page_4_pamparina.png",
+  "/images/page_5_pamparina.png",
+  "/images/page_6_pamparina.png",
+  "/images/page_7_pamparina.png",
+  "/images/page_8_pamparina.png",
+  "/images/page_9_pamparina.png",
+  "/images/page_10_pamparina.png",
+  "/images/page_11_pamparina.png",
+  "/images/page_12_pamparina.png",
+  "/images/page_13_pamparina.png",
+  "/images/page_14_pamparina.png",
+  "/images/page_15_pamparina.png",
+  "/images/page_16_pamparina.png",
+  null,
+];
+const [currentPage, setCurrentPage] = useState(0);
 
+  return (
+    <section className="pamparina-book-section">
+      <div className="pamparina-book-wrapper">
+        <HTMLFlipBook
+  width={390}
+  height={620}
+  showCover={false}
+  usePortrait={false}
+  drawShadow={true}
+  maxShadowOpacity={0.35}
+  flippingTime={1000}
+  mobileScrollSupport={true}
+  showPageCorners={true}
+  className="pamparina-real-book"
+  onFlip={(e) => setCurrentPage(e.data)}
+>
+{pages.map((src, index) => (
+  <div
+    className={`pamparina-book-page ${
+      !src ? "empty-page" : ""
+    } ${
+      currentPage === 0 && index === 0 ? "hide-empty-cover" : ""
+    }`}
+    key={index}
+  >
+    {src && (
+      <img
+        src={src}
+        alt={`Programme Pamparina - page ${index}`}
+      />
+    )}
+  </div>
+))}
+        </HTMLFlipBook>
+      </div>
+    </section>
+  );
+}
 function ProjectDetail({ project, openProject, go }) {
   const index = PROJECTS.findIndex((p) => p.id === project.id);
   const prev = PROJECTS[(index - 1 + PROJECTS.length) % PROJECTS.length];
@@ -702,17 +763,7 @@ function ProjectDetail({ project, openProject, go }) {
   </div>
 </section>
 
-<section className="project-flipbook">
-  <div className="project-flipbook-frame">
-    <iframe
-      src="https://v.calameo.com/?bkcode=006690030f4c6d8226d01"
-      title="Programme Pamparina 2026"
-      frameBorder="0"
-      scrolling="no"
-      allowFullScreen
-    />
-  </div>
-</section>
+<PamparinaBook />
 
 <div className="project-gallery-three">
   <img
@@ -2701,25 +2752,76 @@ body {
   }
 }
 
-.project-flipbook {
+/* ======================================== */
+/*          FLIPBOOK PAMPARINA             */
+/* ======================================== */
+
+.pamparina-book-section {
   width: 100% !important;
-  margin: 30px 0 70px !important;
+  margin-top: 10px !important;
+  margin-bottom: 70px !important;
 }
 
-.project-flipbook-frame {
+.pamparina-book-wrapper {
   width: 100% !important;
-  aspect-ratio: 16 / 9 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  overflow: visible !important;
+}
+
+.pamparina-real-book {
+  margin: 0 auto !important;
+  filter: drop-shadow(
+    0 12px 20px rgba(0, 0, 0, 0.12)
+  ) !important;
   overflow: hidden !important;
-  border-radius: 24px !important;
 }
 
-.project-flipbook-frame iframe {
+.pamparina-book-page {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.pamparina-real-book {
+  gap: 0 !important;
+}
+
+.pamparina-book-page img {
   width: 100% !important;
   height: 100% !important;
-  border: none !important;
   display: block !important;
+
+  object-fit: fill !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: transparent !important;
 }
 
+.empty-page {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.hide-empty-cover {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+@media (max-width: 900px) {
+  .pamparina-book-section {
+    margin-top: 25px !important;
+    margin-bottom: 40px !important;
+  }
+
+  .pamparina-book-wrapper {
+    padding: 0 15px !important;
+  }
+}
 /* ---------- ABOUT ---------- */
 .about-hero {
   display: grid;
