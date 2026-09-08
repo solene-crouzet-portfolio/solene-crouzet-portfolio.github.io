@@ -1110,22 +1110,20 @@ body {
   text-align: center !important;
 }
 
-.torn-paper {
-  position: relative;
-  background: linear-gradient(90deg, #ff1493, #e7a1d7);
-  padding: 80px 40px;
-  margin: 40px 0;
+.presentation-home.torn-paper {
+  position: relative !important;
+  overflow: visible !important;
 }
 
-/* Déchirure du haut */
-.torn-paper::before {
+/* Déchirure en haut */
+.presentation-home.torn-paper::before {
   content: "";
   position: absolute;
   top: -22px;
   left: 0;
   width: 100%;
   height: 24px;
-  background: white;
+  background: white !important;
 
   clip-path: polygon(
     0% 100%,
@@ -1152,18 +1150,18 @@ body {
     100% 45%,
     100% 0%,
     0% 0%
-  );
+  ) !important;
 }
 
-/* Déchirure du bas */
-.torn-paper::after {
+/* Déchirure en bas */
+.presentation-home.torn-paper::after {
   content: "";
   position: absolute;
   bottom: -22px;
   left: 0;
   width: 100%;
   height: 24px;
-  background: white;
+  background: white !important;
 
   clip-path: polygon(
     0% 0%,
@@ -1189,7 +1187,7 @@ body {
     100% 40%,
     100% 100%,
     0% 100%
-  );
+  ) !important;
 }
 
 .home-intro .hero-description {
