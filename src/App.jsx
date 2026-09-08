@@ -1313,10 +1313,10 @@ body {
 .image-elmer {
   object-fit: cover;
   object-position: 54% center;
-  transform: scale(1) !important;
+  transform: scale(1) translateY(18px) !important;
 }
 .featured-tile:hover .featured-art img.image-elmer {
-  transform: scale(1.06) !important;
+  transform: scale(1.06) translateY(18px) !important;
 }
 .image-pensee {
   object-fit: cover;
