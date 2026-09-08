@@ -1308,13 +1308,15 @@ body {
   transform: scale(1.2) translateY(18px) !important;
 }
 .featured-tile:hover .featured-art img.image-binche {
-  transform: scale(1.5) translateY(18px) !important;
+  transform: scale(1.26) translateY(18px) !important;
 }
 .image-elmer {
   object-fit: cover;
   object-position: 54% center;
+  transform: scale(1) !important;
 }
 .featured-tile:hover .featured-art img.image-elmer {
+  transform: scale(1.06) !important;
 }
 .image-pensee {
   object-fit: cover;
