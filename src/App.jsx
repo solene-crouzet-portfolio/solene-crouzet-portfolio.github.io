@@ -1298,7 +1298,7 @@ body {
 }
 
 .image-pamparina {
-  transform: scale(1.12) !important;
+  transform: scale(1.4) !important;
 }
 .featured-tile:hover .featured-art img.image-pamparina {
   transform: scale(1.18) !important;
@@ -1307,7 +1307,7 @@ body {
   transform: scale(1.2) translateY(18px) !important;
 }
 .featured-tile:hover .featured-art img.image-binche {
-  transform: scale(1.27) translateY(18px) !important;
+  transform: scale(1.5) translateY(18px) !important;
 }
 .image-elmer {
   object-fit: cover;
