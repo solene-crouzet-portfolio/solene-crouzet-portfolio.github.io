@@ -478,8 +478,14 @@ function Home({ go, openProject }) {
 </div>
 
   </div>
-      </section>
-<section className="presentation-home torn-paper">
+</section>
+<section
+  className="presentation-home"
+  style={{
+    position: "relative",
+    overflow: "hidden"
+  }}
+>
 
   <div className="tear tear-top"></div>
 
@@ -501,43 +507,70 @@ function Home({ go, openProject }) {
         <div className="section-head">
           <h2>Mes projets</h2>
         </div>
-        <div className="projects-carousel">
-          {featured.map((p, i) => (
-            <button
-              key={p.id}
-              className={"featured-tile featured-tile-" + (i % 2 === 0 ? "a" : "b")}
-              onClick={() => openProject(p.id)}
-            >
-              <div className="featured-art">
-              <img
-                src={p.image}
-                alt={p.title}
-                className={
-                  p.title === "Pamparina"
-                    ? "image-pamparina"
-                    : p.id === "binche"
-                    ? "image-binche"
-                    : p.id === "elmer"
-                    ? "image-elmer"
-                    : p.title === "Pensée sur l'amour"
-                    ? "image-pensee"
-                  : ""
-                   
-                }
-              />
-              </div>
-              
-              <div className="featured-meta">
-                <span className="featured-arrow">›</span>
-                
-                <div className="featured-text">
-                  <div className="featured-title">{p.title}</div>
-                  <div className="featured-cat">{p.category}</div>
-                </div>
-              </div>
-            </button>
-          ))}
+        <div className="projects-carousel-wrapper">
+
+  <div className="projects-carousel">
+    {featured.map((p, i) => (
+      <button
+        key={p.id}
+        className={"featured-tile featured-tile-" + (i % 2 === 0 ? "a" : "b")}
+        onClick={() => openProject(p.id)}
+      >
+        <div className="featured-art">
+          <img
+            src={p.image}
+            alt={p.title}
+            className={
+              p.title === "Pamparina"
+                ? "image-pamparina"
+                : p.id === "binche"
+                ? "image-binche"
+                : p.id === "elmer"
+                ? "image-elmer"
+                : p.title === "Pensée sur l’amour"
+                ? "image-pensee"
+                : ""
+            }
+          />
         </div>
+
+        <div className="featured-meta">
+          <span className="featured-arrow">{i + 1}</span>
+
+          <div className="featured-text">
+            <div className="featured-title">{p.title}</div>
+            <div className="featured-cat">{p.category}</div>
+          </div>
+        </div>
+      </button>
+    ))}
+  </div>
+  <button
+  className="carousel-prev"
+  onClick={() => {
+    document.querySelector(".projects-carousel")?.scrollBy({
+      left: -350,
+      behavior: "smooth"
+    });
+  }}
+  aria-label="Voir les projets précédents"
+  >
+  ‹
+  </button>
+  <button
+    className="carousel-next"
+    onClick={() => {
+      document.querySelector(".projects-carousel")?.scrollBy({
+        left: 350,
+        behavior: "smooth"
+      });
+    }}
+    aria-label="Voir les projets suivants"
+  >
+    ›
+  </button>
+
+</div>
       </section>
 
       <div className="marquee" aria-hidden="true">
@@ -1115,97 +1148,6 @@ body {
 }
 
 
-.presentation-home.torn-paper {
-  position: relative !important;
-  overflow: hidden !important;
-}
-
-/* Déchirure blanche en haut, à l'intérieur du rose */
-.presentation-home.torn-paper::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 42px;
-  background: white !important;
-  z-index: 2;
-
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 28%,
-    96% 40%,
-    92% 22%,
-    88% 52%,
-    84% 34%,
-    80% 66%,
-    76% 38%,
-    72% 58%,
-    68% 30%,
-    64% 72%,
-    60% 42%,
-    56% 62%,
-    52% 26%,
-    48% 68%,
-    44% 36%,
-    40% 56%,
-    36% 24%,
-    32% 70%,
-    28% 40%,
-    24% 60%,
-    20% 32%,
-    16% 66%,
-    12% 38%,
-    8% 58%,
-    4% 30%,
-    0 52%
-  ) !important;
-}
-
-/* Déchirure blanche en bas, à l'intérieur du rose */
-.presentation-home.torn-paper::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 42px;
-  background: white !important;
-  z-index: 2;
-
-  clip-path: polygon(
-    0 48%,
-    4% 66%,
-    8% 36%,
-    12% 58%,
-    16% 28%,
-    20% 70%,
-    24% 42%,
-    28% 62%,
-    32% 30%,
-    36% 68%,
-    40% 38%,
-    44% 60%,
-    48% 24%,
-    52% 72%,
-    56% 40%,
-    60% 64%,
-    64% 32%,
-    68% 58%,
-    72% 26%,
-    76% 66%,
-    80% 36%,
-    84% 56%,
-    88% 30%,
-    92% 70%,
-    96% 42%,
-    100% 58%,
-    100% 100%,
-    0 100%
-  ) !important;
-}
-
 .home-intro .hero-description {
   color: white !important;
   max-width: 760px;
@@ -1442,13 +1384,14 @@ body {
 }
 .image-pensee {
   object-fit: cover;
-  object-position: 80% center !important;
-
-  transform: scale(1.08) translateY(-8px);
+  object-position: 45% center !important;
+  transform: scale(1.2) !important;
+  transform-origin: center center;
 }
+
 .featured-tile:hover .featured-art img.image-pensee {
-  object-position: 80% center !important;
-  transform: scale(1.14) translateY(-8px);
+  object-position: 45% center !important;
+  transform: scale(1.26) !important;
 }
 
 .featured-meta {
@@ -1468,8 +1411,8 @@ body {
   text-align: left;
 }
   .featured-arrow {
-  width: 46px;
-  height: 46px;
+  width: 40px;
+  height: 40px;
 
   flex-shrink: 0;
 
@@ -1482,11 +1425,14 @@ body {
 
   border-radius: 50%;
 
-  font-size: 1.8rem;
+  font-size: 1.2rem;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   line-height: 1;
 }
-
+.section-head {
+  padding-left: 80px;
+}
 .featured-text {
   display: flex !important;
   flex-direction: column !important;
@@ -1662,6 +1608,177 @@ body {
 .projects-carousel .featured-tile {
   flex: 0 0 320px;
   scroll-snap-align: start;
+}
+
+.projects-carousel-wrapper {
+  position: relative;
+  padding: 0 80px;
+}
+
+.projects-carousel {
+  display: flex;
+  gap: 32px;
+
+  overflow-x: auto;
+  overflow-y: visible;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  padding-top: 20px;
+  padding-bottom: 25px;
+
+  scrollbar-width: none;
+}
+
+.projects-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.projects-carousel .featured-tile {
+  flex: 0 0 calc((100% - 64px) / 3);
+  scroll-snap-align: start;
+}
+
+/* FLÈCHE GAUCHE */
+.carousel-prev {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 48px;
+  height: 48px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #111;
+  color: white;
+
+  font-size: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  z-index: 100;
+}
+
+/* FLÈCHE DROITE */
+.carousel-next {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 48px;
+  height: 48px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #111;
+  color: white;
+
+  font-size: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  z-index: 100;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+  transform: translateY(-50%) scale(1.08);
+}
+
+.projects-carousel {
+  display: flex;
+  gap: 32px;
+
+  overflow-x: auto;
+  overflow-y: visible;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  padding-top: 20px;
+  padding-bottom: 25px;
+
+  scrollbar-width: none;
+}
+
+.projects-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.projects-carousel .featured-tile {
+  flex: 0 0 calc((100% - 64px) / 3);
+  scroll-snap-align: start;
+}
+.carousel-prev {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 52px;
+  height: 52px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #111;
+  color: white;
+
+  font-size: 36px;
+  line-height: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  z-index: 100;
+  transition: transform 0.2s ease;
+}
+
+.carousel-prev:hover {
+  transform: translateY(-50%) scale(1.08);
+}
+.carousel-next {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 52px;
+  height: 52px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #111;
+  color: white;
+
+  font-size: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  z-index: 100;
+}
+
+.carousel-next:hover {
+  transform: translateY(-50%) scale(1.08);
 }
 
 .projects-grid {
@@ -1900,20 +2017,60 @@ body {
   box-sizing: border-box;
 
   background: linear-gradient(
-    110deg,
+    90deg,
     #ff00a8 0%,
     #ff39b2 45%,
     #f5b1d0 100%
   );
-
   padding: 70px 30px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+  .tear {
+  position: absolute !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 75px !important;
+  background: #f1f0f8 !important; /* garde ici la couleur exacte de ton fond */
+  z-index: 999999 !important;
+  pointer-events: none !important;
+}
 
+.tear-top {
+  top: 0 !important;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+
+    100% 42%,
+    94% 35%,
+    88% 46%,
+    81% 37%,
+    74% 44%,
+    67% 34%,
+    60% 46%,
+    53% 38%,
+    46% 45%,
+    39% 35%,
+    32% 47%,
+    25% 38%,
+    18% 44%,
+    11% 35%,
+    5% 46%,
+    0 39%
+  ) !important;
+}
+.tear-bottom {
+  display: none !important;
+}
+.presentation-home-text,
+.presentation-home-button {
+  position: relative;
+  top: 15px;
+}
 .presentation-home-text {
   width: 90% !important;
   max-width: 1100px !important;
@@ -2141,84 +2298,72 @@ body {
 .presentation-home {
   position: relative !important;
   overflow: hidden !important;
+
+  .presentation-home.torn-paper {
+  position: relative !important;
+  overflow: hidden !important;
 }
 
 .tear {
   position: absolute !important;
   left: 0 !important;
   width: 100% !important;
-  height: 40px !important;
+  height: 70px !important;
   background: white !important;
-  z-index: 10 !important;
+  z-index: 50 !important;
+  pointer-events: none !important;
 }
 
-.tear-top {
-  top: 0 !important;
+
 
   clip-path: polygon(
     0 0,
     100% 0,
-    100% 25%,
-    96% 55%,
-    92% 30%,
-    88% 70%,
-    84% 38%,
-    80% 62%,
-    76% 28%,
+    100% 28%,
+    95% 65%,
+    90% 38%,
+    84% 72%,
+    78% 35%,
     72% 68%,
-    68% 35%,
-    64% 60%,
-    60% 25%,
-    56% 70%,
-    52% 36%,
-    48% 62%,
-    44% 30%,
-    40% 68%,
-    36% 35%,
-    32% 58%,
-    28% 25%,
-    24% 66%,
-    20% 38%,
-    16% 60%,
-    12% 30%,
-    8% 68%,
-    4% 38%,
-    0 55%
-  );
+    66% 42%,
+    60% 76%,
+    54% 34%,
+    48% 70%,
+    42% 40%,
+    36% 74%,
+    30% 35%,
+    24% 68%,
+    18% 42%,
+    12% 75%,
+    6% 36%,
+    0 70%
+  ) !important;
 }
 
 .tear-bottom {
   bottom: 0 !important;
 
   clip-path: polygon(
-    0 45%,
-    4% 65%,
-    8% 35%,
-    12% 70%,
-    16% 40%,
-    20% 62%,
-    24% 30%,
-    28% 68%,
-    32% 40%,
-    36% 60%,
-    40% 32%,
-    44% 70%,
+    0 30%,
+    6% 68%,
+    12% 36%,
+    18% 74%,
+    24% 40%,
+    30% 70%,
+    36% 34%,
+    42% 72%,
     48% 38%,
-    52% 62%,
-    56% 30%,
-    60% 68%,
-    64% 40%,
-    68% 60%,
-    72% 32%,
-    76% 70%,
-    80% 38%,
-    84% 62%,
-    88% 30%,
-    92% 68%,
-    96% 40%,
-    100% 60%,
+    54% 76%,
+    60% 35%,
+    66% 68%,
+    72% 42%,
+    78% 72%,
+    84% 36%,
+    90% 70%,
+    95% 40%,
+    100% 65%,
     100% 100%,
     0 100%
-  );
+  ) !important;
 }
 `;
