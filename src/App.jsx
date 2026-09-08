@@ -491,12 +491,14 @@ function Home({ go, openProject }) {
                 alt={p.title}
                 className={
                   p.id === "binche"
-                  ? "image-binche"
-                  : p.id === "elmer"
-                  ? "image-elmer": 
-                  p.title === "Pensée sur l'amour"
-                  ? "image-pensee"
-                  : ""
+                    ? "image-binche"
+                    : p.id === "elmer"
+                    ? "image-elmer"
+                    : p.title === "Pensée sur l'amour"
+                    ? "image-pensee"
+                    : p.id === "ossature"
+                    ? "image-pamparina"
+                    : ""
                 }
               />
               </div>
@@ -1292,6 +1294,13 @@ body {
   filter: grayscale(100%);
   transition: filter 0.45s ease, transform 0.45s ease;
   overflow: hidden;
+}
+
+.image-pamparina {
+  transform: scale(1.08);
+}
+.featured-tile:hover .featured-art img.image-pamparina {
+  transform: scale(1.14);
 }
 .image-binche {
   transform: scale(1.2) translateY(18px) !important;
