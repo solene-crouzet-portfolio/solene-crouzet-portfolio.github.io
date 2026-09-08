@@ -1506,6 +1506,10 @@ body {
   padding-bottom: 100px;
 }
 
+.projects-page .featured-art::after {
+  display: none !important;
+}
+
 .projects-page-title {
   font-family: "Montserrat", sans-serif;
   font-size: 3rem;
