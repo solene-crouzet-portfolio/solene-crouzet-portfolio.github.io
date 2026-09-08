@@ -2133,4 +2133,15 @@ body {
   margin-left: auto !important;
   margin-right: auto !important;
 }
+
+.presentation-home.torn-paper::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 50px !important;
+  background: red !important;
+  z-index: 9999 !important;
+}
 `;
