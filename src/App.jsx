@@ -1312,7 +1312,7 @@ body {
 }
 .image-elmer {
   object-fit: cover;
-  object-position: 55% center;
+  object-position: 56% center;
   transform: scale(1.18) translateY(18px) !important;
 }
 .featured-tile:hover .featured-art img.image-elmer {
