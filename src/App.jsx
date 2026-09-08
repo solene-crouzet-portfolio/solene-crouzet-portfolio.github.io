@@ -136,7 +136,7 @@ const PROJECTS = [
     id: "Ehpad",
     title: "Ehpad",
     image: "/images/ehpad_projet_6.png",
-    category: "Site UI/UX",
+    category: "Site internet",
     year: "2024",
     accent: "#7C6FEE",
     pattern: "waves",
