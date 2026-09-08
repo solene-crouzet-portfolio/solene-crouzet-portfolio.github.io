@@ -1298,10 +1298,10 @@ body {
 }
 
 .image-pamparina {
-  transform: scale(1.4) !important;
+  transform: scale(1.22) !important;
 }
 .featured-tile:hover .featured-art img.image-pamparina {
-  transform: scale(1.18) !important;
+  transform: scale(1.28) !important;
 }
 .image-binche {
   transform: scale(1.2) translateY(18px) !important;
