@@ -600,6 +600,7 @@ function Projects({ openProject }) {
     </section>
   </div>
 );
+}
 
 function ProjectDetail({ project, openProject, go }) {
   const index = PROJECTS.findIndex((p) => p.id === project.id);
