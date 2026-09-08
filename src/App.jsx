@@ -111,7 +111,7 @@ const PROJECTS = [
   },
   {
     id: "pokematch",
-    title: "Collaboration Roland Garros",
+    title: "Collaboration Fictive",
     image: "/images/pokematch_projet_5.png",
     category: "Identité visuelle",
     year: "2024",
