@@ -479,7 +479,7 @@ function Home({ go, openProject }) {
 
   </div>
       </section>
-<section className="presentation-home">
+<section className="presentation-home torn-paper">
 
   <p className="presentation-home-text">
     Bienvenue dans mon univers ! J’imagine et conçois des identités visuelles et des projets créatifs, du print au digital. Vous avez un projet ou une idée en tête ? N’hésitez pas à me contacter, je serais ravie d’en discuter avec vous !
@@ -1095,7 +1095,7 @@ body {
   min-height: 420px !important;
 
   background: linear-gradient(
-    110deg,
+    90deg,
     #ff00a8 0%,
     #ff39b2 45%,
     #f5b1d0 100%
@@ -1108,6 +1108,88 @@ body {
 
   padding: 70px 30px !important;
   text-align: center !important;
+}
+
+.torn-paper {
+  position: relative;
+  background: linear-gradient(90deg, #ff1493, #e7a1d7);
+  padding: 80px 40px;
+  margin: 40px 0;
+}
+
+/* Déchirure du haut */
+.torn-paper::before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  background: white;
+
+  clip-path: polygon(
+    0% 100%,
+    3% 55%,
+    7% 80%,
+    11% 45%,
+    16% 70%,
+    21% 35%,
+    26% 65%,
+    31% 40%,
+    36% 75%,
+    41% 50%,
+    46% 85%,
+    51% 45%,
+    56% 70%,
+    61% 35%,
+    66% 65%,
+    71% 45%,
+    76% 80%,
+    81% 40%,
+    86% 70%,
+    91% 50%,
+    96% 75%,
+    100% 45%,
+    100% 0%,
+    0% 0%
+  );
+}
+
+/* Déchirure du bas */
+.torn-paper::after {
+  content: "";
+  position: absolute;
+  bottom: -22px;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  background: white;
+
+  clip-path: polygon(
+    0% 0%,
+    4% 45%,
+    9% 20%,
+    14% 60%,
+    19% 30%,
+    24% 70%,
+    29% 35%,
+    34% 65%,
+    39% 25%,
+    44% 55%,
+    49% 20%,
+    54% 65%,
+    59% 35%,
+    64% 70%,
+    69% 30%,
+    74% 60%,
+    79% 25%,
+    84% 65%,
+    89% 35%,
+    94% 70%,
+    100% 40%,
+    100% 100%,
+    0% 100%
+  );
 }
 
 .home-intro .hero-description {
