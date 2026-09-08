@@ -1517,6 +1517,14 @@ body {
   margin-bottom: 50px;
 }
 
+.projects-page .featured-art::after {
+  display: none !important;
+}
+
+.projects-page .featured-art img {
+  filter: none !important;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
