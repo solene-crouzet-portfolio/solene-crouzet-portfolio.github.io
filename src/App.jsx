@@ -2702,9 +2702,10 @@ body {
    TABLETTE
 ===================================================== */
 
+/*
 @media (max-width: 1000px) {
 
-  .project-main-image,
+ .project-main-image,
   .project-gallery,
   .project-description,
   .project-software,
@@ -2730,6 +2731,8 @@ body {
     height: 480px;
   }
 }
+*/
+
 
 /* PREMIER ÉCRAN DU PROJET */
 
@@ -3284,7 +3287,7 @@ body {
 }
 
 /* ---------- RESPONSIVE ---------- */
-@media (max-width: 860px) {
+/* @media (max-width: 860px) {
   .featured-grid { grid-template-columns: repeat(2, 1fr); }
   .featured-tile-b { margin-top: 0; }
   .about-teaser, .about-hero, .about-grid, .project-body, .contact-body { grid-template-columns: 1fr; }
@@ -3297,6 +3300,7 @@ body {
   .project-pager-next { border-left: none; border-top: 1px solid color-mix(in srgb, var(--ink) 12%, transparent); align-items: flex-start; text-align: left; }
   .nav-links { gap: 14px; }
 }
+*/
 
 
 @keyframes starFloat {
@@ -3429,18 +3433,21 @@ body {
     0 100%
   ) !important;
 }
-/* ===== MOBILE : garder exactement la mise en page ordinateur ===== */
+/* ===== VERSION TÉLÉPHONE = VERSION ORDINATEUR RÉDUITE ===== */
 
 @media (max-width: 768px) {
+  html,
   body {
     margin: 0;
+    padding: 0;
     overflow-x: hidden;
   }
 
   #root {
     width: 1440px;
-    transform: scale(calc(100vw / 1440));
-    transform-origin: top left;
+    min-width: 1440px;
+
+    zoom: calc(100vw / 1440);
   }
 }
 
