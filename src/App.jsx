@@ -3433,13 +3433,15 @@ body {
     0 100%
   ) !important;
 }
-/* ===== VERSION TÉLÉPHONE = VERSION ORDINATEUR RÉDUITE ===== */
+/* ===== MOBILE = VERSION ORDINATEUR ENTIÈRE RÉDUITE ===== */
 
 @media (max-width: 768px) {
+
   html,
   body {
     margin: 0;
     padding: 0;
+    width: 100%;
     overflow-x: hidden;
   }
 
@@ -3447,7 +3449,8 @@ body {
     width: 1440px;
     min-width: 1440px;
 
-    zoom: calc(100vw / 1440);
+    transform: scale(calc(100vw / 1440));
+    transform-origin: top left;
   }
 }
 
