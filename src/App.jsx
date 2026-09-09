@@ -1917,19 +1917,6 @@ body {
   display: none !important;
 }
 
-/* MOBILE */
-
-@media (max-width: 800px) {
-  .project-intro-layout {
-    grid-template-columns: 1fr;
-    gap: 35px;
-  }
-
-  .project-meta {
-    gap: 30px;
-    flex-wrap: wrap;
-  }
-}
 .project-header {
   min-height: calc(100vh - 110px) !important;
   display: flex !important;
@@ -2838,26 +2825,6 @@ body {
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 750px) {
-
-  /* Grande image */
-
-  .project-main-image {
-    width: calc(100% - 24px);
-  }
-
-  .project-main-image img {
-    height: auto;
-
-    aspect-ratio: 4 / 3;
-
-    border-radius: 16px;
-  }
-
 
   /* Description */
 
@@ -3002,16 +2969,6 @@ body {
   visibility: hidden !important;
 }
 
-@media (max-width: 900px) {
-  .pamparina-book-section {
-    margin-top: 25px !important;
-    margin-bottom: 40px !important;
-  }
-
-  .pamparina-book-wrapper {
-    padding: 0 15px !important;
-  }
-}
 
 .elmer-illustrations {
   display: grid;
@@ -3341,116 +3298,6 @@ body {
   .nav-links { gap: 14px; }
 }
 
-@media (max-width: 560px) {
-
-.hero-star {
-  display: none;
-}
-.hero-content {
-  width: 90%;
-  left: 50%;
-  right: auto;
-  top: 15% !important;
-  transform: translateX(-50%);
-}
-  .mobile-menu-overlay {
-  position: fixed !important;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-
-  background: #ffffff !important;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-
-  z-index: 9999;
-
-  clip-path: circle(0% at 88% 8%);
-  transition: clip-path 0.65s cubic-bezier(0.77, 0, 0.18, 1);
-
-  pointer-events: none;
-}
-
-.mobile-menu-overlay.is-open {
-  clip-path: circle(150% at 88% 8%);
-  pointer-events: auto;
-}
-
-.mobile-menu-link {
-  background: none;
-  border: none;
-  color: white;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 800;
-  font-size: 2rem;
-  cursor: pointer;
-
-  opacity: 0;
-  transform: translateY(20px);
-
-  transition:
-    opacity 0.35s ease,
-    transform 0.45s ease;
-
-  transition-delay: var(--delay);
-}
-
-.mobile-menu-overlay.is-open .mobile-menu-link {
-  opacity: 1;
-  transform: translateY(0);
-}
-  .menu-star {
-  position: absolute;
-  color: #ff3ba7;
-  pointer-events: none;
-  animation: starFloat 3s ease-in-out infinite;
-}
-
-.star-1 {
-  top: 18%;
-  left: 15%;
-  font-size: 2rem;
-}
-
-.star-2 {
-  top: 28%;
-  right: 14%;
-  font-size: 1.3rem;
-  animation-delay: 0.5s;
-}
-
-.star-3 {
-  top: 52%;
-  left: 10%;
-  font-size: 1.5rem;
-  animation-delay: 1s;
-}
-
-.star-4 {
-  bottom: 18%;
-  right: 18%;
-  font-size: 2.2rem;
-  animation-delay: 1.5s;
-}
-
-.star-5 {
-  bottom: 28%;
-  left: 22%;
-  font-size: 1.1rem;
-  animation-delay: 0.8s;
-}
-  .menu-star {
-  display: block;
-  position: absolute;
-  color: #ff3ba7;
-  pointer-events: none;
-  animation: starFloat 3s ease-in-out infinite;
-}
 
 @keyframes starFloat {
   0%, 100% {
@@ -3582,65 +3429,19 @@ body {
     0 100%
   ) !important;
 }
+/* ===== MOBILE : garder exactement la mise en page ordinateur ===== */
 
-/* TABLETTE */
-@media (max-width: 900px) {
-  .project-intro-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .project-intro-image {
-    width: 100%;
-  }
-
-  .project-gallery-three {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .pokematch-row {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* TÉLÉPHONE */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   body {
+    margin: 0;
     overflow-x: hidden;
   }
 
-  .project-detail {
-    width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .project-intro-layout {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .project-gallery-three {
-    grid-template-columns: 1fr;
-  }
-
-  .pokematch-row {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .pokematch-row img:first-child,
-  .pokematch-row img:nth-child(2),
-  .pokematch-row video {
-    width: 100%;
-    transform: none;
-  }
-
-  .elmer-illustrations {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  h1 {
-    font-size: clamp(38px, 12vw, 70px);
+  #root {
+    width: 1440px;
+    transform: scale(calc(100vw / 1440));
+    transform-origin: top left;
   }
 }
+
 `;
