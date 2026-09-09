@@ -21,7 +21,7 @@ const PROJECTS = [
   {
     id: "pamparina",
     title: "Pamparina",
-    image: "/images/pamparina_projet_1.png",
+    image: "/images/Abris bus pamparina.png",
     category: "Identité visuelle",
     year: "2026",
     accent: "#4640D6",
@@ -46,11 +46,11 @@ const PROJECTS = [
     title: "Elmer",
     image: "/images/elmer_projet_2.jpg",
     category: "Illustration",
-    year: "2023",
+    year: "2025",
     accent: "#FF5B39",
     pattern: "stripes",
     size: "wide",
-    tagline: "Marque de boisson énergisante indépendante",
+    tagline: "Illustration couverture de livre",
     context:
       "Une marque de boisson énergisante 100 % naturelle souhaite se démarquer des codes du secteur, saturé de noir mat et de promesses de performance.",
     objective:
@@ -58,7 +58,7 @@ const PROJECTS = [
     concept:
       "Elmer s'appuie sur un seul geste graphique : une diagonale franche, reprise sur chaque support à une intensité différente. Elle devient tour à tour éclair, ligne d'horizon ou trait de rature.",
     role: "Branding, packaging, direction artistique photo",
-    tools: ["Illustrator", "Photoshop", "Cinema 4D"],
+    tools: ["Procreate, Indesign, Photoshop"],
     process:
       "Plus de trente itérations de la diagonale ont été testées avant de trouver le bon angle : ni trop agressif, ni trop sage. Chaque parfum reçoit sa propre couleur, la diagonale restant l'unique constante.",
     results:
@@ -66,14 +66,14 @@ const PROJECTS = [
   },
   {
     id: "binche",
-    title: "Carnaval de Binche",
+    title: "Binche",
     image: "/images/binche_projet_3.png",
-    category: "Affiche",
+    category: "Affiche de carnaval",
     year: "2022",
     accent: "#8C2BD9",
     pattern: "circles",
     size: "normal",
-    tagline: "Série d'affiches pour un festival de jazz",
+    tagline: "Affiche de carnaval",
     context:
       "Un festival de jazz de nuit, installé dans d'anciens entrepôts, me confie sa communication visuelle pour sa cinquième édition.",
     objective:
@@ -112,14 +112,14 @@ const PROJECTS = [
   },
   {
     id: "vinyle",
-    title: "Pensée sur l'amour",
+    title: "Musique",
     image: "/images/vinyle_projet_4.png",
     category: "Identité visuelle",
     year: "2023",
     accent: "#7A7350",
     pattern: "type",
     size: "normal",
-    tagline: "Recueil de poésie contemporaine",
+    tagline: "Identité visuelle",
     context:
       "Une jeune maison d'édition indépendante prépare son premier recueil, un texte court et dense sur le rapport au temps qui passe.",
     objective:
@@ -134,15 +134,15 @@ const PROJECTS = [
       "Un recueil de 96 pages, tiré à 500 exemplaires, salué pour son objet autant que pour son texte lors de sa sortie en librairie indépendante.",
   },
   {
-    id: "pokematch",
-    title: "Collaboration Fictive",
+    id: "Pokematch",
+    title: "Pokématch",
     image: "/images/pokematch_projet_5.png",
     category: "Identité visuelle",
     year: "2024",
     accent: "#4C7A54",
     pattern: "blob",
     size: "tall",
-    tagline: "Gamme de cosmétique solide",
+    tagline: "Identité visuelle pour une collaboration fictive",
     context:
       "Une marque de cosmétique solide, fabriquée en Bretagne à partir d'algues locales, prépare son lancement en magasin bio.",
     objective:
@@ -670,6 +670,36 @@ function ProjectDetail({ project, openProject, go }) {
   const index = PROJECTS.findIndex((p) => p.id === project.id);
   const prev = PROJECTS[(index - 1 + PROJECTS.length) % PROJECTS.length];
   const next = PROJECTS[(index + 1) % PROJECTS.length];
+  const pokemonVideosRef = useRef([]);
+
+useEffect(() => {
+  const videos = pokemonVideosRef.current.filter(Boolean);
+
+  const startVideosTogether = async () => {
+    if (videos.length !== 4) return;
+
+    videos.forEach((video) => {
+      video.currentTime = 0;
+    });
+
+    await Promise.all(
+      videos.map((video) => video.play().catch(() => {}))
+    );
+  };
+
+  Promise.all(
+    videos.map(
+      (video) =>
+        new Promise((resolve) => {
+          if (video.readyState >= 3) {
+            resolve();
+          } else {
+            video.addEventListener("canplay", resolve, { once: true });
+          }
+        })
+    )
+  ).then(startVideosTogether);
+}, []);
 
   return (
     <div className="page project-detail-page">
@@ -696,7 +726,9 @@ function ProjectDetail({ project, openProject, go }) {
 
     <div className="project-title-block">
       <h1>{project.title}</h1>
-      <p className="project-tagline">{project.tagline}</p>
+      <p className="project-tagline project-detail-tagline">
+  {project.tagline}
+</p>
     </div>
 
     <div className="project-meta">
@@ -711,11 +743,17 @@ function ProjectDetail({ project, openProject, go }) {
       </div>
     </div>
 
-    <div className="project-intro-description">
+  <div className="project-intro-description">
+
+  <div className="project-intro-description">
+
+  {project.id === "pamparina" && (
+    
+    <>
       <p>
-        Dans le cadre d’un workshop réalisé durant ma dernière année
-        de Bachelor, nous avons travaillé à partir d’un brief réel
-        sur la refonte de l’identité visuelle de la Pamparina.
+        Dans le cadre d’un workshop réalisé durant ma dernière année de
+        Bachelor, nous avons travaillé à partir d’un brief réel sur la refonte
+        de l’identité visuelle de la Pamparina.
       </p>
 
       <p>
@@ -724,15 +762,65 @@ function ProjectDetail({ project, openProject, go }) {
         développé l’affiche principale ainsi que différentes déclinaisons
         graphiques autour de l’événement.
       </p>
-    </div>
+    </>
+  )}
+{project.id === "pamparina" && (
+  <div className="pamparina-book-position">
+    <PamparinaBook />
+  </div>
+)}
+  {project.id === "elmer" && (
+    <>
+      <p>
+        Ce projet d’école avait pour objectif de revisiter la couverture
+        d’un livre existant en l’associant à un thème tiré au hasard.
+        J’ai choisi Elmer et pioché le thème de la magie.
+      </p>
+
+      <p>
+        J’ai donc imaginé une nouvelle couverture mêlant ces deux univers,
+        tout en travaillant les différentes étapes de préparation du fichier
+        jusqu’à son impression.
+      </p>
+    </>
+  )}
+
+  {project.id === "Pokematch" && (
+    <>
+      <p>
+        Pokématch est mon projet de fin de Bachelor. Il s'agit d’une
+        collaboration fictive entre Roland-Garros, Nike et Pokémon. Le 
+        concept repose sur l’association d’un joueur de tennis à un Pokémon en
+        fonction de leur personnalité et de leur style de jeu.
+      </p>
+      <p>
+        J’ai créé un univers visuel cohérent mêlant les codes du tennis et de Pokémon
+        que j'ai eunsuite décliné sur différents supports, 
+        notamment des maillots,des cartes à collectionner et des figurines Art Toys.
+      </p>
+    </>
+  )}
+
+</div>
+
+</div>
 
   </div>
   
  <div className="project-intro-image">
   <img
-    src="/images/Abris bus pamparina.png"
-    alt={project.title}
-  />
+  src={
+    project.id === "pamparina"
+      ? "/public/images/Abris bus pamparina.png"
+      : project.id === "elmer"
+      ? "/images/elmer_projet_2.jpg"
+      : project.image
+  }
+
+  className={project.id === "pamparina" ? "pamparina-detail-image" : ""}
+
+  alt={project.title}
+/>
 </div>
 
 </div>
@@ -763,29 +851,110 @@ function ProjectDetail({ project, openProject, go }) {
   </div>
 </section>
 
-<PamparinaBook />
+{project.id === "pamparina" && (
+  <div className="project-gallery-three">
+    <img
+      src="/images/ecocup_pamparina.png"
+      alt="Pamparina visuel 2"
+    />
 
-<div className="project-gallery-three">
-  <img
-    src="/images/ecocup_pamparina.png"
-    alt="Pamparina visuel 2"
-  />
+    <img
+      src="/images/badge_carte_pamparina.png"
+      alt="Pamparina visuel 3"
+    />
 
-  <img
-    src="/images/badge_carte_pamparina.png"
-    alt="Pamparina visuel 3"
-  />
+    <img
+      src="/images/tote_bag_pamparina.png"
+      alt="Pamparina visuel 4"
+    />
+  </div>
+)}
 
-  <img
-    src="/images/tote_bag_pamparina.png"
-    alt="Pamparina visuel 4"
-  />
-</div>
+{project.id === "elmer" && (
+  <div className="elmer-illustrations">
+    <img src="/images/elmer_illu_1.png" alt="Illustration Elmer 1" />
+    <img src="/images/elmer_illu_2.png" alt="Illustration Elmer 2" />
+    <img src="/images/elmer_illu_3.png" alt="Illustration Elmer 3" />
+    <img src="/images/elmer_illu_4.png" alt="Illustration Elmer 4" />
+  </div>
+)}
 
-<p className="project-gallery-caption">
-  Quelques déclinaisons de l’identité visuelle sur différents supports,
-  pour montrer comment l’univers de la Pamparina peut vivre au-delà de l’affiche.
-</p>
+{project.id === "Pokematch" && (
+  <div className="pokematch-creations">
+
+    {/* SINNER */}
+    <div className="pokematch-row">
+      <img src="/images/Maillot Sinner.png" alt="Maillot Sinner" />
+      <img src="/images/Carte 1 clair metamorph.png" alt="Carte Sinner" />
+      <video
+        ref={(el) => (pokemonVideosRef.current[0] = el)}
+        src="/images/pokemon_360_1.mp4"
+        loop 
+        muted
+        playsInline
+      />
+    </div>
+
+    {/* ALCARAZ */}
+    <div className="pokematch-row">
+      <img src="/images/Maillot Alcaraz.png" alt="Maillot Alcaraz" />
+      <img src="/images/Carte 2 clair metamorph.png" alt="Carte Alcaraz" />
+      <video
+      ref={(el) => (pokemonVideosRef.current[1] = el)}
+      src="/images/pokemon_360_2.mp4"
+      loop
+      muted
+      playsInline
+      />
+    </div>
+
+    {/* SABALENKA */}
+    <div className="pokematch-row">
+      <img src="/images/Maillot Sabalenka.png" alt="Maillot Sabalenka" />
+      <img src="/images/Carte 3 clair metamorph.png" alt="Carte Sabalenka" />
+      <video
+      ref={(el) => (pokemonVideosRef.current[2] = el)}
+      src="/images/pokemon_360_3.mp4"
+      loop
+      muted
+      playsInline
+      />
+    </div>
+
+    {/* ANDREEVA */}
+    <div className="pokematch-row">
+      <img src="/images/Maillot Andreeva.png" alt="Maillot Andreeva" />
+      <img src="/images/Carte 4 clair metamorph.png" alt="Carte Andreeva" />
+      <video
+      ref={(el) => (pokemonVideosRef.current[3] = el)}
+      src="/images/pokemon_360_4.mp4"
+      loop
+      muted
+      playsInline
+      />
+    </div>
+
+  </div>
+)}
+
+{project.id === "pamparina" && (
+  <p className="project-gallery-caption">
+    Voici quelques déclinaisons de l’identité visuelle sur différents supports,
+    pour montrer comment l’univers de la Pamparina peut vivre au-delà de l’affiche.
+  </p>
+)}
+
+{project.id === "elmer" && (
+  <p className="project-gallery-caption">
+    Voici les différentes étapes de création de mon illustration, du premier croquis jusqu’au rendu final.
+  </p>
+)}
+
+{project.id === "Pokematch" && (
+  <p className="project-gallery-caption">
+    Voici les quatre figurines imaginées pour le projet Pokématch, présentées en rotation à 360°.
+  </p>
+)}
 
     </div>
   );
@@ -1420,11 +1589,11 @@ body {
 }
 
 .image-pamparina {
-  transform: scale(1.18) translateY(-6px) !important;
+  transform: scale(1.1) translateX(6px) translateY(6px) !important;
 }
 
 .featured-tile:hover .featured-art img.image-pamparina {
-  transform: scale(1.24) translateY(-6px) !important;
+  transform: scale(1.16) translateX(6px) translateY(6px) !important;
 }
 .image-binche {
   transform: scale(1.26) translateY(18px) !important;
@@ -1661,22 +1830,24 @@ body {
 }
 
 .project-title-block h1 {
-  margin-top: 0 !important;
-}
-
-.project-title-block h1 {
   margin: 0 0 18px;
   font-family: "Montserrat", sans-serif;
   font-size: clamp(42px, 4.5vw, 68px);
   font-weight: 700;
   line-height: 1;
 }
+.project-title-block .project-tagline.project-detail-tagline {
+  font-family: "elite", sans-serif;
+  font-weight: 400;
+  font-size: 15px !important;
+}
 
 .project-tagline {
-  font-size: 15px !important;
-  line-height: 1.4 !important;
-  margin-top: 10px !important;
+  font-family: "elite", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
+
 
 /* ANNÉE + LOGICIELS */
 
@@ -1693,8 +1864,8 @@ body {
 }
 
 .project-meta span {
-  display: block;
-  margin-bottom: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
 
 .project-meta p {
@@ -1730,10 +1901,10 @@ body {
 
 .project-intro-image img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 
-  display: block;
-  object-fit: contain;
+  transform: scale(1.05) translate(0px, 8px);
 }
 
 /* IMPORTANT : on neutralise les anciens styles */
@@ -1865,7 +2036,7 @@ body {
 }
 .project-gallery-caption {
   width: 100% !important;
-  margin-top: 20px !important;
+  margin-top: 50px !important;
   margin-bottom: 200px !important;
   font-family: "Montserrat", sans-serif !important;
   font-size: 14px !important;
@@ -2611,12 +2782,31 @@ body {
 
 
 /* Pamparina */
+.pamparina-book-position {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: 130px;
+}
+
+.pamparina-book-position .stf__parent {
+  position: relative !important;
+
+  /* déplacement horizontal */
+  left: 400px !important;
+
+  /* agrandissement */
+  transform: scale(1.1) !important;
+  transform-origin: center top !important;
+}
 
 .project-title-block h1 {
   font-family: "Montserrat", sans-serif;
   font-weight: 800;
 }
-
+.pamparina-detail-image {
+  object-fit: cover !important;
+  object-position: 60% 55% !important;
+}
 
 /* Tous les projets */
 
@@ -2821,6 +3011,94 @@ body {
   .pamparina-book-wrapper {
     padding: 0 15px !important;
   }
+}
+
+.elmer-illustrations {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  gap: 20px;
+  align-items: center;
+  margin-top: -60px;
+
+  /* On réserve plus de place pour les éléphants agrandis */
+  margin-bottom: 80px;
+}
+
+.elmer-illustrations img {
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+
+  transform: scale(2);
+  transform-origin: center;
+
+  display: block;
+}
+
+.pokemon-videos {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  align-items: center;
+  justify-items: center;
+}
+
+.pokemon-videos video {
+  width: 100%;
+  height: 300px;
+
+  object-fit: cover;
+  object-position: center;
+
+  transform: scale(1.4);
+
+  display: block;
+}
+
+.pokematch-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.15fr 0.7fr 1.15fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* T-SHIRT : plus grand */
+.pokematch-row img:first-child {
+  width: 115%;
+  height: 420px;
+  object-fit: contain;
+  justify-self: center;
+}
+
+/* CARTE : plus petite + décalée vers la droite */
+.pokematch-row img:nth-child(2) {
+  width: 75%;
+  height: 320px;
+  object-fit: contain;
+  justify-self: center;
+  transform: translateX(70px);
+
+  /* Rogne exactement autour de la carte */
+  clip-path: inset(5% 0% 4.5% 0% round 10px);
+}
+
+/* VIDÉO : plus grande + rognée en haut et en bas */
+.pokematch-row video {
+  width: 90%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+  justify-self: center;
+  display: block;
+  /* rognage léger sur les côtés */
+  clip-path: inset(0 6% 0 6%);
 }
 /* ---------- ABOUT ---------- */
 .about-hero {
@@ -3303,5 +3581,66 @@ body {
     100% 100%,
     0 100%
   ) !important;
+}
+
+/* TABLETTE */
+@media (max-width: 900px) {
+  .project-intro-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .project-intro-image {
+    width: 100%;
+  }
+
+  .project-gallery-three {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pokematch-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* TÉLÉPHONE */
+@media (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .project-detail {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .project-intro-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .project-gallery-three {
+    grid-template-columns: 1fr;
+  }
+
+  .pokematch-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .pokematch-row img:first-child,
+  .pokematch-row img:nth-child(2),
+  .pokematch-row video {
+    width: 100%;
+    transform: none;
+  }
+
+  .elmer-illustrations {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  h1 {
+    font-size: clamp(38px, 12vw, 70px);
+  }
 }
 `;
