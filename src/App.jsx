@@ -1167,32 +1167,6 @@ body {
 }
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600&display=swap');
 
-.app-root {
-  --ink: #17142B;
-  --paper: #F1F0F7;
-  --paper-2: #E7E4F0;
-  --accent: #FFBEE3;
-  --accent-text: color-mix(in srgb, #FFBEE3 35%, #17142B 65%);
-  --serif: 'Fraunces', serif;
-  --sans: 'Inter', sans-serif;
-
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--sans);
-  min-height: 100vh;
-  overflow-x: hidden;
-  position: relative;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-
-.app-root * { box-sizing: border-box; }
-.app-root button { font-family: inherit; background: none; border: none; cursor: pointer; color: inherit; padding: 0; }
-.app-root a { color: inherit; }
-.app-root ul { list-style: none; margin: 0; padding: 0; }
-.app-root dl { margin: 0; }
-.app-root h1, .app-root h2, .app-root h3 { font-family: var(--serif); font-weight: 500; margin: 0; }
-.app-root p { margin: 0; }
 
 .page-transition {
   animation: fadeIn 0.8s ease-in-out both;
@@ -3440,5 +3414,34 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
+/* ===== MOBILE = VERSION ORDINATEUR RÉDUITE ===== */
 
+@media (max-width: 768px) {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .app-root {
+    width: 1440px;
+    min-width: 1440px;
+    transform: scale(calc(100vw / 1440));
+    transform-origin: top left;
+  }
+
+  /* On garde la navigation ordinateur */
+  .menu-toggle {
+    display: none !important;
+  }
+
+  .mobile-menu-overlay {
+    display: none !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+  }
+}
 `;
