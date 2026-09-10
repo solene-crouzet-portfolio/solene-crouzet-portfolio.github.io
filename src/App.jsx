@@ -4370,8 +4370,8 @@ body {
 /* IMAGE DU PROJET */
 
 .projects-carousel .featured-art {
-  width: 100% !important;
-  height: 390px !important;
+  width: 88% !important;
+  height: 440px !important;
 
   border-radius: 38px !important;
   overflow: hidden !important;
