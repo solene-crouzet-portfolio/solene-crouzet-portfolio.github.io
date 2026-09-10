@@ -1420,6 +1420,11 @@ body {
     opacity: 1;
   }
 }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-transition { animation: none; }
+}
+
 /* ---------- NAV ---------- */
 .nav {
   position: sticky;
@@ -1529,8 +1534,7 @@ body {
 .hero-banner {
   width: 100%;
   height: calc(100vh - 90px);
-  background: #ffffff;
-}
+  background: color #ffffff;
 
 .hero-content {
   position: absolute;
@@ -1965,7 +1969,15 @@ body {
   padding-right: 8px;
 }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
 
+/* ---------- ABOUT TEASER (home) ---------- */
+.about-teaser {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(24px, 5vw, 60px);
+  align-items: center;
+}
 .about-teaser-image {
   width: 100%;
   height: 100%;
@@ -2021,7 +2033,7 @@ body {
   display: grid;
   grid-template-columns: 42% 58%;
   gap: 60px;
-  align-items: start !important;
+  align-items: start !im;portant;
   width: 100%;
   margin-top: 30px;
 }
@@ -2123,7 +2135,325 @@ body {
 /* ================= PROJETS - MOBILE ======================= */
 /* ========================================================= */
 
+@media (max-width: 860px) {
 
+  /* ---------- PREMIER ÉCRAN DU PROJET ---------- */
+
+  .project-header {
+    min-height: auto !important;
+    height: auto !important;
+
+    display: block !important;
+
+    padding-top: 35px !important;
+    padding-bottom: 35px !important;
+
+    margin: 0 !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+  }
+
+
+  /* ---------- RETOUR TOUS LES PROJETS ---------- */
+
+  .back-link {
+    display: block !important;
+
+    margin: 0 0 28px 0 !important;
+    padding: 0 !important;
+
+    width: fit-content !important;
+  }
+
+
+  /* ---------- STRUCTURE GÉNÉRALE ---------- */
+
+  .project-intro-layout {
+    display: flex !important;
+    flex-direction: column !important;
+
+    grid-template-columns: none !important;
+
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    gap: 0 !important;
+  }
+
+
+  /*
+    IMPORTANT :
+    titre + année + logiciels + description
+    sont dans .project-intro-left.
+
+    display: contents permet de placer l'image
+    ENTRE les infos et la description.
+  */
+
+  .project-intro-left {
+    display: contents !important;
+  }
+
+
+  /* ========================================================= */
+  /* 1 — TITRE + SOUS-TITRE                                   */
+  /* ========================================================= */
+
+  .project-title-block {
+    order: 1 !important;
+
+    width: 100% !important;
+
+    margin: 0 0 30px 0 !important;
+    padding: 0 !important;
+  }
+
+  .project-title-block h1 {
+    margin: 0 0 12px 0 !important;
+
+    font-size: 42px !important;
+    line-height: 1 !important;
+  }
+
+  .project-title-block .project-tagline {
+    margin: 0 !important;
+
+    font-size: 15px !important;
+    line-height: 1.3 !important;
+  }
+
+
+  /* ========================================================= */
+  /* 2 — ANNÉE + LOGICIELS SUR UNE SEULE LIGNE                */
+  /* ========================================================= */
+
+  .project-meta {
+    order: 2 !important;
+
+    display: grid !important;
+    grid-template-columns: 0.75fr 1.6fr !important;
+
+    column-gap: 28px !important;
+
+    width: 100% !important;
+    transform: translateY(-25px) !important;
+    margin: 0 0 30px 0 !important;
+    padding: 0 !important;
+  }
+
+
+  /* Chaque bloc : "Année 2026" / "Logiciels utilisés ..." */
+
+  .project-meta > div {
+    display: flex !important;
+    flex-direction: row !important;
+
+    align-items: center !important;
+
+    gap: 8px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    min-width: 0 !important;
+  }
+
+
+  .project-meta span {
+    display: block !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: 13px !important;
+    font-weight: 600 !important;
+
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+
+  .project-meta p {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+  }
+
+
+  /* 2026 ne passe jamais à la ligne */
+
+  .project-meta > div:first-child p {
+    white-space: nowrap !important;
+  }
+
+
+  /* Les logiciels peuvent revenir légèrement à la ligne si nécessaire */
+
+  .project-meta > div:nth-child(2) p {
+    min-width: 0 !important;
+  }
+
+
+  /* ========================================================= */
+  /* 3 — IMAGE PRINCIPALE                                     */
+  /* ========================================================= */
+
+  .project-intro-image {
+    order: 3 !important;
+
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden !important;
+
+    border-radius: 18px !important;
+  }
+
+
+  .project-intro-image img {
+    display: block !important;
+
+    width: 100% !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    object-fit: cover !important;
+
+    transform: none !important;
+  }
+
+
+  /* ========================================================= */
+  /* 4 — DESCRIPTION SOUS L'IMAGE                             */
+  /* ========================================================= */
+
+  .project-intro-description {
+    order: 4 !important;
+
+    width: 100% !important;
+    max-width: none !important;
+
+    margin-top: 6px !important;
+    padding: 0 !important;
+
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+  .project-intro-description {
+    padding-top: 25px !important;
+  }
+
+  .project-intro-description p {
+    width: 100% !important;
+
+    margin: 0 0 14px 0 !important;
+    padding: 0 !important;
+  }
+
+
+  .project-intro-description p:last-child {
+    margin-bottom: 0 !important;
+  }
+
+
+  /* ========================================================= */
+  /* ÉLÉMENTS QUI VIENNENT APRÈS LE TEXTE                     */
+  /* Évite les grosses zones blanches inutiles                 */
+  /* ========================================================= */
+
+  .project-gallery,
+  .project-gallery-three,
+  .elmer-illustrations,
+  .pokemon-videos,
+  .pamparina-book-position,
+
+
+  /* ---------- GALERIES ---------- */
+
+  .project-gallery-three {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+
+    gap: 18px !important;
+
+    width: 100% !important;
+  }
+
+
+  .project-gallery-three img {
+    display: block !important;
+
+    width: 100% !important;
+    height: auto !important;
+
+    margin: 0 !important;
+  }
+
+
+  /* ---------- ELMER ---------- */
+
+  .elmer-illustrations {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+
+    gap: 18px !important;
+
+    width: 100% !important;
+
+    transform: none !important;
+  }
+
+
+  .elmer-illustrations img {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+
+    margin: 0 !important;
+  }
+
+
+  /* ---------- POKÉMATCH : VIDÉOS ---------- */
+
+  .pokemon-videos {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+
+    gap: 16px !important;
+
+    width: 100% !important;
+  }
+
+
+  .pokemon-videos video {
+    display: block !important;
+
+    width: 100% !important;
+    height: auto !important;
+
+    object-fit: contain !important;
+  }
+
+}
+/* @media (max-width: 800px) {
+  .project-intro-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .project-meta {
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+} */
 .project-header {
   min-height: calc(100vh - 110px) !important;
   display: flex !important;
@@ -2208,6 +2538,31 @@ body {
   scroll-snap-align: start;
 }
 
+@media (max-width: 860px) {
+  .projects-carousel-wrapper {
+    padding: 0 55px !important;
+    overflow: hidden !important;
+  }
+
+  .projects-carousel {
+    gap: 24 !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+  }
+
+  .projects-carousel .featured-tile {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+
+    scroll-snap-align: center !important;
+
+    margin: 0 !important;
+    transform: none !important;
+  }
+}
 .project-gallery-three {
   width: 100% !important;
   display: grid !important;
@@ -2435,11 +2790,17 @@ body {
 .editorial-tagline { font-size: 0.8rem; opacity: 0.85; max-width: 40ch; }
 
 /* ---------- PROJECT DETAIL ---------- */
+.project-detail-page {
+  padding-left: 6%;
+  padding-right: 6%;
+  box-sizing: border-box;
+}
+
 .project-header {
-  width: 80%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 0 30px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 55px 45px;
   box-sizing: border-box;
 }
 
@@ -2910,7 +3271,34 @@ body {
    TABLETTE
 ===================================================== */
 
+/* @media (max-width: 1000px) {
 
+  .project-main-image,
+  .project-gallery,
+  .project-description,
+  .project-software,
+  .project-navigation {
+    width: calc(100% - 50px);
+  }
+
+  .project-main-image img {
+    height: 560px;
+  }
+
+  .project-description {
+    gap: 60px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  .gallery-large {
+    height: 600px;
+  }
+
+  .gallery-two img {
+    height: 480px;
+  }
+} */
 
 /* PREMIER ÉCRAN DU PROJET */
 
@@ -2950,7 +3338,9 @@ body {
    MOBILE
 ===================================================== */
 
+/* @media (max-width: 750px) {
 
+  /* Grande image */
 
   .project-main-image {
     width: calc(100% - 24px);
@@ -3108,7 +3498,16 @@ body {
   visibility: hidden !important;
 }
 
+/* @media (max-width: 900px) {
+  .pamparina-book-section {
+    margin-top: 25px !important;
+    margin-bottom: 40px !important;
+  }
 
+  .pamparina-book-wrapper {
+    padding: 0 15px !important;
+  }
+} */
 
 .elmer-illustrations {
   display: grid;
@@ -3420,345 +3819,22 @@ body {
   color: #111111 !important;
 }
 
-/* ============================================================
-   RESPONSIVE — TABLETTE / MOBILE LARGE
-   ============================================================ */
-
-@media (max-width: 860px) {
-
-
-  /* ---------- PREMIER ÉCRAN DU PROJET ---------- */
-
-  .project-header {
-    min-height: auto !important;
-    height: auto !important;
-
-    display: block !important;
-
-    padding-top: 35px !important;
-    padding-bottom: 35px !important;
-
-    margin: 0 !important;
-    transform: none !important;
-    box-sizing: border-box !important;
-  }
-
-
-  /* ---------- RETOUR TOUS LES PROJETS ---------- */
-
-  .back-link {
-    display: block !important;
-
-    margin: 0 0 28px 0 !important;
-    padding: 0 !important;
-
-    width: fit-content !important;
-  }
-
-
-  /* ---------- STRUCTURE GÉNÉRALE ---------- */
-
-  .project-intro-layout {
-    display: flex !important;
-    flex-direction: column !important;
-
-    grid-template-columns: none !important;
-
-    width: 100% !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    gap: 0 !important;
-  }
-
-
-  /*
-    IMPORTANT :
-    titre + année + logiciels + description
-    sont dans .project-intro-left.
-
-    display: contents permet de placer l'image
-    ENTRE les infos et la description.
-  */
-
-  .project-intro-left {
-    display: contents !important;
-  }
-
-
-  /* ========================================================= */
-  /* 1 — TITRE + SOUS-TITRE                                   */
-  /* ========================================================= */
-
-  .project-title-block {
-    order: 1 !important;
-
-    width: 100% !important;
-
-    margin: 0 0 30px 0 !important;
-    padding: 0 !important;
-  }
-
-  .project-title-block h1 {
-    margin: 0 0 12px 0 !important;
-
-    font-size: 42px !important;
-    line-height: 1 !important;
-  }
-
-  .project-title-block .project-tagline {
-    margin: 0 !important;
-
-    font-size: 15px !important;
-    line-height: 1.3 !important;
-  }
-
-
-  /* ========================================================= */
-  /* 2 — ANNÉE + LOGICIELS SUR UNE SEULE LIGNE                */
-  /* ========================================================= */
-
-  .project-meta {
-    order: 2 !important;
-
-    display: grid !important;
-    grid-template-columns: 0.75fr 1.6fr !important;
-
-    column-gap: 28px !important;
-
-    width: 100% !important;
-    transform: translateY(-25px) !important;
-    margin: 0 0 30px 0 !important;
-    padding: 0 !important;
-  }
-
-
-  /* Chaque bloc : "Année 2026" / "Logiciels utilisés ..." */
-
-  .project-meta > div {
-    display: flex !important;
-    flex-direction: row !important;
-
-    align-items: center !important;
-
-    gap: 8px !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    min-width: 0 !important;
-  }
-
-
-  .project-meta span {
-    display: block !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    font-size: 13px !important;
-    font-weight: 600 !important;
-
-    white-space: nowrap !important;
-    flex-shrink: 0 !important;
-  }
-
-
-  .project-meta p {
-    margin: 0 !important;
-    padding: 0 !important;
-
-    font-size: 13px !important;
-    line-height: 1.3 !important;
-  }
-
-
-  /* 2026 ne passe jamais à la ligne */
-
-  .project-meta > div:first-child p {
-    white-space: nowrap !important;
-  }
-
-
-  /* Les logiciels peuvent revenir légèrement à la ligne si nécessaire */
-
-  .project-meta > div:nth-child(2) p {
-    min-width: 0 !important;
-  }
-
-
-  /* ========================================================= */
-  /* 3 — IMAGE PRINCIPALE                                     */
-  /* ========================================================= */
-
-  .project-intro-image {
-    order: 3 !important;
-
-    width: 100% !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    overflow: hidden !important;
-
-    border-radius: 18px !important;
-  }
-
-
-  .project-intro-image img {
-    display: block !important;
-
-    width: 100% !important;
-    height: auto !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    object-fit: cover !important;
-
-    transform: none !important;
-  }
-
-
-  /* ========================================================= */
-  /* 4 — DESCRIPTION SOUS L'IMAGE                             */
-  /* ========================================================= */
-
-  .project-intro-description {
-    order: 4 !important;
-
-    width: 100% !important;
-    max-width: none !important;
-
-    margin-top: 6px !important;
-    padding: 0 !important;
-
-    font-size: 14px !important;
-    line-height: 1.6 !important;
-  }
-  .project-intro-description {
-    padding-top: 25px !important;
-  }
-
-  .project-intro-description p {
-    width: 100% !important;
-
-    margin: 0 0 14px 0 !important;
-    padding: 0 !important;
-  }
-
-
-  .project-intro-description p:last-child {
-    margin-bottom: 0 !important;
-  }
-
-
-  /* ========================================================= */
-  /* ÉLÉMENTS QUI VIENNENT APRÈS LE TEXTE                     */
-  /* Évite les grosses zones blanches inutiles                 */
-  /* ========================================================= */
-
-  /* ---------- GALERIES ---------- */
-
-  .project-gallery-three {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-
-    gap: 18px !important;
-
-    width: 100% !important;
-  }
-
-
-  .project-gallery-three img {
-    display: block !important;
-
-    width: 100% !important;
-    height: auto !important;
-
-    margin: 0 !important;
-  }
-
-
-  /* ---------- ELMER ---------- */
-
-  .elmer-illustrations {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-
-    gap: 18px !important;
-
-    width: 100% !important;
-
-    transform: none !important;
-  }
-
-
-  .elmer-illustrations img {
-    width: 100% !important;
-    max-width: none !important;
-    height: auto !important;
-
-    margin: 0 !important;
-  }
-
-
-  /* ---------- POKÉMATCH : VIDÉOS ---------- */
-
-  .pokemon-videos {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-
-    gap: 16px !important;
-
-    width: 100% !important;
-  }
-
-
-  .pokemon-videos video {
-    display: block !important;
-
-    width: 100% !important;
-    height: auto !important;
-
-    object-fit: contain !important;
-  }
-
-
-
-  .projects-carousel-wrapper {
-    padding: 0 55px !important;
-    overflow: hidden !important;
-  }
-
-  .projects-carousel {
-    gap: 24px !important;
-    width: 100% !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
-  }
-
-  .projects-carousel .featured-tile {
-    flex: 0 0 100% !important;
-    width: 100% !important;
-    min-width: 100% !important;
-    max-width: 100% !important;
-
-    scroll-snap-align: center !important;
-
-    margin: 0 !important;
-    transform: none !important;
-  }
-
-}
-
-/* ============================================================
-   RESPONSIVE — TÉLÉPHONE
-   ============================================================ */
+/* ---------- RESPONSIVE ---------- */
+/* @media (max-width: 860px) {
+  .featured-grid { grid-template-columns: repeat(2, 1fr); }
+  .featured-tile-b { margin-top: 0; }
+  .about-teaser, .about-hero, .about-grid, .project-body, .contact-body { grid-template-columns: 1fr; }
+  .editorial-grid { grid-template-columns: repeat(2, 1fr); }
+  .editorial-tile-normal, .editorial-tile-wide, .editorial-tile-big { grid-column: span 2; }
+  .editorial-tile-tall { grid-column: span 2; height: auto; }
+  .editorial-tile-tall .editorial-art { height: auto; aspect-ratio: 4/3; }
+  .project-two-art { grid-template-columns: 1fr; }
+  .project-pager { grid-template-columns: 1fr; }
+  .project-pager-next { border-left: none; border-top: 1px solid color-mix(in srgb, var(--ink) 12%, transparent); align-items: flex-start; text-align: left; }
+  .nav-links { gap: 14px; }
+} */
 
 @media (max-width: 560px) {
-
 
 /* ===== HERO TÉLÉPHONE ===== */
 
@@ -3768,11 +3844,38 @@ body {
   top: 20% !important;
 }
 
-/* Garde UNE SEULE étoile : les étoiles du hero restent masquées ici. */
+/* Un peu plus d'espace blanc avant la partie rose */
+.hero {
+  height: 200px !important;
+  min-height: 200px !important;
+}
+
+/* Garde UNE SEULE étoile */
 .hero-star-1,
-.hero-star-2,
-.hero-star-3 {
+.hero-star-2 {
   display: none !important;
+}
+  
+.hero-star-3 {
+display: none;
+  
+
+
+
+  top: 54px !important;
+  left: 336px !important;
+  right: auto !important;
+
+  font-size: 48px !important;
+  color: #e83cab !important;
+  z-index: 5 !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Partie rose juste après */
+.presentation-home {
+  margin-top: -120px !important;
 }
 
 .hero-specialty {
@@ -3840,6 +3943,10 @@ body {
   align-items: center !important;
   justify-content: center !important;
   position: absolute !important;
+  top: 50% !important;
+  right: 24px !important;
+  transform: translateY(-50%) !important;
+  z-index: 10005 !important;
   top: 55px !important;
   right: 26px !important;
 
@@ -3856,6 +3963,8 @@ body {
   line-height: 1 !important;
 
   cursor: pointer !important;
+
+  z-index: 10005 !important;
 
   transition:
     transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
@@ -4099,8 +4208,25 @@ body {
   .nav-links {
   display: none;
 }
+.menu-toggle {
+  display: block;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-right: 15px;
+  position: relative;
+  z-index: 1001;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease !important;
+}
 
+.menu-toggle:active {
+  transform: scale(0.88) rotate(8deg) !important;
+}
 
+}
   .about-teaser-portrait {
   transform: none !important;
   margin-left: auto !important;
@@ -4110,9 +4236,8 @@ body {
 .presentation-home {
   position: relative !important;
   overflow: hidden !important;
-}
 
-.presentation-home.torn-paper {
+  .presentation-home.torn-paper {
   position: relative !important;
   overflow: hidden !important;
 }
@@ -4255,20 +4380,6 @@ body {
 
   cursor: pointer !important;
 }
-}
 
-/* ============================================================
-   ACCESSIBILITÉ — ANIMATIONS RÉDUITES
-   ============================================================ */
-
-@media (prefers-reduced-motion: reduce) {
-  .page-transition {
-    animation: none;
-  }
-
-  .marquee-track {
-    animation: none;
-  }
-}
 
 `;
