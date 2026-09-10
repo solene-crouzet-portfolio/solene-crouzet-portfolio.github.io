@@ -708,9 +708,36 @@ function Home({ go, openProject }) {
             développer ma créativité et de construire petit à petit mon propre
             univers graphique.
           </p>
-          <button className="text-link" onClick={() => go("about")}>
-            Mon parcours et mes outils
-          </button>
+          <h2>Contact</h2>
+         <div className="contact-info">
+  <div className="contact-item">
+    <span className="contact-icon">
+      <img src="/images/icone_contact_1.svg" alt="" />
+    </span>
+    <span>07 67 71 96 05</span>
+  </div>
+
+  <div className="contact-item">
+    <span className="contact-icon">
+      <img src="/images/icone_contact_3.svg" alt="" />
+    </span>
+    <span>solene.crouzet@ecole-esdac.fr</span>
+  </div>
+
+  <div className="contact-item">
+    <span className="contact-icon">
+      <img src="/images/icone_contact_2.svg" alt="" />
+    </span>
+    <span>Solène Crouzet</span>
+  </div>
+
+  <div className="contact-item">
+    <span className="contact-icon">
+      <img src="/images/icone_contact_4.svg" alt="" />
+    </span>
+    <span>213 rue de la Vié Croze, 43370 Bains</span>
+  </div>
+</div>
         </div>
       </section>
 
@@ -1476,7 +1503,9 @@ body {
 
 /* ---------- LAYOUT HELPERS ---------- */
 .page { display: flex; flex-direction: column; }
-.section { padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 48px); }
+.section {
+  padding: clamp(40px, 6vw, 80px) 20px;
+}
 
 .section-head {
   display: flex;
@@ -1529,7 +1558,7 @@ body {
 .hero-banner {
   width: 100%;
   height: calc(100vh - 90px);
-  background: #ffffff;
+  background: #f1f0f7;
 }
 
 .hero-content {
@@ -1966,32 +1995,34 @@ body {
 }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-.about-teaser-image {
+.about-teaser {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
   width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.about-teaser-image {
+  width: 400px;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-.about-teaser-portrait {
-  width: 100%;
-  max-width: 350px;
-  border-radius: 4px;
-  overflow: hidden;
-  aspect-ratio: 1 / 1;
-  transform: translateX(160px);
-}
-.about-teaser-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
 .about-teaser-text h2 {
   font-family: "Montserrat", sans-serif;
   font-weight: 800;
-  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  font-size: 32px;;
   margin-bottom: 16px;
 }
 
 .about-teaser-text p {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  max-width: 50ch;
+  font-size: clamp(0.6rem, 3vw, 1rem);
   margin-bottom: 18px;
   color: color-mix(in srgb, var(--ink) 82%, transparent);
 }
@@ -3210,6 +3241,41 @@ body {
 .about-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .about-intro h1 { font-size: clamp(2.6rem, 6vw, 4rem); margin-bottom: 20px; }
 .about-lede { font-size: 1.15rem; margin-bottom: 16px; max-width: 54ch; }
+.contact-info {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: start;
+  column-gap: 80px;
+  row-gap: 18px;
+  width: 100%;
+  margin-top: 25px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+}
+
+.contact-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #252525;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+
+
 .about-intro p:not(.about-lede) { max-width: 58ch; color: color-mix(in srgb, var(--ink) 80%, transparent); }
 .about-label { font-size: 0.78rem; color: color-mix(in srgb, var(--ink) 55%, transparent); margin-bottom: 16px; }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -3343,7 +3409,7 @@ body {
   left: 0 !important;
   width: 100% !important;
   height: 75px !important;
-  background: #f1f0f8 !important; /* garde ici la couleur exacte de ton fond */
+  background: #f1f0f7 !important; /* garde ici la couleur exacte de ton fond */
   z-index: 999999 !important;
   pointer-events: none !important;
 }
@@ -3442,7 +3508,28 @@ body {
     transform: none !important;
     box-sizing: border-box !important;
   }
+.about-teaser {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 30px !important;
+  margin-top: 20px !important;
+}
 
+.about-teaser-portrait {
+  display: flex !important;
+  width: 80% !important;
+  max-width: 400px !important;
+  transform: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.about-teaser-text {
+  width: calc(100% - 100px);
+  margin-left: 40px;
+  margin-right: 40px;
+}
 
   /* ---------- RETOUR TOUS LES PROJETS ---------- */
 
@@ -3765,7 +3852,7 @@ body {
 
 /* Descend légèrement tout le bloc Portfolio */
 .hero-content {
-  top: 20% !important;
+  top: 30% !important;
 }
 
 /* Garde UNE SEULE étoile : les étoiles du hero restent masquées ici. */
@@ -3840,8 +3927,11 @@ body {
   align-items: center !important;
   justify-content: center !important;
   position: absolute !important;
-  top: 55px !important;
-  right: 26px !important;
+  top: 50% !important;
+  right: 24px !important;
+  transform: translateY(-50%) !important;
+  z-index: 10005 !important;
+
 
   width: 42px !important;
   height: 42px !important;
@@ -4065,6 +4155,7 @@ body {
       rotate(-2deg)
       scale(0.98);
   }
+      
 }
 
 
@@ -4100,8 +4191,7 @@ body {
   display: none;
 }
 
-
-  .about-teaser-portrait {
+.about-teaser-portrait {
   transform: none !important;
   margin-left: auto !important;
   margin-right: auto !important;
