@@ -87,7 +87,7 @@ const PROJECTS = [
     results:
       "Une série de cinq affiches déclinée en sérigraphie, exposée dans le hall du festival et vendue au profit d'une école de musique locale.",
   },
-    {
+  {
     id: "Ehpad",
     title: "Ehpad",
     image: "/images/ehpad_projet_6.png",
@@ -156,7 +156,6 @@ const PROJECTS = [
     results:
       "Une gamme de huit produits, un packaging entièrement recyclable et une identité immédiatement reconnaissable en rayon.",
   },
-
 ];
 
 const NAV_ITEMS = [
@@ -175,70 +174,189 @@ function Art({ accent, pattern, ink = "#17142B", paper = "#F1F0F7" }) {
   switch (pattern) {
     case "grid":
       return (
-        <svg viewBox="0 0 400 500" style={common} preserveAspectRatio="xMidYMid slice">
+        <svg
+          viewBox="0 0 400 500"
+          style={common}
+          preserveAspectRatio="xMidYMid slice"
+        >
           <rect width="400" height="500" fill={paper} />
           {Array.from({ length: 9 }).map((_, i) => (
-            <line key={"v" + i} x1={i * 44 + 10} y1="0" x2={i * 44 + 10} y2="500" stroke={ink} strokeOpacity="0.12" />
+            <line
+              key={"v" + i}
+              x1={i * 44 + 10}
+              y1="0"
+              x2={i * 44 + 10}
+              y2="500"
+              stroke={ink}
+              strokeOpacity="0.12"
+            />
           ))}
           {Array.from({ length: 11 }).map((_, i) => (
-            <line key={"h" + i} x1="0" y1={i * 46 + 10} x2="400" y2={i * 46 + 10} stroke={ink} strokeOpacity="0.12" />
+            <line
+              key={"h" + i}
+              x1="0"
+              y1={i * 46 + 10}
+              x2="400"
+              y2={i * 46 + 10}
+              stroke={ink}
+              strokeOpacity="0.12"
+            />
           ))}
           <rect x="54" y="102" width="176" height="138" fill={accent} />
           <rect x="230" y="240" width="132" height="184" fill={ink} />
-          <circle cx="142" cy="332" r="46" fill={paper} stroke={ink} strokeWidth="2" />
+          <circle
+            cx="142"
+            cy="332"
+            r="46"
+            fill={paper}
+            stroke={ink}
+            strokeWidth="2"
+          />
         </svg>
       );
     case "stripes":
       return (
-        <svg viewBox="0 0 400 300" style={common} preserveAspectRatio="xMidYMid slice">
+        <svg
+          viewBox="0 0 400 300"
+          style={common}
+          preserveAspectRatio="xMidYMid slice"
+        >
           <rect width="400" height="300" fill={ink} />
           {Array.from({ length: 6 }).map((_, i) => (
-            <polygon key={i} points={`${-40 + i * 90},320 ${40 + i * 90},320 ${180 + i * 90},-20 ${100 + i * 90},-20`} fill={i % 2 === 0 ? accent : paper} opacity={i % 2 === 0 ? 1 : 0.9} />
+            <polygon
+              key={i}
+              points={`${-40 + i * 90},320 ${40 + i * 90},320 ${180 + i * 90},-20 ${100 + i * 90},-20`}
+              fill={i % 2 === 0 ? accent : paper}
+              opacity={i % 2 === 0 ? 1 : 0.9}
+            />
           ))}
         </svg>
       );
     case "circles":
       return (
-        <svg viewBox="0 0 400 400" style={common} preserveAspectRatio="xMidYMid slice">
+        <svg
+          viewBox="0 0 400 400"
+          style={common}
+          preserveAspectRatio="xMidYMid slice"
+        >
           <rect width="400" height="400" fill={ink} />
-          <circle cx="200" cy="200" r="150" fill="none" stroke={accent} strokeWidth="1.5" opacity="0.5" />
-          <circle cx="200" cy="200" r="110" fill="none" stroke={accent} strokeWidth="1.5" opacity="0.7" />
+          <circle
+            cx="200"
+            cy="200"
+            r="150"
+            fill="none"
+            stroke={accent}
+            strokeWidth="1.5"
+            opacity="0.5"
+          />
+          <circle
+            cx="200"
+            cy="200"
+            r="110"
+            fill="none"
+            stroke={accent}
+            strokeWidth="1.5"
+            opacity="0.7"
+          />
           <circle cx="230" cy="180" r="64" fill={accent} />
           <circle cx="150" cy="260" r="20" fill={paper} />
         </svg>
       );
     case "type":
       return (
-        <svg viewBox="0 0 400 300" style={common} preserveAspectRatio="xMidYMid slice">
+        <svg
+          viewBox="0 0 400 300"
+          style={common}
+          preserveAspectRatio="xMidYMid slice"
+        >
           <rect width="400" height="300" fill={paper} />
-          <text x="20" y="110" fontFamily="Fraunces, serif" fontSize="120" fontStyle="italic" fill={ink} opacity="0.9">Gr</text>
-          <text x="150" y="230" fontFamily="Fraunces, serif" fontSize="120" fill={accent}>ain</text>
-          <line x1="24" y1="255" x2="376" y2="255" stroke={ink} strokeWidth="1" opacity="0.3" />
+          <text
+            x="20"
+            y="110"
+            fontFamily="Fraunces, serif"
+            fontSize="120"
+            fontStyle="italic"
+            fill={ink}
+            opacity="0.9"
+          >
+            Gr
+          </text>
+          <text
+            x="150"
+            y="230"
+            fontFamily="Fraunces, serif"
+            fontSize="120"
+            fill={accent}
+          >
+            ain
+          </text>
+          <line
+            x1="24"
+            y1="255"
+            x2="376"
+            y2="255"
+            stroke={ink}
+            strokeWidth="1"
+            opacity="0.3"
+          />
         </svg>
       );
     case "blob":
       return (
-        <svg viewBox="0 0 400 500" style={common} preserveAspectRatio="xMidYMid slice">
+        <svg
+          viewBox="0 0 400 500"
+          style={common}
+          preserveAspectRatio="xMidYMid slice"
+        >
           <rect width="400" height="500" fill={paper} />
-          <path d="M120 90 C 40 140, 40 300, 130 360 C 220 420, 340 380, 350 270 C 360 160, 260 60, 180 70 C 160 72, 140 78, 120 90 Z" fill={accent} />
-          <path d="M170 150 C 130 180, 140 260, 190 290 C 240 320, 300 290, 300 230 C 300 170, 230 130, 190 140 Z" fill={ink} opacity="0.15" />
+          <path
+            d="M120 90 C 40 140, 40 300, 130 360 C 220 420, 340 380, 350 270 C 360 160, 260 60, 180 70 C 160 72, 140 78, 120 90 Z"
+            fill={accent}
+          />
+          <path
+            d="M170 150 C 130 180, 140 260, 190 290 C 240 320, 300 290, 300 230 C 300 170, 230 130, 190 140 Z"
+            fill={ink}
+            opacity="0.15"
+          />
         </svg>
       );
     case "waves":
       return (
-        <svg viewBox="0 0 400 300" style={common} preserveAspectRatio="xMidYMid slice">
+        <svg
+          viewBox="0 0 400 300"
+          style={common}
+          preserveAspectRatio="xMidYMid slice"
+        >
           <rect width="400" height="300" fill={ink} />
           {[0, 1, 2, 3].map((i) => (
-            <path key={i} d={`M -20 ${80 + i * 45} C 80 ${20 + i * 45}, 160 ${140 + i * 45}, 420 ${60 + i * 45}`} fill="none" stroke={i % 2 === 0 ? accent : paper} strokeOpacity={i % 2 === 0 ? 0.9 : 0.35} strokeWidth="3" />
+            <path
+              key={i}
+              d={`M -20 ${80 + i * 45} C 80 ${20 + i * 45}, 160 ${140 + i * 45}, 420 ${60 + i * 45}`}
+              fill="none"
+              stroke={i % 2 === 0 ? accent : paper}
+              strokeOpacity={i % 2 === 0 ? 0.9 : 0.35}
+              strokeWidth="3"
+            />
           ))}
           <circle cx="200" cy="150" r="46" fill={accent} opacity="0.9" />
         </svg>
       );
     case "stack":
       return (
-        <svg viewBox="0 0 400 400" style={common} preserveAspectRatio="xMidYMid slice">
+        <svg
+          viewBox="0 0 400 400"
+          style={common}
+          preserveAspectRatio="xMidYMid slice"
+        >
           <rect width="400" height="400" fill={paper} />
-          <ellipse cx="200" cy="330" rx="90" ry="18" fill={ink} opacity="0.12" />
+          <ellipse
+            cx="200"
+            cy="330"
+            rx="90"
+            ry="18"
+            fill={ink}
+            opacity="0.12"
+          />
           <rect x="130" y="230" width="140" height="70" rx="18" fill={accent} />
           <rect x="150" y="150" width="100" height="90" rx="26" fill={ink} />
           <circle cx="200" cy="110" r="46" fill={accent} />
@@ -248,7 +366,11 @@ function Art({ accent, pattern, ink = "#17142B", paper = "#F1F0F7" }) {
       );
     case "scatter":
       return (
-        <svg viewBox="0 0 400 300" style={common} preserveAspectRatio="xMidYMid slice">
+        <svg
+          viewBox="0 0 400 300"
+          style={common}
+          preserveAspectRatio="xMidYMid slice"
+        >
           <rect width="400" height="300" fill={paper} />
           <circle cx="90" cy="90" r="60" fill={accent} opacity="0.55" />
           <circle cx="150" cy="140" r="60" fill={ink} opacity="0.5" />
@@ -260,14 +382,46 @@ function Art({ accent, pattern, ink = "#17142B", paper = "#F1F0F7" }) {
     case "frame":
     default:
       return (
-        <svg viewBox="0 0 500 400" style={common} preserveAspectRatio="xMidYMid slice">
+        <svg
+          viewBox="0 0 500 400"
+          style={common}
+          preserveAspectRatio="xMidYMid slice"
+        >
           <rect width="500" height="400" fill={paper} />
-          <rect x="24" y="24" width="452" height="352" fill="none" stroke={ink} strokeWidth="1.5" opacity="0.5" />
+          <rect
+            x="24"
+            y="24"
+            width="452"
+            height="352"
+            fill="none"
+            stroke={ink}
+            strokeWidth="1.5"
+            opacity="0.5"
+          />
           <rect x="60" y="60" width="160" height="140" fill={accent} />
           <circle cx="350" cy="130" r="70" fill={ink} opacity="0.9" />
-          <rect x="70" y="240" width="360" height="10" fill={ink} opacity="0.3" />
-          <rect x="70" y="264" width="230" height="10" fill={ink} opacity="0.3" />
-          <path d="M300 300 L 340 340 L 380 300 L 420 340" fill="none" stroke={accent} strokeWidth="4" />
+          <rect
+            x="70"
+            y="240"
+            width="360"
+            height="10"
+            fill={ink}
+            opacity="0.3"
+          />
+          <rect
+            x="70"
+            y="264"
+            width="230"
+            height="10"
+            fill={ink}
+            opacity="0.3"
+          />
+          <path
+            d="M300 300 L 340 340 L 380 300 L 420 340"
+            fill="none"
+            stroke={accent}
+            strokeWidth="4"
+          />
         </svg>
       );
   }
@@ -279,36 +433,40 @@ function Art({ accent, pattern, ink = "#17142B", paper = "#F1F0F7" }) {
 
 function Wordmark({ onClick }) {
   return (
-    <button className="wordmark" onClick={onClick} aria-label="Retour à l'accueil">
+    <button
+      className="wordmark"
+      onClick={onClick}
+      aria-label="Retour à l'accueil"
+    >
       <img
-  src="/images/Logo_sula.svg"
-  alt="Logo Sula"
-  style={{ width: "280px", height: "auto" }}
-/>
+        src="/images/Logo_sula.svg"
+        alt="Logo Sula"
+        style={{ width: "280px", height: "auto" }}
+      />
     </button>
   );
 }
 
 function Nav({ page, go }) {
   const handleNavClick = (id) => {
-  if (id === "projects") {
-    if (page !== "home") {
-      go("home");
+    if (id === "projects") {
+      if (page !== "home") {
+        go("home");
 
-      setTimeout(() => {
+        setTimeout(() => {
+          document.getElementById("projets")?.scrollIntoView({
+            behavior: "smooth",
+          });
+        }, 100);
+      } else {
         document.getElementById("projets")?.scrollIntoView({
           behavior: "smooth",
         });
-      }, 100);
+      }
     } else {
-      document.getElementById("projets")?.scrollIntoView({
-        behavior: "smooth",
-      });
+      go(id);
     }
-  } else {
-    go(id);
-  }
-};
+  };
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -320,29 +478,28 @@ function Nav({ page, go }) {
         aria-label="Ouvrir le menu"
       >
         {menuOpen ? "✕" : "☰"}
-  </button>
-  <div className={`mobile-menu-overlay ${menuOpen ? "is-open" : ""}`}>
+      </button>
+      <div className={`mobile-menu-overlay ${menuOpen ? "is-open" : ""}`}>
+        <span className="menu-star star-1">★</span>
+        <span className="menu-star star-2">★</span>
+        <span className="menu-star star-3">★</span>
+        <span className="menu-star star-4">★</span>
+        <span className="menu-star star-5">★</span>
 
-  <span className="menu-star star-1">★</span>
-  <span className="menu-star star-2">★</span>
-  <span className="menu-star star-3">★</span>
-  <span className="menu-star star-4">★</span>
-  <span className="menu-star star-5">★</span>
-
-  {NAV_ITEMS.map((item, index) => (
-    <button
-      key={item.id}
-      className="mobile-menu-link"
-      style={{ "--delay": `${index * 0.08}s` }}
-      onClick={() => {
-        handleNavClick(item.id);
-        setMenuOpen(false);
-      }}
-    >
-      {item.label}
-    </button>
-  ))}
-</div>
+        {NAV_ITEMS.map((item, index) => (
+          <button
+            key={item.id}
+            className="mobile-menu-link"
+            style={{ "--delay": `${index * 0.08}s` }}
+            onClick={() => {
+              handleNavClick(item.id);
+              setMenuOpen(false);
+            }}
+          >
+            {item.label}
+          </button>
+        ))}
+      </div>
       <nav className="nav-links">
         {NAV_ITEMS.map((item) => (
           <button
@@ -364,14 +521,22 @@ function Footer({ go }) {
       <div className="site-footer-row">
         <p className="site-footer-line">Basée à Lyon, disponible partout.</p>
         <div className="site-footer-links">
-          <a href="mailto:bonjour@solenecrouzet.studio">bonjour@solenecrouzet.studio</a>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="mailto:bonjour@solenecrouzet.studio">
+            bonjour@solenecrouzet.studio
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer">
+            Instagram
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
         </div>
       </div>
       <div className="site-footer-row site-footer-row-bottom">
         <span>© {new Date().getFullYear()} Solène Crouzet</span>
-        <button className="text-link" onClick={() => go("contact")}>Travaillons ensemble</button>
+        <button className="text-link" onClick={() => go("contact")}>
+          Travaillons ensemble
+        </button>
       </div>
     </footer>
   );
@@ -393,135 +558,132 @@ function Home({ go, openProject }) {
   return (
     <div className="page">
       <section className={"hero" + (loaded ? " is-loaded" : "")}>
-
- <div className="hero-banner">
-  <span className="hero-star hero-star-1">★</span>
-<span className="hero-star hero-star-2">★</span>
-<span className="hero-star hero-star-3">★</span>
-  <div className="hero-content">
-  <img
-    src="/images/titre_portfolio.svg"
-    alt="Portfolio"
-    className="hero-logo"
-  />
-  <div className="hero-specialty">
-  <span className="hero-specialty-icon">›</span>
-  <span className="hero-specialty-text">
-    Design graphique et illustration
-  </span>
-</div>
-
-</div>
-
-  </div>
-</section>
-<section
-  className="presentation-home"
-  style={{
-    position: "relative",
-    overflow: "hidden"
-  }}
->
-
-  <div className="tear tear-top"></div>
-
-  <p className="presentation-home-text">
-    Bienvenue dans mon univers ! J’imagine et conçois des identités visuelles et des projets créatifs, du print au digital. Vous avez un projet ou une idée en tête ? N’hésitez pas à me contacter, je serais ravie d’en discuter avec vous !
-  </p>
-
-  <button
-    className="presentation-home-button"
-    onClick={() => go("contact")}
-  >
-    Me contacter
-  </button>
-
-  <div className="tear tear-bottom"></div>
-
-</section>
-      <section id="projets" className="section">
+        <div className="hero-banner">
+          <span className="hero-star hero-star-1">★</span>
+          <span className="hero-star hero-star-2">★</span>
+          <span className="hero-star hero-star-3">★</span>
+          <div className="hero-content">
+            <img
+              src="/images/titre_portfolio.svg"
+              alt="Portfolio"
+              className="hero-logo"
+            />
+            <div className="hero-specialty">
+              <span className="hero-specialty-icon">›</span>
+              <span className="hero-specialty-text">
+                Design graphique et illustration
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
       <section
-      id="projects"
-      className="projects-section"
-      ></section>
+        className="presentation-home"
+        style={{
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <div className="tear tear-top"></div>
+
+        <p className="presentation-home-text">
+          Bienvenue dans mon univers ! J’imagine et conçois des identités
+          visuelles et des projets créatifs, du print au digital. Vous avez un
+          projet ou une idée en tête ? N’hésitez pas à me contacter, je serais
+          ravie d’en discuter avec vous !
+        </p>
+
+        <button
+          className="presentation-home-button"
+          onClick={() => go("contact")}
+        >
+          Me contacter
+        </button>
+
+        <div className="tear tear-bottom"></div>
+      </section>
+      <section id="projets" className="section">
+        <section id="projects" className="projects-section"></section>
         <div className="section-head">
           <h2>Mes projets</h2>
         </div>
         <div className="projects-carousel-wrapper">
+          <div className="projects-carousel">
+            {featured.map((p, i) => (
+              <button
+                key={p.id}
+                className={
+                  "featured-tile featured-tile-" + (i % 2 === 0 ? "a" : "b")
+                }
+                onClick={() => openProject(p.id)}
+              >
+                <div className="featured-art">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className={
+                      p.title === "Pamparina"
+                        ? "image-pamparina"
+                        : p.id === "binche"
+                          ? "image-binche"
+                          : p.id === "elmer"
+                            ? "image-elmer"
+                            : p.title === "Pensée sur l'amour"
+                              ? "image-pensee"
+                              : p.title === "Collaboration Fictive"
+                                ? "image-roland-garros"
+                                : p.title === "Ehpad"
+                                  ? "image-ehpad"
+                                  : ""
+                    }
+                  />
+                </div>
 
-  <div className="projects-carousel">
-    {featured.map((p, i) => (
-      <button
-        key={p.id}
-        className={"featured-tile featured-tile-" + (i % 2 === 0 ? "a" : "b")}
-        onClick={() => openProject(p.id)}
-      >
-        <div className="featured-art">
-          <img
-            src={p.image}
-            alt={p.title}
-            className={
-              p.title === "Pamparina"
-                ? "image-pamparina"
-                : p.id === "binche"
-                ? "image-binche"
-                : p.id === "elmer"
-                ? "image-elmer"
-                : p.title === "Pensée sur l'amour"
-                ? "image-pensee"
-                : p.title === "Collaboration Fictive"
-                ? "image-roland-garros"
-                : p.title === "Ehpad"
-                ? "image-ehpad"
-                : ""
-            }
-          />
-        </div>
+                <div className="featured-meta">
+                  <span className="featured-arrow">{i + 1}</span>
 
-        <div className="featured-meta">
-          <span className="featured-arrow">{i + 1}</span>
-
-          <div className="featured-text">
-            <div className="featured-title">{p.title}</div>
-            <div className="featured-cat">{p.category}</div>
+                  <div className="featured-text">
+                    <div className="featured-title">{p.title}</div>
+                    <div className="featured-cat">{p.category}</div>
+                  </div>
+                </div>
+              </button>
+            ))}
           </div>
+          <button
+            className="carousel-prev"
+            onClick={() => {
+              document.querySelector(".projects-carousel")?.scrollBy({
+                left: -350,
+                behavior: "smooth",
+              });
+            }}
+            aria-label="Voir les projets précédents"
+          >
+            ‹
+          </button>
+          <button
+            className="carousel-next"
+            onClick={() => {
+              document.querySelector(".projects-carousel")?.scrollBy({
+                left: 350,
+                behavior: "smooth",
+              });
+            }}
+            aria-label="Voir les projets suivants"
+          >
+            ›
+          </button>
         </div>
-      </button>
-    ))}
-  </div>
-  <button
-  className="carousel-prev"
-  onClick={() => {
-    document.querySelector(".projects-carousel")?.scrollBy({
-      left: -350,
-      behavior: "smooth"
-    });
-  }}
-  aria-label="Voir les projets précédents"
-  >
-  ‹
-  </button>
-  <button
-    className="carousel-next"
-    onClick={() => {
-      document.querySelector(".projects-carousel")?.scrollBy({
-        left: 350,
-        behavior: "smooth"
-      });
-    }}
-    aria-label="Voir les projets suivants"
-  >
-    ›
-  </button>
-
-</div>
       </section>
 
       <div className="marquee" aria-hidden="true">
         <div className="marquee-track">
           {Array.from({ length: 2 }).map((_, i) => (
             <span className="marquee-set" key={i}>
-              Identité visuelle&nbsp;&nbsp;·&nbsp;&nbsp;Branding&nbsp;&nbsp;·&nbsp;&nbsp;Typographie&nbsp;&nbsp;·&nbsp;&nbsp;Illustration&nbsp;&nbsp;·&nbsp;&nbsp;3D&nbsp;&nbsp;·&nbsp;&nbsp;Direction artistique&nbsp;&nbsp;·&nbsp;&nbsp;
+              Identité
+              visuelle&nbsp;&nbsp;·&nbsp;&nbsp;Branding&nbsp;&nbsp;·&nbsp;&nbsp;Typographie&nbsp;&nbsp;·&nbsp;&nbsp;Illustration&nbsp;&nbsp;·&nbsp;&nbsp;3D&nbsp;&nbsp;·&nbsp;&nbsp;Direction
+              artistique&nbsp;&nbsp;·&nbsp;&nbsp;
             </span>
           ))}
         </div>
@@ -529,21 +691,26 @@ function Home({ go, openProject }) {
 
       <section className="section about-teaser">
         <div className="about-teaser-portrait">
-  <img
-    src="/images/photo_solene.png"
-    alt="Solène Crouzet"
-    className="about-teaser-image"
-  />
-</div>
+          <img
+            src="/images/photo_solene.png"
+            alt="Solène Crouzet"
+            className="about-teaser-image"
+          />
+        </div>
         <div className="about-teaser-text">
           <h2>À propos de moi</h2>
           <p>
-            Moi, c’est Solène, j’ai 21 ans et je suis graphiste récemment diplômée. 
-            J’aime imaginer des univers, donner vie à des idées et créer des projets qui ont leur propre personnalité. 
-            Au fil de mes études et de mes expériences, j’ai eu l’occasion de travailler sur des projets très variés, 
-            qui m’ont permis d’expérimenter, de développer ma créativité et de construire petit à petit mon propre univers graphique.
+            Moi, c’est Solène, j’ai 21 ans et je suis graphiste récemment
+            diplômée. J’aime imaginer des univers, donner vie à des idées et
+            créer des projets qui ont leur propre personnalité. Au fil de mes
+            études et de mes expériences, j’ai eu l’occasion de travailler sur
+            des projets très variés, qui m’ont permis d’expérimenter, de
+            développer ma créativité et de construire petit à petit mon propre
+            univers graphique.
           </p>
-          <button className="text-link" onClick={() => go("about")}>Mon parcours et mes outils</button>
+          <button className="text-link" onClick={() => go("about")}>
+            Mon parcours et mes outils
+          </button>
         </div>
       </section>
 
@@ -554,113 +721,111 @@ function Home({ go, openProject }) {
 
 function Projects({ openProject }) {
   const [filter, setFilter] = useState("Tous");
-  const list = filter === "Tous" ? PROJECTS : PROJECTS.filter((p) => p.category === filter);
+  const list =
+    filter === "Tous"
+      ? PROJECTS
+      : PROJECTS.filter((p) => p.category === filter);
 
   return (
-  <div className="page">
-    <section className="section projects-page">
-      <h1 className="projects-page-title">Tous les projets</h1>
+    <div className="page">
+      <section className="section projects-page">
+        <h1 className="projects-page-title">Tous les projets</h1>
 
-      <div className="projects-grid">
-        {PROJECTS.map((p) => (
-          <button
-            key={p.id}
-            className="featured-tile"
-            onClick={() => openProject(p.id)}
-          >
-            <div className="featured-art">
-              <img
-                src={p.image}
-                alt={p.title}
-                className={
-                  p.title === "Pamparina"
-                    ? "image-pamparina"
-                    : p.id === "elmer"
-                    ? "image-elmer"
-                    : p.id === "binche"
-                    ? "image-binche"
-                    : p.title === "Pensée sur l'amour"
-                    ? "image-pensee"
-                    : p.title === "Collaboration Fictive"
-                    ? "image-roland-garros"
-                    : p.title === "Ehpad"
-                    ? "image-ehpad"
-                    : ""
-                }
-              />
-            </div>
-
-            <div className="featured-meta">
-              <span className="featured-arrow">›</span>
-
-              <div className="featured-text">
-                <div className="featured-title">{p.title}</div>
-                <div className="featured-cat">{p.category}</div>
+        <div className="projects-grid">
+          {PROJECTS.map((p) => (
+            <button
+              key={p.id}
+              className="featured-tile"
+              onClick={() => openProject(p.id)}
+            >
+              <div className="featured-art">
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  className={
+                    p.title === "Pamparina"
+                      ? "image-pamparina"
+                      : p.id === "elmer"
+                        ? "image-elmer"
+                        : p.id === "binche"
+                          ? "image-binche"
+                          : p.title === "Pensée sur l'amour"
+                            ? "image-pensee"
+                            : p.title === "Collaboration Fictive"
+                              ? "image-roland-garros"
+                              : p.title === "Ehpad"
+                                ? "image-ehpad"
+                                : ""
+                  }
+                />
               </div>
-            </div>
-          </button>
-        ))}
-      </div>
-    </section>
-  </div>
-);
+
+              <div className="featured-meta">
+                <span className="featured-arrow">›</span>
+
+                <div className="featured-text">
+                  <div className="featured-title">{p.title}</div>
+                  <div className="featured-cat">{p.category}</div>
+                </div>
+              </div>
+            </button>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
 }
 function PamparinaBook() {
- const pages = [
-  null,
-  "/images/page_1_pamparina.png",
-  "/images/page_2_pamparina.png",
-  "/images/page_3_pamparina.png",
-  "/images/page_4_pamparina.png",
-  "/images/page_5_pamparina.png",
-  "/images/page_6_pamparina.png",
-  "/images/page_7_pamparina.png",
-  "/images/page_8_pamparina.png",
-  "/images/page_9_pamparina.png",
-  "/images/page_10_pamparina.png",
-  "/images/page_11_pamparina.png",
-  "/images/page_12_pamparina.png",
-  "/images/page_13_pamparina.png",
-  "/images/page_14_pamparina.png",
-  "/images/page_15_pamparina.png",
-  "/images/page_16_pamparina.png",
-  null,
-];
-const [currentPage, setCurrentPage] = useState(0);
+  const pages = [
+    null,
+    "/images/page_1_pamparina.png",
+    "/images/page_2_pamparina.png",
+    "/images/page_3_pamparina.png",
+    "/images/page_4_pamparina.png",
+    "/images/page_5_pamparina.png",
+    "/images/page_6_pamparina.png",
+    "/images/page_7_pamparina.png",
+    "/images/page_8_pamparina.png",
+    "/images/page_9_pamparina.png",
+    "/images/page_10_pamparina.png",
+    "/images/page_11_pamparina.png",
+    "/images/page_12_pamparina.png",
+    "/images/page_13_pamparina.png",
+    "/images/page_14_pamparina.png",
+    "/images/page_15_pamparina.png",
+    "/images/page_16_pamparina.png",
+    null,
+  ];
+  const [currentPage, setCurrentPage] = useState(0);
 
   return (
     <section className="pamparina-book-section">
       <div className="pamparina-book-wrapper">
         <HTMLFlipBook
-  width={390}
-  height={620}
-  showCover={false}
-  usePortrait={false}
-  drawShadow={true}
-  maxShadowOpacity={0.35}
-  flippingTime={1000}
-  mobileScrollSupport={true}
-  showPageCorners={true}
-  className="pamparina-real-book"
-  onFlip={(e) => setCurrentPage(e.data)}
->
-{pages.map((src, index) => (
-  <div
-    className={`pamparina-book-page ${
-      !src ? "empty-page" : ""
-    } ${
-      currentPage === 0 && index === 0 ? "hide-empty-cover" : ""
-    }`}
-    key={index}
-  >
-    {src && (
-      <img
-        src={src}
-        alt={`Programme Pamparina - page ${index}`}
-      />
-    )}
-  </div>
-))}
+          width={390}
+          height={620}
+          showCover={false}
+          usePortrait={false}
+          drawShadow={true}
+          maxShadowOpacity={0.35}
+          flippingTime={1000}
+          mobileScrollSupport={true}
+          showPageCorners={true}
+          className="pamparina-real-book"
+          onFlip={(e) => setCurrentPage(e.data)}
+        >
+          {pages.map((src, index) => (
+            <div
+              className={`pamparina-book-page ${!src ? "empty-page" : ""} ${
+                currentPage === 0 && index === 0 ? "hide-empty-cover" : ""
+              }`}
+              key={index}
+            >
+              {src && (
+                <img src={src} alt={`Programme Pamparina - page ${index}`} />
+              )}
+            </div>
+          ))}
         </HTMLFlipBook>
       </div>
     </section>
@@ -672,323 +837,332 @@ function ProjectDetail({ project, openProject, go }) {
   const next = PROJECTS[(index + 1) % PROJECTS.length];
   const pokemonVideosRef = useRef([]);
 
-useEffect(() => {
-  const videos = pokemonVideosRef.current.filter(Boolean);
+  useEffect(() => {
+    const videos = pokemonVideosRef.current.filter(Boolean);
 
-  const startVideosTogether = async () => {
-    if (videos.length !== 4) return;
+    const startVideosTogether = async () => {
+      if (videos.length !== 4) return;
 
-    videos.forEach((video) => {
-      video.currentTime = 0;
-    });
+      videos.forEach((video) => {
+        video.currentTime = 0;
+      });
 
-    await Promise.all(
-      videos.map((video) => video.play().catch(() => {}))
-    );
-  };
+      await Promise.all(videos.map((video) => video.play().catch(() => {})));
+    };
 
-  Promise.all(
-    videos.map(
-      (video) =>
-        new Promise((resolve) => {
-          if (video.readyState >= 3) {
-            resolve();
-          } else {
-            video.addEventListener("canplay", resolve, { once: true });
-          }
-        })
-    )
-  ).then(startVideosTogether);
-}, []);
+    Promise.all(
+      videos.map(
+        (video) =>
+          new Promise((resolve) => {
+            if (video.readyState >= 3) {
+              resolve();
+            } else {
+              video.addEventListener("canplay", resolve, { once: true });
+            }
+          }),
+      ),
+    ).then(startVideosTogether);
+  }, []);
 
   return (
     <div className="page project-detail-page">
       <section className="project-header">
-       
         <div className="project-intro-layout">
+          <div className="project-intro-left">
+            <button
+              className="back-link"
+              onClick={() => {
+                go("home");
 
-  <div className="project-intro-left"
-><button
-  className="back-link"
-  onClick={() => {
-    go("home");
+                setTimeout(() => {
+                  document
+                    .getElementById("projects")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }, 100);
+              }}
+            >
+              ← Tous les projets
+            </button>
 
-    setTimeout(() => {
-      document
-        .getElementById("projects")
-        ?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
-  }}
->
-  ← Tous les projets
-</button>
+            <div className="project-title-block">
+              <h1>{project.title}</h1>
+              <p className="project-tagline project-detail-tagline">
+                {project.tagline}
+              </p>
+            </div>
 
+            <div className="project-meta">
+              <div>
+                <span>Année</span>
+                <p>{project.year}</p>
+              </div>
 
-    <div className="project-title-block">
-      <h1>{project.title}</h1>
-      <p className="project-tagline project-detail-tagline">
-  {project.tagline}
-</p>
-    </div>
+              <div>
+                <span>Logiciels utilisés</span>
+                <p>{project.tools.join(", ")}</p>
+              </div>
+            </div>
 
-    <div className="project-meta">
-      <div>
-        <span>Année</span>
-        <p>{project.year}</p>
-      </div>
+            <div className="project-intro-description">
+              <div className="project-intro-description">
+                {project.id === "pamparina" && (
+                  <>
+                    <p>
+                      Dans le cadre d’un workshop réalisé durant ma dernière
+                      année de Bachelor, nous avons travaillé à partir d’un
+                      brief réel sur la refonte de l’identité visuelle de la
+                      Pamparina.
+                    </p>
 
-      <div>
-        <span>Logiciels utilisés</span>
-        <p>{project.tools.join(", ")}</p>
-      </div>
-    </div>
+                    <p>
+                      Ma proposition a été sélectionnée par le client et est
+                      devenue l’identité officielle de l’édition 2026 du
+                      festival. J’ai ensuite développé l’affiche principale
+                      ainsi que différentes déclinaisons graphiques autour de
+                      l’événement.
+                    </p>
+                  </>
+                )}
+                {project.id === "pamparina" && (
+                  <div className="pamparina-book-position">
+                    <PamparinaBook />
+                  </div>
+                )}
+                {project.id === "elmer" && (
+                  <>
+                    <p>
+                      Ce projet d’école avait pour objectif de revisiter la
+                      couverture d’un livre existant en l’associant à un thème
+                      tiré au hasard. J’ai choisi Elmer et pioché le thème de la
+                      magie.
+                    </p>
 
-  <div className="project-intro-description">
+                    <p>
+                      J’ai donc imaginé une nouvelle couverture mêlant ces deux
+                      univers, tout en travaillant les différentes étapes de
+                      préparation du fichier jusqu’à son impression.
+                    </p>
+                  </>
+                )}
 
-  <div className="project-intro-description">
+                {project.id === "Pokematch" && (
+                  <>
+                    <p>
+                      Pokématch est mon projet de fin de Bachelor. Il s'agit
+                      d’une collaboration fictive entre Roland-Garros, Nike et
+                      Pokémon. Le concept repose sur l’association d’un joueur
+                      de tennis à un Pokémon en fonction de leur personnalité et
+                      de leur style de jeu.
+                    </p>
+                    <p>
+                      J’ai créé un univers visuel cohérent mêlant les codes du
+                      tennis et de Pokémon que j'ai eunsuite décliné sur
+                      différents supports, notamment des maillots,des cartes à
+                      collectionner et des figurines Art Toys.
+                    </p>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
 
-  {project.id === "pamparina" && (
-    
-    <>
-      <p>
-        Dans le cadre d’un workshop réalisé durant ma dernière année de
-        Bachelor, nous avons travaillé à partir d’un brief réel sur la refonte
-        de l’identité visuelle de la Pamparina.
-      </p>
-
-      <p>
-        Ma proposition a été sélectionnée par le client et est devenue
-        l’identité officielle de l’édition 2026 du festival. J’ai ensuite
-        développé l’affiche principale ainsi que différentes déclinaisons
-        graphiques autour de l’événement.
-      </p>
-    </>
-  )}
-{project.id === "pamparina" && (
-  <div className="pamparina-book-position">
-    <PamparinaBook />
-  </div>
-)}
-  {project.id === "elmer" && (
-    <>
-      <p>
-        Ce projet d’école avait pour objectif de revisiter la couverture
-        d’un livre existant en l’associant à un thème tiré au hasard.
-        J’ai choisi Elmer et pioché le thème de la magie.
-      </p>
-
-      <p>
-        J’ai donc imaginé une nouvelle couverture mêlant ces deux univers,
-        tout en travaillant les différentes étapes de préparation du fichier
-        jusqu’à son impression.
-      </p>
-    </>
-  )}
-
-  {project.id === "Pokematch" && (
-    <>
-      <p>
-        Pokématch est mon projet de fin de Bachelor. Il s'agit d’une
-        collaboration fictive entre Roland-Garros, Nike et Pokémon. Le 
-        concept repose sur l’association d’un joueur de tennis à un Pokémon en
-        fonction de leur personnalité et de leur style de jeu.
-      </p>
-      <p>
-        J’ai créé un univers visuel cohérent mêlant les codes du tennis et de Pokémon
-        que j'ai eunsuite décliné sur différents supports, 
-        notamment des maillots,des cartes à collectionner et des figurines Art Toys.
-      </p>
-    </>
-  )}
-
-</div>
-
-</div>
-
-  </div>
-  
- <div className="project-intro-image">
-  <img
-  src={
-    project.id === "pamparina"
-      ? "/public/images/Abris bus pamparina.png"
-      : project.id === "elmer"
-      ? "/images/elmer_projet_2.jpg"
-      : project.image
-  }
-
-  className={project.id === "pamparina" ? "pamparina-detail-image" : ""}
-
-  alt={project.title}
-/>
-</div>
-
-</div>
+          <div className="project-intro-image">
+            <img
+              src={
+                project.id === "pamparina"
+                  ? "/public/images/Abris bus pamparina.png"
+                  : project.id === "elmer"
+                    ? "/images/elmer_projet_2.jpg"
+                    : project.image
+              }
+              className={
+                project.id === "pamparina" ? "pamparina-detail-image" : ""
+              }
+              alt={project.title}
+            />
+          </div>
+        </div>
       </section>
 
-<section className="project-description">
-  <div className="project-description-title">
-    <p className="small-title">Le projet</p>
+      <section className="project-description">
+        <div className="project-description-title">
+          <p className="small-title">Le projet</p>
 
-    <h2>
-      Une identité pensée pour faire vivre la Pamparina
-    </h2>
-  </div>
+          <h2>Une identité pensée pour faire vivre la Pamparina</h2>
+        </div>
 
-  <div className="project-description-text">
-    <p>
-      Dans le cadre d’un workshop réalisé durant ma dernière année
-      de Bachelor, nous avons travaillé à partir d’un brief réel
-      sur la refonte de l’identité visuelle de la Pamparina.
-    </p>
+        <div className="project-description-text">
+          <p>
+            Dans le cadre d’un workshop réalisé durant ma dernière année de
+            Bachelor, nous avons travaillé à partir d’un brief réel sur la
+            refonte de l’identité visuelle de la Pamparina.
+          </p>
 
-    <p>
-      Ma proposition a été sélectionnée par le client et est devenue
-      l’identité officielle de l’édition 2026 du festival. J’ai ensuite
-      développé l’affiche principale ainsi que différentes déclinaisons
-      graphiques autour de l’événement.
-    </p>
-  </div>
-</section>
+          <p>
+            Ma proposition a été sélectionnée par le client et est devenue
+            l’identité officielle de l’édition 2026 du festival. J’ai ensuite
+            développé l’affiche principale ainsi que différentes déclinaisons
+            graphiques autour de l’événement.
+          </p>
+        </div>
+      </section>
 
-{project.id === "pamparina" && (
-  <div className="project-gallery-three">
-    <img
-      src="/images/ecocup_pamparina.png"
-      alt="Pamparina visuel 2"
-    />
+      {project.id === "pamparina" && (
+        <div className="project-gallery-three">
+          <img src="/images/ecocup_pamparina.png" alt="Pamparina visuel 2" />
 
-    <img
-      src="/images/badge_carte_pamparina.png"
-      alt="Pamparina visuel 3"
-    />
+          <img
+            src="/images/badge_carte_pamparina.png"
+            alt="Pamparina visuel 3"
+          />
 
-    <img
-      src="/images/tote_bag_pamparina.png"
-      alt="Pamparina visuel 4"
-    />
-  </div>
-)}
+          <img src="/images/tote_bag_pamparina.png" alt="Pamparina visuel 4" />
+        </div>
+      )}
 
-{project.id === "elmer" && (
-  <div className="elmer-illustrations">
-    <img src="/images/elmer_illu_1.png" alt="Illustration Elmer 1" />
-    <img src="/images/elmer_illu_2.png" alt="Illustration Elmer 2" />
-    <img src="/images/elmer_illu_3.png" alt="Illustration Elmer 3" />
-    <img src="/images/elmer_illu_4.png" alt="Illustration Elmer 4" />
-  </div>
-)}
+      {project.id === "elmer" && (
+        <div className="elmer-illustrations">
+          <img src="/images/elmer_illu_1.png" alt="Illustration Elmer 1" />
+          <img src="/images/elmer_illu_2.png" alt="Illustration Elmer 2" />
+          <img src="/images/elmer_illu_3.png" alt="Illustration Elmer 3" />
+          <img src="/images/elmer_illu_4.png" alt="Illustration Elmer 4" />
+        </div>
+      )}
 
-{project.id === "Pokematch" && (
-  <div className="pokematch-creations">
+      {project.id === "Pokematch" && (
+        <div className="pokematch-creations">
+          {/* SINNER */}
+          <div className="pokematch-row">
+            <img src="/images/Maillot Sinner.png" alt="Maillot Sinner" />
+            <img src="/images/Carte 1 clair metamorph.png" alt="Carte Sinner" />
+            <video
+              ref={(el) => (pokemonVideosRef.current[0] = el)}
+              src="/images/pokemon_360_1.mp4"
+              loop
+              muted
+              playsInline
+            />
+          </div>
 
-    {/* SINNER */}
-    <div className="pokematch-row">
-      <img src="/images/Maillot Sinner.png" alt="Maillot Sinner" />
-      <img src="/images/Carte 1 clair metamorph.png" alt="Carte Sinner" />
-      <video
-        ref={(el) => (pokemonVideosRef.current[0] = el)}
-        src="/images/pokemon_360_1.mp4"
-        loop 
-        muted
-        playsInline
-      />
-    </div>
+          {/* ALCARAZ */}
+          <div className="pokematch-row">
+            <img src="/images/Maillot Alcaraz.png" alt="Maillot Alcaraz" />
+            <img
+              src="/images/Carte 2 clair metamorph.png"
+              alt="Carte Alcaraz"
+            />
+            <video
+              ref={(el) => (pokemonVideosRef.current[1] = el)}
+              src="/images/pokemon_360_2.mp4"
+              loop
+              muted
+              playsInline
+            />
+          </div>
 
-    {/* ALCARAZ */}
-    <div className="pokematch-row">
-      <img src="/images/Maillot Alcaraz.png" alt="Maillot Alcaraz" />
-      <img src="/images/Carte 2 clair metamorph.png" alt="Carte Alcaraz" />
-      <video
-      ref={(el) => (pokemonVideosRef.current[1] = el)}
-      src="/images/pokemon_360_2.mp4"
-      loop
-      muted
-      playsInline
-      />
-    </div>
+          {/* SABALENKA */}
+          <div className="pokematch-row">
+            <img src="/images/Maillot Sabalenka.png" alt="Maillot Sabalenka" />
+            <img
+              src="/images/Carte 3 clair metamorph.png"
+              alt="Carte Sabalenka"
+            />
+            <video
+              ref={(el) => (pokemonVideosRef.current[2] = el)}
+              src="/images/pokemon_360_3.mp4"
+              loop
+              muted
+              playsInline
+            />
+          </div>
 
-    {/* SABALENKA */}
-    <div className="pokematch-row">
-      <img src="/images/Maillot Sabalenka.png" alt="Maillot Sabalenka" />
-      <img src="/images/Carte 3 clair metamorph.png" alt="Carte Sabalenka" />
-      <video
-      ref={(el) => (pokemonVideosRef.current[2] = el)}
-      src="/images/pokemon_360_3.mp4"
-      loop
-      muted
-      playsInline
-      />
-    </div>
+          {/* ANDREEVA */}
+          <div className="pokematch-row">
+            <img src="/images/Maillot Andreeva.png" alt="Maillot Andreeva" />
+            <img
+              src="/images/Carte 4 clair metamorph.png"
+              alt="Carte Andreeva"
+            />
+            <video
+              ref={(el) => (pokemonVideosRef.current[3] = el)}
+              src="/images/pokemon_360_4.mp4"
+              loop
+              muted
+              playsInline
+            />
+          </div>
+        </div>
+      )}
 
-    {/* ANDREEVA */}
-    <div className="pokematch-row">
-      <img src="/images/Maillot Andreeva.png" alt="Maillot Andreeva" />
-      <img src="/images/Carte 4 clair metamorph.png" alt="Carte Andreeva" />
-      <video
-      ref={(el) => (pokemonVideosRef.current[3] = el)}
-      src="/images/pokemon_360_4.mp4"
-      loop
-      muted
-      playsInline
-      />
-    </div>
+      {project.id === "pamparina" && (
+        <p className="project-gallery-caption">
+          Voici quelques déclinaisons de l’identité visuelle sur différents
+          supports, pour montrer comment l’univers de la Pamparina peut vivre
+          au-delà de l’affiche.
+        </p>
+      )}
 
-  </div>
-)}
+      {project.id === "elmer" && (
+        <p className="project-gallery-caption">
+          Voici les différentes étapes de création de mon illustration, du
+          premier croquis jusqu’au rendu final.
+        </p>
+      )}
 
-{project.id === "pamparina" && (
-  <p className="project-gallery-caption">
-    Voici quelques déclinaisons de l’identité visuelle sur différents supports,
-    pour montrer comment l’univers de la Pamparina peut vivre au-delà de l’affiche.
-  </p>
-)}
-
-{project.id === "elmer" && (
-  <p className="project-gallery-caption">
-    Voici les différentes étapes de création de mon illustration, du premier croquis jusqu’au rendu final.
-  </p>
-)}
-
-{project.id === "Pokematch" && (
-  <p className="project-gallery-caption">
-    Voici les quatre figurines imaginées pour le projet Pokématch, présentées en rotation à 360°.
-  </p>
-)}
-
+      {project.id === "Pokematch" && (
+        <p className="project-gallery-caption">
+          Voici les quatre figurines imaginées pour le projet Pokématch,
+          présentées en rotation à 360°.
+        </p>
+      )}
     </div>
   );
 }
 
 function About({ go }) {
   const timeline = [
-    { year: "2018", text: "Licence arts appliqués, option design graphique — Lyon." },
-    { year: "2020", text: "Master direction artistique, spécialisation identité de marque." },
-    { year: "2021", text: "Premières commandes en freelance, aux côtés d'un studio de branding." },
-    { year: "2023", text: "Installation en indépendante à temps plein, à Lyon." },
-    { year: "2024", text: "Premiers projets d'édition limitée et d'objets 3D imprimés." },
+    {
+      year: "2018",
+      text: "Licence arts appliqués, option design graphique — Lyon.",
+    },
+    {
+      year: "2020",
+      text: "Master direction artistique, spécialisation identité de marque.",
+    },
+    {
+      year: "2021",
+      text: "Premières commandes en freelance, aux côtés d'un studio de branding.",
+    },
+    {
+      year: "2023",
+      text: "Installation en indépendante à temps plein, à Lyon.",
+    },
+    {
+      year: "2024",
+      text: "Premiers projets d'édition limitée et d'objets 3D imprimés.",
+    },
   ];
 
   return (
     <div className="page">
       <section className="about-hero">
-       <div className="about-portrait">
-  <img src="/images/photo_solene.png" alt="Solène Crouzet" />
-</div>
+        <div className="about-portrait">
+          <img src="/images/photo_solene.png" alt="Solène Crouzet" />
+        </div>
         <div className="about-intro">
           <h1>À propos</h1>
           <p className="about-lede">
-            Je suis graphiste, passionnée par tout ce qui donne une forme à
-            une idée : une identité, une affiche, un objet en volume. J'aime
-            autant travailler sur des projets très cadrés que sur des choses
-            plus manuelles et expérimentales, où j'ai le droit de me tromper.
+            Je suis graphiste, passionnée par tout ce qui donne une forme à une
+            idée : une identité, une affiche, un objet en volume. J'aime autant
+            travailler sur des projets très cadrés que sur des choses plus
+            manuelles et expérimentales, où j'ai le droit de me tromper.
           </p>
           <p>
             Ce qui m'intéresse particulièrement : le branding, la direction
-            artistique, l'illustration, la typographie, la 3D, les objets et
-            art toys, et toutes les expérimentations graphiques qui n'ont pas
-            encore de nom. Je crois qu'un bon projet garde toujours une trace
-            de la main qui l'a fait, même quand il finit sur un écran.
+            artistique, l'illustration, la typographie, la 3D, les objets et art
+            toys, et toutes les expérimentations graphiques qui n'ont pas encore
+            de nom. Je crois qu'un bon projet garde toujours une trace de la
+            main qui l'a fait, même quand il finit sur un écran.
           </p>
         </div>
       </section>
@@ -997,7 +1171,15 @@ function About({ go }) {
         <div>
           <h3 className="about-label">Compétences</h3>
           <ul className="tag-list">
-            {["Identité de marque", "Direction artistique", "Illustration", "Typographie", "Packaging", "Motion léger", "Modélisation 3D"].map((s) => (
+            {[
+              "Identité de marque",
+              "Direction artistique",
+              "Illustration",
+              "Typographie",
+              "Packaging",
+              "Motion léger",
+              "Modélisation 3D",
+            ].map((s) => (
               <li key={s}>{s}</li>
             ))}
           </ul>
@@ -1005,7 +1187,15 @@ function About({ go }) {
         <div>
           <h3 className="about-label">Logiciels</h3>
           <ul className="tag-list">
-            {["Illustrator", "Photoshop", "InDesign", "Figma", "Procreate", "Cinema 4D", "After Effects"].map((s) => (
+            {[
+              "Illustrator",
+              "Photoshop",
+              "InDesign",
+              "Figma",
+              "Procreate",
+              "Cinema 4D",
+              "After Effects",
+            ].map((s) => (
               <li key={s}>{s}</li>
             ))}
           </ul>
@@ -1026,7 +1216,9 @@ function About({ go }) {
 
       <section className="section about-cta">
         <p>Une idée, un projet, une envie de collaborer ?</p>
-        <button className="btn btn-primary" onClick={() => go("contact")}>Écrivons-nous</button>
+        <button className="btn btn-primary" onClick={() => go("contact")}>
+          Écrivons-nous
+        </button>
       </section>
 
       <Footer go={go} />
@@ -1057,10 +1249,19 @@ function Contact() {
 
       <section className="contact-body">
         <div className="contact-details">
-          <a className="contact-email" href="mailto:bonjour@solenecrouzet.studio">bonjour@solenecrouzet.studio</a>
+          <a
+            className="contact-email"
+            href="mailto:bonjour@solenecrouzet.studio"
+          >
+            bonjour@solenecrouzet.studio
+          </a>
           <div className="contact-socials">
-            <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://instagram.com" target="_blank" rel="noreferrer">
+              Instagram
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
           </div>
           <p className="contact-note">
             Ouverte aux missions freelance, aux collaborations ponctuelles et
@@ -1073,7 +1274,9 @@ function Contact() {
           {sent ? (
             <div className="contact-success">
               <p>Message envoyé — merci !</p>
-              <p className="contact-success-sub">Je reviens vers vous très vite.</p>
+              <p className="contact-success-sub">
+                Je reviens vers vous très vite.
+              </p>
             </div>
           ) : (
             <>
@@ -1101,10 +1304,14 @@ function Contact() {
                   required
                   rows={5}
                   value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  onChange={(e) =>
+                    setForm({ ...form, message: e.target.value })
+                  }
                 />
               </label>
-              <button type="submit" className="btn btn-primary">Envoyer le message</button>
+              <button type="submit" className="btn btn-primary">
+                Envoyer le message
+              </button>
             </>
           )}
         </form>
@@ -1142,7 +1349,13 @@ export default function App() {
       <main key={page + projectId} className="page-transition">
         {page === "home" && <Home go={go} openProject={openProject} />}
         {page === "projects" && <Projects openProject={openProject} />}
-        {page === "project" && <ProjectDetail project={currentProject} openProject={openProject} go={go} />}
+        {page === "project" && (
+          <ProjectDetail
+            project={currentProject}
+            openProject={openProject}
+            go={go}
+          />
+        )}
         {page === "about" && <About go={go} />}
         {page === "contact" && <Contact />}
       </main>
@@ -1167,6 +1380,32 @@ body {
 }
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600&display=swap');
 
+.app-root {
+  --ink: #17142B;
+  --paper: #F1F0F7;
+  --paper-2: #E7E4F0;
+  --accent: #FFBEE3;
+  --accent-text: color-mix(in srgb, #FFBEE3 35%, #17142B 65%);
+  --serif: 'Fraunces', serif;
+  --sans: 'Inter', sans-serif;
+
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-root * { box-sizing: border-box; }
+.app-root button { font-family: inherit; background: none; border: none; cursor: pointer; color: inherit; padding: 0; }
+.app-root a { color: inherit; }
+.app-root ul { list-style: none; margin: 0; padding: 0; }
+.app-root dl { margin: 0; }
+.app-root h1, .app-root h2, .app-root h3 { font-family: var(--serif); font-weight: 500; margin: 0; }
+.app-root p { margin: 0; }
 
 .page-transition {
   animation: fadeIn 0.8s ease-in-out both;
@@ -1891,6 +2130,335 @@ body {
   display: none !important;
 }
 
+/* MOBILE */
+/* ========================================================= */
+/* ================= PROJETS - MOBILE ======================= */
+/* ========================================================= */
+
+@media (max-width: 860px) {
+
+  /* ---------- PREMIER ÉCRAN DU PROJET ---------- */
+
+  .project-header {
+    min-height: auto !important;
+    height: auto !important;
+
+    display: block !important;
+
+    padding-top: 35px !important;
+    padding-bottom: 35px !important;
+
+    margin: 0 !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+  }
+
+
+  /* ---------- RETOUR TOUS LES PROJETS ---------- */
+
+  .back-link {
+    display: block !important;
+
+    margin: 0 0 28px 0 !important;
+    padding: 0 !important;
+
+    width: fit-content !important;
+  }
+
+
+  /* ---------- STRUCTURE GÉNÉRALE ---------- */
+
+  .project-intro-layout {
+    display: flex !important;
+    flex-direction: column !important;
+
+    grid-template-columns: none !important;
+
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    gap: 0 !important;
+  }
+
+
+  /*
+    IMPORTANT :
+    titre + année + logiciels + description
+    sont dans .project-intro-left.
+
+    display: contents permet de placer l'image
+    ENTRE les infos et la description.
+  */
+
+  .project-intro-left {
+    display: contents !important;
+  }
+
+
+  /* ========================================================= */
+  /* 1 — TITRE + SOUS-TITRE                                   */
+  /* ========================================================= */
+
+  .project-title-block {
+    order: 1 !important;
+
+    width: 100% !important;
+
+    margin: 0 0 30px 0 !important;
+    padding: 0 !important;
+  }
+
+  .project-title-block h1 {
+    margin: 0 0 12px 0 !important;
+
+    font-size: 42px !important;
+    line-height: 1 !important;
+  }
+
+  .project-title-block .project-tagline {
+    margin: 0 !important;
+
+    font-size: 15px !important;
+    line-height: 1.3 !important;
+  }
+
+
+  /* ========================================================= */
+  /* 2 — ANNÉE + LOGICIELS SUR UNE SEULE LIGNE                */
+  /* ========================================================= */
+
+  .project-meta {
+    order: 2 !important;
+
+    display: grid !important;
+    grid-template-columns: 0.75fr 1.6fr !important;
+
+    column-gap: 28px !important;
+
+    width: 100% !important;
+    transform: translateY(-25px) !important;
+    margin: 0 0 30px 0 !important;
+    padding: 0 !important;
+  }
+
+
+  /* Chaque bloc : "Année 2026" / "Logiciels utilisés ..." */
+
+  .project-meta > div {
+    display: flex !important;
+    flex-direction: row !important;
+
+    align-items: center !important;
+
+    gap: 8px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    min-width: 0 !important;
+  }
+
+
+  .project-meta span {
+    display: block !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: 13px !important;
+    font-weight: 600 !important;
+
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+
+  .project-meta p {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+  }
+
+
+  /* 2026 ne passe jamais à la ligne */
+
+  .project-meta > div:first-child p {
+    white-space: nowrap !important;
+  }
+
+
+  /* Les logiciels peuvent revenir légèrement à la ligne si nécessaire */
+
+  .project-meta > div:nth-child(2) p {
+    min-width: 0 !important;
+  }
+
+
+  /* ========================================================= */
+  /* 3 — IMAGE PRINCIPALE                                     */
+  /* ========================================================= */
+
+  .project-intro-image {
+    order: 3 !important;
+
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden !important;
+
+    border-radius: 18px !important;
+  }
+
+
+  .project-intro-image img {
+    display: block !important;
+
+    width: 100% !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    object-fit: cover !important;
+
+    transform: none !important;
+  }
+
+
+  /* ========================================================= */
+  /* 4 — DESCRIPTION SOUS L'IMAGE                             */
+  /* ========================================================= */
+
+  .project-intro-description {
+    order: 4 !important;
+
+    width: 100% !important;
+    max-width: none !important;
+
+    margin-top: 6px !important;
+    padding: 0 !important;
+
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+  .project-intro-description {
+    padding-top: 25px !important;
+  }
+
+  .project-intro-description p {
+    width: 100% !important;
+
+    margin: 0 0 14px 0 !important;
+    padding: 0 !important;
+  }
+
+
+  .project-intro-description p:last-child {
+    margin-bottom: 0 !important;
+  }
+
+
+  /* ========================================================= */
+  /* ÉLÉMENTS QUI VIENNENT APRÈS LE TEXTE                     */
+  /* Évite les grosses zones blanches inutiles                 */
+  /* ========================================================= */
+
+  .project-gallery,
+  .project-gallery-three,
+  .elmer-illustrations,
+  .pokemon-videos,
+  .pamparina-book-position {
+    min-height: 0 !important;
+
+    margin-top: 30px !important;
+    padding-top: 0 !important;
+  }
+
+
+  /* ---------- GALERIES ---------- */
+
+  .project-gallery-three {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+
+    gap: 18px !important;
+
+    width: 100% !important;
+  }
+
+
+  .project-gallery-three img {
+    display: block !important;
+
+    width: 100% !important;
+    height: auto !important;
+
+    margin: 0 !important;
+  }
+
+
+  /* ---------- ELMER ---------- */
+
+  .elmer-illustrations {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+
+    gap: 18px !important;
+
+    width: 100% !important;
+
+    transform: none !important;
+  }
+
+
+  .elmer-illustrations img {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+
+    margin: 0 !important;
+  }
+
+
+  /* ---------- POKÉMATCH : VIDÉOS ---------- */
+
+  .pokemon-videos {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+
+    gap: 16px !important;
+
+    width: 100% !important;
+  }
+
+
+  .pokemon-videos video {
+    display: block !important;
+
+    width: 100% !important;
+    height: auto !important;
+
+    object-fit: contain !important;
+  }
+
+}
+/* @media (max-width: 800px) {
+  .project-intro-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .project-meta {
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+} */
 .project-header {
   min-height: calc(100vh - 110px) !important;
   display: flex !important;
@@ -1973,6 +2541,32 @@ body {
 .projects-carousel .featured-tile {
   flex: 0 0 calc((100% - 64px) / 3);
   scroll-snap-align: start;
+}
+
+@media (max-width: 860px) {
+  .projects-carousel-wrapper {
+    padding: 0 55px !important;
+    overflow: hidden !important;
+  }
+
+  .projects-carousel {
+    gap: 24 !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+  }
+
+  .projects-carousel .featured-tile {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+
+    scroll-snap-align: center !important;
+
+    margin: 0 !important;
+    transform: none !important;
+  }
 }
 .project-gallery-three {
   width: 100% !important;
@@ -2676,10 +3270,9 @@ body {
    TABLETTE
 ===================================================== */
 
-/*
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
 
- .project-main-image,
+  .project-main-image,
   .project-gallery,
   .project-description,
   .project-software,
@@ -2704,9 +3297,7 @@ body {
   .gallery-two img {
     height: 480px;
   }
-}
-*/
-
+} */
 
 /* PREMIER ÉCRAN DU PROJET */
 
@@ -2802,6 +3393,26 @@ body {
 }
 
 
+/* =====================================================
+   MOBILE
+===================================================== */
+
+/* @media (max-width: 750px) {
+
+  /* Grande image */
+
+  .project-main-image {
+    width: calc(100% - 24px);
+  }
+
+  .project-main-image img {
+    height: auto;
+
+    aspect-ratio: 4 / 3;
+
+    border-radius: 16px;
+  }
+
 
   /* Description */
 
@@ -2884,7 +3495,7 @@ body {
   .project-navigation button {
     font-size: 14px;
   }
-}
+} */
 
 /* ======================================== */
 /*          FLIPBOOK PAMPARINA             */
@@ -2946,6 +3557,16 @@ body {
   visibility: hidden !important;
 }
 
+/* @media (max-width: 900px) {
+  .pamparina-book-section {
+    margin-top: 25px !important;
+    margin-bottom: 40px !important;
+  }
+
+  .pamparina-book-wrapper {
+    padding: 0 15px !important;
+  }
+} */
 
 .elmer-illustrations {
   display: grid;
@@ -3273,21 +3894,348 @@ body {
   .project-pager { grid-template-columns: 1fr; }
   .project-pager-next { border-left: none; border-top: 1px solid color-mix(in srgb, var(--ink) 12%, transparent); align-items: flex-start; text-align: left; }
   .nav-links { gap: 14px; }
+} */
+
+@media (max-width: 560px) {
+
+/* ===== HERO TÉLÉPHONE ===== */
+
+
+/* Descend légèrement tout le bloc Portfolio */
+.hero-content {
+  top: 20% !important;
 }
-*/
+
+/* Un peu plus d'espace blanc avant la partie rose */
+.hero {
+  height: 200px !important;
+  min-height: 200px !important;
+}
+
+/* Garde UNE SEULE étoile */
+.hero-star-1,
+.hero-star-2 {
+  display: none !important;
+}
+
+.hero-star-3 {
+  display: block !important;
+  position: absolute !important;
+
+  top: 54px !important;
+  left: 336px !important;
+  right: auto !important;
+
+  font-size: 48px !important;
+  color: #e83cab !important;
+  z-index: 5 !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Partie rose juste après */
+.presentation-home {
+  margin-top: -120px !important;
+}
+
+.hero-specialty {
+  left: 30px !important;
+  top: 0 !important;
+
+  width: 80% !important;
+  gap: 12px !important;
+}
+
+.hero-specialty-icon {
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  font-size: 0.8rem !important;
+  margin-top: -10px !important;
+}
+
+.hero-specialty-text {
+  padding: 6px 10px !important;
+  font-size: 0.6rem !important;
+  margin-top: -10px !important;
+}
+
+/* Réduit la grosse zone blanche */
+.hero {
+  height: 430px !important;
+  min-height: 430px !important;
+}
+
+/* Remonte toute la partie rose qui vient après */
+.presentation-home {
+  margin-top: -180px !important;
+}
+  
+.presentation-home-text {
+  font-size: 14px !important;
+}
+
+.presentation-home-button {
+  font-size: 0.75rem !important;
+  padding: 10px 28px !important;
+  width: auto !important;
+  min-width: 0 !important;
+  height: auto !important;
+}
 
 
-@keyframes starFloat {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0.55;
+/* ============================= */
+/* MENU BURGER MOBILE COMPLET    */
+/* ============================= */
+
+.nav-links {
+  display: none !important;
+}
+
+
+/* ===== BOUTON BURGER / CROIX ===== */
+.nav {
+  position: relative !important;
+}
+
+.menu-toggle {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: absolute !important;
+  top: 50% !important;
+  right: 24px !important;
+  transform: translateY(-50%) !important;
+  z-index: 10005 !important;
+  top: 55px !important;
+  right: 26px !important;
+
+  width: 42px !important;
+  height: 42px !important;
+
+  padding: 0 !important;
+
+  background: transparent !important;
+  border: none !important;
+
+  color: white !important;
+  font-size: 30px !important;
+  line-height: 1 !important;
+
+  cursor: pointer !important;
+
+  z-index: 10005 !important;
+
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease !important;
+}
+
+.menu-toggle:active {
+  transform: scale(0.88) !important;
+}
+
+
+/* ===== OVERLAY PLEIN ÉCRAN ===== */
+
+.mobile-menu-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+
+  width: 100vw !important;
+  height: 100dvh !important;
+
+  background: linear-gradient(
+    145deg,
+    #d6009d 0%,
+    #e83cab 45%,
+    #f2a7d4 100%
+  ) !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 26px !important;
+
+  overflow: hidden !important;
+
+  opacity: 1 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+
+  clip-path: circle(0px at calc(100% - 45px) 45px) !important;
+
+  transition:
+    clip-path 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.8s !important;
+
+  z-index: 10000 !important;
+}
+
+
+/* ===== OVERLAY OUVERT ===== */
+
+.mobile-menu-overlay.is-open {
+  visibility: visible !important;
+  pointer-events: auto !important;
+
+  clip-path: circle(150vmax at calc(100% - 45px) 45px) !important;
+
+  transition:
+    clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0s !important;
+}
+
+
+/* ===== LIENS DU MENU ===== */
+
+.mobile-menu-link {
+  position: relative !important;
+
+  background: transparent !important;
+  border: none !important;
+
+  color: white !important;
+
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+
+  cursor: pointer !important;
+
+  opacity: 0 !important;
+
+  transform:
+    translateY(28px)
+    scale(0.94) !important;
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) !important;
+
+  transition-delay: 0s !important;
+
+  z-index: 3 !important;
+}
+
+
+/* arrivée progressive des liens */
+
+.mobile-menu-overlay.is-open .mobile-menu-link {
+  opacity: 1 !important;
+
+  transform:
+    translateY(0)
+    scale(1) !important;
+
+  transition-delay: var(--delay) !important;
+}
+
+
+/* petit effet au clic */
+
+.mobile-menu-link:active {
+  transform: scale(0.94) !important;
+}
+
+
+/* ===== ÉTOILES ===== */
+
+.menu-star {
+  position: absolute !important;
+
+  display: block !important;
+
+  color: white !important;
+
+  pointer-events: none !important;
+
+  opacity: 0 !important;
+
+  z-index: 1 !important;
+
+  animation: menuStarFloat 5s ease-in-out infinite alternate !important;
+
+  transition: opacity 0.7s ease !important;
+}
+
+
+/* étoiles apparaissent progressivement */
+
+.mobile-menu-overlay.is-open .menu-star {
+  opacity: 0.85 !important;
+}
+
+
+/* positions */
+
+.menu-star.star-1 {
+  top: 14% !important;
+  left: 14% !important;
+  font-size: 40px !important;
+
+  animation-delay: 0s !important;
+}
+
+.menu-star.star-2 {
+  top: 25% !important;
+  right: 14% !important;
+  font-size: 23px !important;
+
+  animation-delay: 0.8s !important;
+}
+
+.menu-star.star-3 {
+  top: 52% !important;
+  left: 9% !important;
+  font-size: 28px !important;
+
+  animation-delay: 1.4s !important;
+}
+
+.menu-star.star-4 {
+  bottom: 18% !important;
+  right: 13% !important;
+  font-size: 44px !important;
+
+  animation-delay: 2s !important;
+}
+
+.menu-star.star-5 {
+  bottom: 9% !important;
+  left: 24% !important;
+  font-size: 20px !important;
+
+  animation-delay: 2.7s !important;
+}
+
+
+/* ===== ANIMATION ÉTOILES ===== */
+
+@keyframes menuStarFloat {
+  0% {
+    transform:
+      translate3d(0, 0, 0)
+      rotate(-3deg)
+      scale(1);
   }
 
   50% {
-    transform: translateY(-8px) rotate(12deg);
-    opacity: 1;
+    transform:
+      translate3d(5px, -9px, 0)
+      rotate(3deg)
+      scale(1.05);
+  }
+
+  100% {
+    transform:
+      translate3d(-4px, 6px, 0)
+      rotate(-2deg)
+      scale(0.98);
   }
 }
+
 
 .hero-title {
   font-size: 3.2rem !important;
@@ -3329,6 +4277,15 @@ body {
   margin-right: 15px;
   position: relative;
   z-index: 1001;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease !important;
+}
+
+.menu-toggle:active {
+  transform: scale(0.88) rotate(8deg) !important;
+}
+
 }
   .about-teaser-portrait {
   transform: none !important;
@@ -3345,103 +4302,140 @@ body {
   overflow: hidden !important;
 }
 
-.tear {
-  position: absolute !important;
-  left: 0 !important;
+/* ================================= */
+/* CARROUSEL PROJETS - TÉLÉPHONE     */
+/* ================================= */
+
+.projects-carousel-wrapper {
+  position: relative !important;
   width: 100% !important;
-  height: 70px !important;
-  background: white !important;
-  z-index: 50 !important;
-  pointer-events: none !important;
+
+  padding: 0 60px !important;
+  box-sizing: border-box !important;
 }
 
 
+/* zone contenant les 6 projets */
 
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 28%,
-    95% 65%,
-    90% 38%,
-    84% 72%,
-    78% 35%,
-    72% 68%,
-    66% 42%,
-    60% 76%,
-    54% 34%,
-    48% 70%,
-    42% 40%,
-    36% 74%,
-    30% 35%,
-    24% 68%,
-    18% 42%,
-    12% 75%,
-    6% 36%,
-    0 70%
-  ) !important;
+.projects-carousel {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+
+  width: 100% !important;
+
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+
+  gap: 0 !important;
+
+  scroll-snap-type: x mandatory !important;
+  scroll-behavior: smooth !important;
+
+  scrollbar-width: none !important;
 }
 
-.tear-bottom {
-  bottom: 0 !important;
-
-  clip-path: polygon(
-    0 30%,
-    6% 68%,
-    12% 36%,
-    18% 74%,
-    24% 40%,
-    30% 70%,
-    36% 34%,
-    42% 72%,
-    48% 38%,
-    54% 76%,
-    60% 35%,
-    66% 68%,
-    72% 42%,
-    78% 72%,
-    84% 36%,
-    90% 70%,
-    95% 40%,
-    100% 65%,
-    100% 100%,
-    0 100%
-  ) !important;
+.projects-carousel::-webkit-scrollbar {
+  display: none !important;
 }
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
+
+
+/* UNE SEULE CARTE À LA FOIS */
+
+.projects-carousel .featured-tile {
+  flex: 0 0 100% !important;
+
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  transform: none !important;
+
+  scroll-snap-align: center !important;
+  scroll-snap-stop: always !important;
 }
-/* ===== MOBILE = VERSION ORDINATEUR RÉDUITE ===== */
 
-@media (max-width: 768px) {
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
 
-  .app-root {
-    width: 1440px;
-    min-width: 1440px;
-    transform: scale(calc(100vw / 1440));
-    transform-origin: top left;
-  }
+/* enlève les différences desktop entre a et b */
 
-  /* On garde la navigation ordinateur */
-  .menu-toggle {
-    display: none !important;
-  }
-
-  .mobile-menu-overlay {
-    display: none !important;
-  }
-
-  .nav-links {
-    display: flex !important;
-  }
+.projects-carousel .featured-tile-a,
+.projects-carousel .featured-tile-b {
+  margin: 0 !important;
+  transform: none !important;
 }
+
+
+/* IMAGE DU PROJET */
+
+.projects-carousel .featured-art {
+  width: 100% !important;
+  height: 390px !important;
+
+  border-radius: 38px !important;
+  overflow: hidden !important;
+}
+
+.projects-carousel .featured-art img {
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;
+  display: block !important;
+}
+
+
+/* infos sous l'image */
+
+.projects-carousel .featured-meta {
+  width: 100% !important;
+  margin-top: 15px !important;
+}
+
+
+/* ===== FLÈCHE GAUCHE ===== */
+
+.carousel-prev {
+  position: absolute !important;
+
+  left: 12px !important;
+  top: 45% !important;
+
+  transform: translateY(-50%) !important;
+
+  z-index: 20 !important;
+
+  background: transparent !important;
+  border: none !important;
+
+  font-size: 2.2rem !important;
+  color: #111 !important;
+
+  cursor: pointer !important;
+}
+
+
+/* ===== FLÈCHE DROITE ===== */
+
+.carousel-next {
+  position: absolute !important;
+
+  right: 12px !important;
+  top: 45% !important;
+
+  transform: translateY(-50%) !important;
+
+  z-index: 20 !important;
+
+  background: transparent !important;
+  border: none !important;
+
+  font-size: 2.2rem !important;
+  color: #111 !important;
+
+  cursor: pointer !important;
+}
+
+
 `;
