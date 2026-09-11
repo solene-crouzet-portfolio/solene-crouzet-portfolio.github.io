@@ -516,9 +516,7 @@ function ProjectDetail({ project, go }) {
               <>
              <p>
             Dans le cadre de ce projet, nous devions imaginer l’identité visuelle
-            d’un artiste autour de sa musique « Pensée sur l’amour ». J’ai choisi de
-            développer un univers graphique inspiré des aurores boréales et de la
-            notion d’amour.
+            d’un artiste autour de sa musique « Pensée sur l’amour ».
             </p>
             <p>
             J’ai conçu deux vinyles : une édition classique et une édition collector
