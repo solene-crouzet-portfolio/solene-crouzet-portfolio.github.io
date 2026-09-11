@@ -29,34 +29,34 @@ const PROJECTS = [
     title: "Pokématch",
     image: "/images/pokematch_projet_5.png",
     category: "Produits dérivés",
-    year: "2024",
+    year: "2026",
     tagline: "Identité visuelle pour une collaboration fictive",
-    tools: ["Illustrator", "Photoshop"],
+    tools: ["Illustrator", "Photoshop", "Nomad Sculpt", "Blender"],
   },
   {
     id: "Ehpad",
     title: "Ehpad",
     image: "/images/ehpad_projet_6.png",
     category: "Site internet",
-    year: "2024",
+    year: "2026",
     tagline: "Site internet",
-    tools: ["Figma", "After Effects"],
+    tools: ["Figma", "Visual Studio Code"],
   },
   {
     id: "vinyle",
     title: "Musique",
     image: "/images/vinyle_projet_4.png",
     category: "Identité visuelle",
-    year: "2023",
+    year: "2025",
     tagline: "Identité visuelle",
-    tools: ["InDesign", "Illustrator"],
+    tools: ["Photoshop", "Indesign"],
   },
   {
     id: "binche",
     title: "Binche",
     image: "/images/binche_projet_3.png",
     category: "Affiche de carnaval",
-    year: "2022",
+    year: "2026",
     tagline: "Affiche de carnaval",
     tools: ["Illustrator", "Procreate", "InDesign"],
   },
@@ -512,7 +512,42 @@ function ProjectDetail({ project, go }) {
               </>
               )}
 
-              
+              {project.id === "vinyle" && (
+              <>
+             <p>
+            Dans le cadre de ce projet, nous devions imaginer l’identité visuelle
+            d’un artiste autour de sa musique « Pensée sur l’amour ». J’ai choisi de
+            développer un univers graphique inspiré des aurores boréales et de la
+            notion d’amour.
+            </p>
+            <p>
+            J’ai conçu deux vinyles : une édition classique et une édition collector
+            fonctionnant en négatif. Le vinyle rose devient ainsi vert, créant un
+            contraste qui évoque les couleurs d’une aurore boréale. La pochette
+            représente une montagne formée par deux visages, féminin et masculin,
+            tandis que deux personnages gravissent chacun un côté de la montagne,
+            symbolisant la rencontre et la relation entre deux personnes.
+            </p>
+            </>
+          )}
+
+          {project.id === "binche" && (
+          <>
+          <p>
+          Pour ce projet, j’ai réalisé une affiche destinée au carnaval de Binche.
+          L’objectif était de proposer une interprétation graphique personnelle de
+          cet événement emblématique.
+          </p>
+          <p>
+          Réalisée sur Illustrator, l’affiche s’inspire notamment du costume
+          traditionnel des Gilles, figure incontournable du carnaval. Ma
+          proposition a été sélectionnée parmi les 30 meilleures affiches du
+          concours et a également reçu un grand nombre de votes.
+          </p>
+          </>
+        )}
+
+
             </div>
           </div>
 
