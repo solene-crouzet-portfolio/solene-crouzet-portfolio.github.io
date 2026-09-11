@@ -495,6 +495,24 @@ function ProjectDetail({ project, go }) {
                   <p>J’ai créé un univers visuel cohérent mêlant les codes du tennis et de Pokémon que j’ai ensuite décliné sur différents supports, notamment des maillots, des cartes à collectionner et des figurines Art Toys.</p>
                 </>
               )}
+
+              {project.id === "Ehpad" && (
+              <>
+              <p>
+              Ce projet avait pour objectif de moderniser la communication d’un EHPAD
+              dont le site Internet n’était plus fonctionnel ni adapté aux besoins de
+              l’établissement.
+              </p>
+              <p>
+              J’ai donc conçu un nouveau site Internet plus clair, accessible et
+              agréable à utiliser. J’ai également réalisé la mise en page des différents
+              documents de l’établissement afin de rendre les informations plus
+              lisibles et agréables à consulter pour les résidents et leurs proches.
+              </p>
+              </>
+              )}
+
+              
             </div>
           </div>
 
