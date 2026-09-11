@@ -540,7 +540,7 @@ function ProjectDetail({ project, go }) {
           Réalisée sur Illustrator, l’affiche s’inspire notamment du costume
           traditionnel des Gilles, figure incontournable du carnaval. Ma
           proposition a été sélectionnée parmi les 30 meilleures affiches du
-          concours et a également reçu un grand nombre de votes.
+          concours.
           </p>
           </>
         )}
