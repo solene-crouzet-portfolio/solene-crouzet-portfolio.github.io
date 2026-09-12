@@ -412,249 +412,489 @@ function ProjectDetail({ project, go }) {
     if (videos.length !== 4) return;
 
     const startVideosTogether = async () => {
-      videos.forEach((video) => { video.currentTime = 0; });
-      await Promise.all(videos.map((video) => video.play().catch(() => {})));
+      videos.forEach((video) => {
+        video.currentTime = 0;
+      });
+
+      await Promise.all(
+        videos.map((video) =>
+          video.play().catch(() => {})
+        )
+      );
     };
 
     Promise.all(
       videos.map(
         (video) =>
           new Promise((resolve) => {
-            if (video.readyState >= 3) resolve();
-            else video.addEventListener("canplay", resolve, { once: true });
-          }),
-      ),
+            if (video.readyState >= 3) {
+              resolve();
+            } else {
+              video.addEventListener("canplay", resolve, {
+                once: true,
+              });
+            }
+          })
+      )
     ).then(startVideosTogether);
   }, []);
 
   return (
     <div className="page project-detail-page">
+
+      {/* ---------------------------------------------------------- */}
+      {/* EN-TÊTE DU PROJET                                          */}
+      {/* ---------------------------------------------------------- */}
+
       <section className="project-header">
-        <div className="project-intro-layout">
-          <div className="project-intro-left">
-            <button
-              className="back-link"
-              onClick={() => {
-                go("home");
-                setTimeout(() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" }), 100);
-              }}
-            >
-              ← Tous les projets
-            </button>
+
+        <div className="project-detail-content">
+
+          {/* Retour aux projets */}
+
+          <button
+            className="back-link"
+            onClick={() => {
+              go("home");
+
+              setTimeout(() => {
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+              }, 100);
+            }}
+          >
+            ← Tous les projets
+          </button>
+
+
+          {/* ------------------------------------------------------ */}
+          {/* TITRE À GAUCHE / INFOS À DROITE                        */}
+          {/* ------------------------------------------------------ */}
+
+          <div
+            className="project-detail-top"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr auto",
+              alignItems: "start",
+              gap: "60px",
+              width: "100%",
+              marginBottom: "45px",
+            }}
+          >
+
+            {/* TITRE */}
 
             <div className="project-title-block">
+
               <h1>{project.title}</h1>
-              <p className="project-tagline project-detail-tagline">{project.tagline}</p>
-            </div>
 
-            <div className="project-meta">
-              <div>
-                <span>Année</span>
-                <p>{project.year}</p>
-              </div>
-
-              <div className="project-tools">
-                <span>Logiciels utilisés</span>
-                <p className="tools-text">{project.tools.join(", ")}</p>
-                <div className="tools-icons">
-                  {project.tools.map((tool) => {
-                    const icons = {
-                      Illustrator: "/images/logiciels_illustrator.svg",
-                      Photoshop: "/images/logiciels_photoshop.svg",
-                      InDesign: "/images/logiciels_indesign.svg",
-                      Procreate: "/images/logiciels_procreate.svg",
-                      Figma: "/images/logiciels_figma.svg",
-                      Blender: "/images/logiciels_blender.svg",
-                      "Nomad Sculpt": "/images/logiciels_nomad-08.svg",
-                      "After Effects": "/images/logiciels_after-effects.svg",
-                    };
-                    return icons[tool] ? <img key={tool} src={icons[tool]} alt={tool} /> : null;
-                  })}
-                </div>
-              </div>
-            </div>
-
-            <div className="project-intro-description">
-              {project.id === "pamparina" && (
-                <>
-                  <p>Dans le cadre d’un workshop réalisé durant ma dernière année de Bachelor, nous avons travaillé à partir d’un brief réel sur la refonte de l’identité visuelle de la Pamparina.</p>
-                  <p>Ma proposition a été sélectionnée par le client et est devenue l’identité officielle de l’édition 2026 du festival. J’ai ensuite développé l’affiche principale ainsi que différentes déclinaisons graphiques autour de l’événement.</p>
-                </>
-              )}
-
-              {project.id === "elmer" && (
-                <>
-                  <p>Ce projet d’école avait pour objectif de revisiter la couverture d’un livre existant en l’associant à un thème tiré au hasard. J’ai choisi Elmer et pioché le thème de la magie.</p>
-                  <p>J’ai donc imaginé une nouvelle couverture mêlant ces deux univers, tout en travaillant les différentes étapes de préparation du fichier jusqu’à son impression.</p>
-                </>
-              )}
-
-              {project.id === "Pokematch" && (
-                <>
-                  <p>Pokématch est mon projet de fin de Bachelor. Il s'agit d’une collaboration fictive entre Roland-Garros, Nike et Pokémon. Le concept repose sur l’association d’un joueur de tennis à un Pokémon en fonction de leur personnalité et de leur style de jeu.</p>
-                  <p>J’ai créé un univers visuel cohérent mêlant les codes du tennis et de Pokémon que j’ai ensuite décliné sur différents supports, notamment des maillots, des cartes à collectionner et des figurines Art Toys.</p>
-                </>
-              )}
-
-              {project.id === "Ehpad" && (
-              <>
-              <p>
-              Ce projet avait pour objectif de moderniser la communication d’un EHPAD
-              dont le site Internet n’était plus fonctionnel ni adapté aux besoins de
-              l’établissement.
+              <p className="project-tagline">
+                {project.tagline}
               </p>
-              <p>
-              J’ai donc conçu un nouveau site Internet plus clair, accessible et
-              agréable à utiliser. J’ai également réalisé la mise en page des différents
-              documents de l’établissement afin de rendre les informations plus
-              lisibles et agréables à consulter pour les résidents et leurs proches.
-              </p>
-              </>
-              )}
-
-              {project.id === "vinyle" && (
-              <>
-             <p>
-            Dans le cadre de ce projet, nous devions imaginer l’identité visuelle
-            d’un artiste autour de sa musique « Pensée sur l’amour ».
-            </p>
-            <p>
-            J’ai conçu deux vinyles : une édition classique et une édition collector
-            fonctionnant en négatif. Le vinyle rose devient ainsi vert, créant un
-            contraste qui évoque les couleurs d’une aurore boréale. La pochette
-            représente une montagne formée par deux visages, féminin et masculin,
-            tandis que deux personnages gravissent chacun un côté de la montagne,
-            symbolisant la rencontre et la relation entre deux personnes.
-            </p>
-            </>
-          )}
-
-          {project.id === "binche" && (
-          <>
-          <p>
-          Pour ce projet, j’ai réalisé une affiche destinée au carnaval de Binche.
-          L’objectif était de proposer une interprétation graphique personnelle de
-          cet événement emblématique.
-          </p>
-          <p>
-          Réalisée sur Illustrator, l’affiche s’inspire notamment du costume
-          traditionnel des Gilles, figure incontournable du carnaval. Ma
-          proposition a été sélectionnée parmi les 30 meilleures affiches du
-          concours.
-          </p>
-          </>
-        )}
-
 
             </div>
+
+
+<div className="project-meta">
+
+  <div className="project-meta-year">
+    <span>Année :</span>
+    <p>{project.year}</p>
+  </div>
+
+  <div className="project-tools">
+    <span>Logiciels utilisés :</span>
+    <p className="tools-text">{project.tools.join(", ")}</p>
+  </div>
+
+</div>
+
           </div>
 
-          <div className="project-intro-image">
+
+          {/* ------------------------------------------------------ */}
+          {/* GRANDE IMAGE                                            */}
+          {/* ------------------------------------------------------ */}
+
+          <div
+            className="project-intro-image"
+            style={{
+              width: "100%",
+              margin: "0 0 55px 0",
+            }}
+          >
             <img
               src={project.image}
-              className={project.id === "pamparina" ? "pamparina-detail-image" : ""}
+              className={
+                project.id === "pamparina"
+                  ? "pamparina-detail-image"
+                  : ""
+              }
               alt={project.title}
+              style={{
+                width: "100%",
+                height: "auto",
+                display: "block",
+              }}
             />
           </div>
+
+
+          {/* ------------------------------------------------------ */}
+          {/* DESCRIPTION                                             */}
+          {/* ------------------------------------------------------ */}
+
+          <div
+            className="project-description"
+          >
+
+            {/* PAMPARINA */}
+
+            {project.id === "pamparina" && (
+              <>
+                <p>
+                  Dans le cadre d’un workshop réalisé durant ma dernière année de Bachelor,
+                  nous avons travaillé à partir d’un brief réel sur la refonte de l’identité
+                  visuelle de la Pamparina.
+                  Ma proposition a été sélectionnée par le client et est devenue l’identité
+                  officielle de l’édition 2026 du festival. J’ai ensuite développé l’affiche
+                  principale ainsi que différentes déclinaisons graphiques autour de l’événement.
+                </p>
+              </>
+            )}
+
+
+            {/* ELMER */}
+
+            {project.id === "elmer" && (
+              <>
+                <p>
+                  Ce projet d’école avait pour objectif de revisiter la couverture d’un livre
+                  existant en l’associant à un thème tiré au hasard. J’ai choisi Elmer et
+                  pioché le thème de la magie.
+                  J’ai donc imaginé une nouvelle couverture mêlant ces deux univers,
+                  tout en travaillant les différentes étapes de préparation du fichier
+                  jusqu’à son impression.
+                </p>
+              </>
+            )}
+
+
+            {/* POKÉMATCH */}
+
+            {project.id === "Pokematch" && (
+              <>
+                <p>
+                  Pokématch est mon projet de fin de Bachelor. Il s'agit d’une collaboration
+                  fictive entre Roland-Garros, Nike et Pokémon. Le concept repose sur
+                  l’association d’un joueur de tennis à un Pokémon en fonction de leur
+                  personnalité et de leur style de jeu.
+                  J’ai créé un univers visuel cohérent mêlant les codes du tennis et de Pokémon
+                  que j’ai ensuite décliné sur différents supports, notamment des maillots,
+                  des cartes à collectionner et des figurines Art Toys.
+                </p>
+              </>
+            )}
+
+
+            {/* EHPAD */}
+
+            {project.id === "Ehpad" && (
+              <>
+                <p>
+                  Ce projet avait pour objectif de moderniser la communication d’un EHPAD
+                  dont le site Internet n’était plus fonctionnel ni adapté aux besoins de
+                  l’établissement.
+                  J’ai donc conçu un nouveau site Internet plus clair, accessible et
+                  agréable à utiliser. J’ai également réalisé la mise en page des différents
+                  documents de l’établissement afin de rendre les informations plus
+                  lisibles et agréables à consulter pour les résidents et leurs proches.
+                </p>
+              </>
+            )}
+
+
+            {/* VINYLE */}
+
+            {project.id === "vinyle" && (
+              <>
+                <p>
+                  Dans le cadre de ce projet, nous devions imaginer l’identité visuelle
+                  d’un artiste autour de sa musique « Pensée sur l’amour ».
+                  J’ai conçu deux vinyles : une édition classique et une édition collector
+                  fonctionnant en négatif. Le vinyle rose devient ainsi vert, créant un
+                  contraste qui évoque les couleurs d’une aurore boréale. La pochette
+                  représente une montagne formée par deux visages, féminin et masculin,
+                  tandis que deux personnages gravissent chacun un côté de la montagne,
+                  symbolisant la rencontre et la relation entre deux personnes.
+                </p>
+              </>
+            )}
+
+
+            {/* BINCHE */}
+
+            {project.id === "binche" && (
+              <>
+                <p>
+                  Pour ce projet, j’ai réalisé une affiche destinée au Carnaval de Binche,
+                  en Belgique, événement emblématique classé au patrimoine culturel immatériel 
+                  de l’UNESCO. La tradition est notamment marquée par les Gilles, reconnaissables 
+                  à leur costume caractéristique, qui participent au célèbre lancer d’oranges. 
+                  J’ai choisi de représenter cette tradition à travers une interprétation graphique 
+                  personnelle, en mettant en scène le lancer d’oranges et le costume des Gilles dans 
+                  un style flat design. Ma proposition a été sélectionnée parmi les 30 meilleures 
+                  affiches du concours.
+                </p>
+              </>
+            )}
+
+          </div>
+
         </div>
+
       </section>
+
+
+      {/* ========================================================== */}
+      {/* PAMPARINA                                                  */}
+      {/* ========================================================== */}
 
       {project.id === "pamparina" && (
         <>
           <PamparinaBook />
+
           <div className="project-gallery-three">
-            <img src="/images/ecocup_pamparina.png" alt="Pamparina visuel 2" />
-            <img src="/images/badge_carte_pamparina.png" alt="Pamparina visuel 3" />
-            <img src="/images/tote_bag_pamparina.png" alt="Pamparina visuel 4" />
+
+            <img
+              src="/images/ecocup_pamparina.png"
+              alt="Pamparina visuel 2"
+            />
+
+            <img
+              src="/images/badge_carte_pamparina.png"
+              alt="Pamparina visuel 3"
+            />
+
+            <img
+              src="/images/tote_bag_pamparina.png"
+              alt="Pamparina visuel 4"
+            />
+
           </div>
-          <p className="project-gallery-caption">Voici quelques déclinaisons de l’identité visuelle sur différents supports, pour montrer comment l’univers de la Pamparina peut vivre au-delà de l’affiche.</p>
+
+          <p className="project-gallery-caption">
+            Voici quelques déclinaisons de l’identité visuelle sur différents
+            supports, pour montrer comment l’univers de la Pamparina peut vivre
+            au-delà de l’affiche.
+          </p>
         </>
       )}
+
+
+      {/* ========================================================== */}
+      {/* ELMER                                                       */}
+      {/* ========================================================== */}
 
       {project.id === "elmer" && (
-  <>
-    <div className="project-gallery-three">
-      <img
-        src="/images/mockup_elmer_original.png"
-        alt="Mockup Elmer original"
-      />
-      <img
-        src="/images/mockup_elmer_devant.png"
-        alt="Mockup Elmer devant"
-      />
-      <img
-        src="/images/mockup_elmer_dos.png"
-        alt="Mockup Elmer dos"
-      />
-    </div>
+        <>
 
-    <div className="elmer-illustrations">
-      <img
-        src="/images/elmer_illu_1.png"
-        alt="Illustration Elmer 1"
-      />
-      <img
-        src="/images/elmer_illu_2.png"
-        alt="Illustration Elmer 2"
-      />
-      <img
-        src="/images/elmer_illu_3.png"
-        alt="Illustration Elmer 3"
-      />
-    </div>
-          <p className="project-gallery-caption">Voici les différentes étapes de création de mon illustration, du premier croquis jusqu’au rendu final.</p>
+          <div className="project-gallery-three">
+
+            <img
+              src="/images/mockup_elmer_original.png"
+              alt="Mockup Elmer original"
+            />
+
+            <img
+              src="/images/mockup_elmer_devant.png"
+              alt="Mockup Elmer devant"
+            />
+
+            <img
+              src="/images/mockup_elmer_dos.png"
+              alt="Mockup Elmer dos"
+            />
+
+          </div>
+
+
+          <div className="elmer-illustrations">
+
+            <img
+              src="/images/elmer_illu_1.png"
+              alt="Illustration Elmer 1"
+            />
+
+            <img
+              src="/images/elmer_illu_2.png"
+              alt="Illustration Elmer 2"
+            />
+
+            <img
+              src="/images/elmer_illu_3.png"
+              alt="Illustration Elmer 3"
+            />
+
+          </div>
+
+
+          <p className="project-gallery-caption">
+            Voici les différentes étapes de création de mon illustration,
+            du premier croquis jusqu’au rendu final.
+          </p>
+
         </>
+        
       )}
+
+
+      {/* ========================================================== */}
+      {/* POKÉMATCH                                                   */}
+      {/* ========================================================== */}
 
       {project.id === "Pokematch" && (
         <>
+
           <div className="pokematch-creations">
+
             {[
-              ["Sinner", "Maillot Sinner.png", "Carte 1 clair metamorph.png", "pokemon_360_1.mp4"],
-              ["Alcaraz", "Maillot Alcaraz.png", "Carte 2 clair metamorph.png", "pokemon_360_2.mp4"],
-              ["Sabalenka", "Maillot Sabalenka.png", "Carte 3 clair metamorph.png", "pokemon_360_3.mp4"],
-              ["Andreeva", "Maillot Andreeva.png", "Carte 4 clair metamorph.png", "pokemon_360_4.mp4"],
-            ].map(([name, shirt, card, video], index) => (
-              <div className="pokematch-row" key={name}>
-                <img src={`/images/${shirt}`} alt={`Maillot ${name}`} />
-                <img src={`/images/${card}`} alt={`Carte ${name}`} />
-                <video
-                  ref={(element) => { pokemonVideosRef.current[index] = element; }}
-                  src={`/images/${video}`}
-                  loop
-                  muted
-                  playsInline
-                />
-              </div>
-            ))}
+              [
+                "Sinner",
+                "Maillot Sinner.png",
+                "Carte 1 clair metamorph.png",
+                "pokemon_360_1.mp4",
+              ],
+              [
+                "Alcaraz",
+                "Maillot Alcaraz.png",
+                "Carte 2 clair metamorph.png",
+                "pokemon_360_2.mp4",
+              ],
+              [
+                "Sabalenka",
+                "Maillot Sabalenka.png",
+                "Carte 3 clair metamorph.png",
+                "pokemon_360_3.mp4",
+              ],
+              [
+                "Andreeva",
+                "Maillot Andreeva.png",
+                "Carte 4 clair metamorph.png",
+                "pokemon_360_4.mp4",
+              ],
+            ].map(
+              ([name, shirt, card, video], index) => (
+                <div
+                  className="pokematch-row"
+                  key={name}
+                >
+
+                  <img
+                    src={`/images/${shirt}`}
+                    alt={`Maillot ${name}`}
+                  />
+
+                  <img
+                    src={`/images/${card}`}
+                    alt={`Carte ${name}`}
+                  />
+
+                  <video
+                    ref={(element) => {
+                      pokemonVideosRef.current[index] = element;
+                    }}
+                    src={`/images/${video}`}
+                    loop
+                    muted
+                    playsInline
+                  />
+
+                </div>
+              )
+            )}
+
           </div>
-          <p className="project-gallery-caption">Voici les quatre figurines imaginées pour le projet Pokématch, présentées en rotation à 360°.</p>
+
+          <p className="project-gallery-caption">
+            Voici les quatre figurines imaginées pour le projet Pokématch,
+            présentées en rotation à 360°.
+          </p>
+
         </>
       )}
 
-      {project.id === "vinyle" && (
-  <div className="project-gallery-two">
 
-    <img
-      src="/images/vinyle_vert.jpg"
-      alt="Vinyle - vert"
-    />
+      {/* ========================================================== */}
+      {/* VINYLE                                                      */}
+      {/* ========================================================== */}
 
-    <img
-      src="/images/vinyles_double.jpg"
-      alt="Vinyle - double"
-    />
+     {project.id === "vinyle" && (
+  <>
+    <div className="project-gallery-two">
+      <img
+        src="/images/vinyle_vert.jpg"
+        alt="Vinyle - vert"
+      />
 
-    <img
-      src="/images/vinyles_scene.png"
-      alt="Vinyle - Scène"
-    />
+      <img
+        src="/images/vinyles_double.jpg"
+        alt="Vinyles - double"
+      />
+    </div>
 
-  </div>
+    <div className="project-gallery-two-reverse">
+  <img
+    src="/images/pochettes_vinyles_dos.png"
+    alt="vinyles derrière"
+  />
+
+  <img
+    src="/images/vinyles_scene.png"
+    alt="Vinyle scene"
+  />
+</div>
+  </>
 )}
+
+      {/* ========================================================== */}
+      {/* BINCHE                                                       */}
+      {/* ========================================================== */}
+
+      {project.id === "binche" && (
+        <>
+
+          <div className="project-gallery-three">
+
+            <img
+              src="/images/logo_binche.png"
+              alt="logo binche"
+            />
+
+            <img
+              src="/images/carnaval_binche.jpg"
+              alt="carnaval de binche gilles"
+            />
+
+            <img
+              src="/images/illustration_binche.png"
+              alt="Illustration binche"
+            />
+
+          </div>
+           
+        </>
+        
+      )}
+
     </div>
   );
 }
+
 
 /* ------------------------------------------------------------------ */
 /*  ABOUT                                                             */
@@ -1111,24 +1351,22 @@ body {
   flex: 0 0 calc((100% - 64px) / 3);
   scroll-snap-align: start;
 }
-
-.project-gallery-three {
-  width: 100% !important;
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 24px !important;
-  margin-top: -20px !important;
-  margin-bottom: 10px !important;
-  box-sizing: border-box !important;
-}
   
-.project-gallery-three img {
-  width: 100% !important;
-  height: 100% !important;
-  aspect-ratio: 1 / 1 !important;
-  object-fit: cover !important;
-  display: block !important;
+.project-gallery-two-reverse {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 100px;
 }
+
+.project-gallery-two-reverse img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+}
+
 .project-gallery-caption {
   width: 100% !important;
   margin-top: 50px !important;
@@ -1605,11 +1843,10 @@ body {
 }
 
 .project-intro-layout {
-  display: grid;
-  grid-template-columns: 42fr 58fr;
-  gap: 60px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  gap: 0;
 }
 
 .project-intro-left {
@@ -1635,29 +1872,59 @@ body {
   font-weight: 700;
   line-height: 1;
 }
-
+  
 .project-tagline {
   margin: 0 !important;
   padding-bottom: 28px;
-  border-bottom: 1px solid rgba(0,0,0,0.12);
   font-family: "elite", sans-serif;
   font-size: 15px !important;
   font-weight: 400;
   line-height: 1.6;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.project-detail-top {
+  position: relative;
+}
+
+.project-detail-top::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.12);
 }
 
 .project-meta {
   display: flex;
   gap: 65px;
-  margin-top: 28px;
+  margin-top: 80px;
   margin-bottom: 32px;
 }
 
-.project-meta > div {
+.project-meta-year,
+.project-tools {
   display: flex;
-  flex-direction: column;
-  gap: 5px;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
   min-width: 0;
+}
+
+.project-meta span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.project-meta p {
+  margin: 0;
+  font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .project-meta span {
@@ -1674,17 +1941,16 @@ body {
   display: none;
 }
 
-.project-intro-description {
-  max-width: 520px;
-  margin-top: 0;
+.project-description {
+  max-width: none;
+  margin-top: 40px;
+  margin-bottom: 40px
+  margin-left: 0;
+  margin-right: 0;
   font-size: 14px;
   font-weight: 600;
-  line-height: 1.8;
 }
 
-.project-intro-description p {
-  margin: 0 0 16px;
-}
 
 .project-intro-image {
   width: 100%;
@@ -1693,7 +1959,7 @@ body {
   align-items: center;
   overflow: hidden;
   border-radius: 24px;
-  margin-top: 65px;
+  margin-top: 45px;
 }
 
 .project-intro-image img {
@@ -1701,7 +1967,6 @@ body {
   width: 100%;
   height: auto;
   object-fit: contain;
-  transform: scale(1.02);
 }
 
 /* ================================================================
@@ -1762,7 +2027,8 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  margin-top: 0 auto 35px;
+  margin-top: auto;
+  margin-bottom: 100px;
 }
 
 .project-gallery-three img {
@@ -1811,7 +2077,7 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  margin-top: -80px;
+  margin-top: -200px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -1862,6 +2128,8 @@ body {
   justify-self: center;
   clip-path: inset(0 6% 0 6%);
 }
+
+
 
 
 /* ================================================================
@@ -2267,13 +2535,11 @@ body {
     width: 100%;
     max-width: none;
     margin-top: 25px;
+    margin-bottom: 0;
     font-size: 14px;
     line-height: 1.6;
   }
 
-  .project-intro-description p {
-    margin-bottom: 14px;
-  }
 
   .pamparina-book-section {
     margin: 0 auto 60px;
@@ -2289,13 +2555,13 @@ body {
   width: 100% !important;
   display: grid !important;
   grid-template-columns: 1fr !important;
-  gap: 18px !important;
+  gap: 20px !important;
   margin-top: 0 !important;
   }
 
   .elmer-illustrations {
     grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
+    gap: 20px;
   }
 
   .elmer-illustrations img {
@@ -2304,12 +2570,12 @@ body {
   }
 
   .pokematch-creations {
-    gap: 30px;
+    gap: 20px;
   }
 
   .pokematch-row {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 20px;
   }
 
   .pokematch-row img:first-child,
@@ -2360,6 +2626,8 @@ body {
   .contact-body {
     grid-template-columns: 1fr;
   }
+
+  
 }
 
 /* ================================================================
