@@ -687,7 +687,7 @@ function ProjectDetail({ project, go }) {
 
           </div>
 
-          <p className="project-gallery-caption">
+          <p className="project-gallery-caption-pamparina">
             Voici quelques déclinaisons de l’identité visuelle sur différents
             supports, pour montrer comment l’univers de la Pamparina peut vivre
             au-delà de l’affiche.
@@ -743,7 +743,7 @@ function ProjectDetail({ project, go }) {
           </div>
 
 
-          <p className="project-gallery-caption">
+          <p className="project-gallery-caption-elmer">
             Voici les différentes étapes de création de mon illustration,
             du premier croquis jusqu’au rendu final.
           </p>
@@ -761,69 +761,47 @@ function ProjectDetail({ project, go }) {
         <>
 
           <div className="pokematch-creations">
+  <video
+    src="/images/sinner_pokematch.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="sinner-video"
+  />
+  <video
+    src="/images/alcaraz_pokematch.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="sinner-video"
+  />
+  <video
+    src="/images/sabalenka_pokematch.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="sinner-video"
+  />
+   <video
+    src="/images/andreeva_pokematch.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="sinner-video"
+  />
 
-            {[
-              [
-                "Sinner",
-                "Maillot Sinner.png",
-                "Carte 1 clair metamorph.png",
-                "pokemon_360_1.mp4",
-              ],
-              [
-                "Alcaraz",
-                "Maillot Alcaraz.png",
-                "Carte 2 clair metamorph.png",
-                "pokemon_360_2.mp4",
-              ],
-              [
-                "Sabalenka",
-                "Maillot Sabalenka.png",
-                "Carte 3 clair metamorph.png",
-                "pokemon_360_3.mp4",
-              ],
-              [
-                "Andreeva",
-                "Maillot Andreeva.png",
-                "Carte 4 clair metamorph.png",
-                "pokemon_360_4.mp4",
-              ],
-            ].map(
-              ([name, shirt, card, video], index) => (
-                <div
-                  className="pokematch-row"
-                  key={name}
-                >
 
-                  <img
-                    src={`/images/${shirt}`}
-                    alt={`Maillot ${name}`}
-                  />
+</div>
 
-                  <img
-                    src={`/images/${card}`}
-                    alt={`Carte ${name}`}
-                  />
 
-                  <video
-                    ref={(element) => {
-                      pokemonVideosRef.current[index] = element;
-                    }}
-                    src={`/images/${video}`}
-                    loop
-                    muted
-                    playsInline
-                  />
-
-                </div>
-              )
-            )}
-
-          </div>
-
-          <p className="project-gallery-caption">
-            Voici les quatre figurines imaginées pour le projet Pokématch,
-            présentées en rotation à 360°.
-          </p>
+<p className="project-gallery-caption-pokematch">
+  Voici les quatre figurines imaginées pour le projet Pokématch,
+  présentées en rotation à 360°.
+</p>
 
         </>
       )}
@@ -1367,15 +1345,7 @@ body {
   display: block;
 }
 
-.project-gallery-caption {
-  width: 100% !important;
-  margin-top: 50px !important;
-  margin-bottom: 200px !important;
-  font-family: "Montserrat", sans-serif !important;
-  font-size: 14px !important;
-  line-height: 1.7 !important;
-  font-weight: 600 !important;
-}
+
 /* FLÈCHE GAUCHE */
 .carousel-prev {
   position: absolute;
@@ -1969,6 +1939,35 @@ body {
   object-fit: contain;
 }
 
+.project-gallery-caption-pamparina {
+  width: 100% !important;
+  margin-top: -60px !important;
+  margin-bottom: 100px !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  font-weight: 600 !important;
+}
+
+.project-gallery-caption-elmer {
+  width: 100% !important;
+  margin-top: 60px !important;
+  margin-bottom: 100px !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  font-weight: 600 !important;
+}
+
+.project-gallery-caption-pokematch {
+  width: 100% !important;
+  margin-top: 0px !important;
+  margin-bottom: 100px !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  font-weight: 600 !important;
+}
 /* ================================================================
    PROJECT DETAIL — PAMPARINA / ELMER / POKÉMATCH
    ================================================================ */
@@ -2039,14 +2038,6 @@ body {
   border-radius: 24px;
 }
 
-.project-gallery-caption {
-  width: 100%;
-  margin: 30px 0 100px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.7;
-}
-
 .project-gallery-two {
   width: 100%;
   display: grid;
@@ -2093,8 +2084,18 @@ body {
 .pokematch-creations {
   display: flex;
   flex-direction: column;
-  gap: 45px;
+  gap: 30px;
   width: 100%;
+  margin-top: auto;
+  margin-bottom: 100px;
+}
+
+.pokematch-creations video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  object-fit: cover;
 }
 
 .pokematch-row {
@@ -2873,10 +2874,6 @@ body {
   .pamparina-real-book {
     transform: scale(0.68);
     margin-bottom: -195px !important;
-  }
-
-  .project-gallery-caption {
-    margin-bottom: 80px;
   }
 
   .elmer-illustrations {
