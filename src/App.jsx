@@ -34,7 +34,7 @@ const PROJECTS = [
     tools: ["Illustrator", "Photoshop", "Nomad Sculpt", "Blender"],
   },
   {
-    id: "Ehpad",
+    id: "ehpad",
     title: "Ehpad",
     image: "/images/ehpad_projet_6.png",
     category: "Site internet",
@@ -85,20 +85,27 @@ function Wordmark({ onClick }) {
 function Nav({ page, go }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleNavClick = (id) => {
-    if (id === "projects" || id === "contact") {
-      if (page !== "home") {
-        go("home");
-        setTimeout(() => {
-          document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-        }, 100);
-      } else {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-      }
+const handleNavClick = (id) => {
+  if (id === "projects" || id === "contact" || id === "about") {
+    if (page !== "home") {
+      go("home");
+
+      setTimeout(() => {
+        const targetId = id === "about" ? "about-me" : id;
+        document.getElementById(targetId)?.scrollIntoView({
+          behavior: "smooth",
+        });
+      }, 100);
     } else {
-      go(id);
+      const targetId = id === "about" ? "about-me" : id;
+      document.getElementById(targetId)?.scrollIntoView({
+        behavior: "smooth",
+      });
     }
-  };
+  } else {
+    go(id);
+  }
+};
 
   return (
     <header className="nav">
@@ -233,7 +240,7 @@ function Home({ go, openProject }) {
                           ? "collaboration-image"
                           : project.id === "elmer"
                             ? "image-elmer"
-                            : project.id === "Ehpad"
+                            : project.id === "ehpad"
                               ? "image-ehpad"
                               : project.id === "vinyle"
                                 ? "image-vinyle"
@@ -276,7 +283,7 @@ function Home({ go, openProject }) {
         </div>
 
         <div className="about-teaser-text">
-          <h2>À propos de moi</h2>
+          <h2 id="about-me">À propos de moi</h2>
           <p>
             Moi, c’est Solène, j’ai 21 ans et je suis graphiste récemment diplômée. J’aime imaginer des univers, donner vie à des idées et créer des projets qui ont leur propre personnalité. Au fil de mes études et de mes expériences, j’ai eu l’occasion de travailler sur des projets très variés, qui m’ont permis d’expérimenter, de développer ma créativité et de construire petit à petit mon propre univers graphique.
           </p>
@@ -289,7 +296,7 @@ function Home({ go, openProject }) {
             </div>
             <div className="contact-item">
               <span className="contact-icon"><img src="/images/icone_contact_3.svg" alt="" /></span>
-              <span>solene.crouzet@ecole-esdac.fr</span>
+              <span>solenecrzt01@gmail.com</span>
             </div>
             <div className="contact-item">
               <span className="contact-icon"><img src="/images/icone_contact_2.svg" alt="" /></span>
@@ -603,7 +610,7 @@ function ProjectDetail({ project, go }) {
 
             {/* EHPAD */}
 
-            {project.id === "Ehpad" && (
+            {project.id === "ehpad" && (
               <>
                 <p>
                   Ce projet avait pour objectif de moderniser la communication d’un EHPAD
@@ -799,13 +806,75 @@ function ProjectDetail({ project, go }) {
 
 
 <p className="project-gallery-caption-pokematch">
-  Voici les quatre figurines imaginées pour le projet Pokématch,
-  présentées en rotation à 360°.
+  Voici la déclinaison de l’univers Pokématch à travers les différents produits dérivés. 
+  Chaque joueur est associé à son Pokémon : Jannik Sinner avec Carapuce, Carlos Alcaraz avec Bulbizarre, 
+  Aryna Sabalenka avec Salamèche et Mirra Andreeva avec Pikachu.
 </p>
 
         </>
       )}
 
+{/* ========================================================== */}
+      {/* EHPAD                                                       */}
+      {/* ========================================================== */}
+
+      {project.id === "ehpad" && (
+        <>
+
+          <div className="project-gallery-two-v2">
+
+            <img
+              src="/images/ehpad_site_page_1.png"
+              alt="Page 1 site"
+            />
+
+            <img
+              src="/images/ehpad_site_page_5.png"
+              alt="Page 2 site"
+            />
+
+          </div>
+
+          <div className="project-gallery-two-v2">
+
+            <img
+              src="/images/ehpad_site_page_4.png"
+              alt="Page 3 site"
+            />
+
+            <img
+              src="/images/ehpad_site_page_6.png"
+              alt="Page 4 site"
+            />
+          </div>
+
+          <div className="project-gallery-two-v2">
+
+            <img
+              src="/images/ehpad_site_page_7.png"
+              alt="Page 5 site"
+            />
+
+            <img
+              src="/images/ehpad_site_page_8.png"
+              alt="Page 6 site"
+            />
+          </div>
+
+           <div className="project-gallery-two-v3">
+
+            <img
+              src="/images/livret_d'accueil_1.png"
+              alt="Livret d'accueil 1"
+            />
+
+            <img
+              src="/images/livret_d'accueil_2.png"
+              alt="Livret d'accueil 2"
+            />
+          </div>
+  </>
+)}
 
       {/* ========================================================== */}
       {/* VINYLE                                                      */}
@@ -1345,6 +1414,20 @@ body {
   display: block;
 }
 
+.project-gallery-two-v2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.project-gallery-two-v2 img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+}
 
 /* FLÈCHE GAUCHE */
 .carousel-prev {
@@ -1537,7 +1620,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 24px;
+  border-radius: 0 !important;
   filter: grayscale(100%);
   transition: filter 0.45s ease, transform 0.45s ease;
 }
@@ -1961,7 +2044,7 @@ body {
 
 .project-gallery-caption-pokematch {
   width: 100% !important;
-  margin-top: 0px !important;
+  margin-top: -60px !important;
   margin-bottom: 100px !important;
   font-family: "Montserrat", sans-serif !important;
   font-size: 14px !important;
@@ -2025,7 +2108,7 @@ body {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 30px;
   margin-top: auto;
   margin-bottom: 100px;
 }
@@ -2061,6 +2144,39 @@ body {
 
 .project-gallery-two img:nth-child(2) {
   aspect-ratio: 2 / 1;
+}
+
+.project-gallery-two-v2 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.project-gallery-two-v2 img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.project-gallery-two-v3 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 0px;
+  margin-bottom: 100px;
+}
+
+.project-gallery-two-v3 img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 24px;
 }
 
 .elmer-illustrations {
@@ -2328,22 +2444,27 @@ body {
   }
 
   .menu-toggle {
-    position: absolute;
-    top: 50%;
-    right: 24px;
-    z-index: 10005;
-    width: 42px;
-    height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    background: transparent;
-    color: #ffffff;
-    font-size: 30px;
-    line-height: 1;
-    transform: translateY(-50%);
-  }
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  z-index: 10005;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+  padding: 0;
+
+  background: transparent !important;
+  color: #ffffff !important;
+
+  font-size: 30px;
+  line-height: 1;
+
+  transform: translateY(-50%);
+}
 
   .mobile-menu-overlay {
     position: fixed;
@@ -2600,7 +2721,7 @@ body {
 
   .about-teaser-portrait {
     flex: 0 0 auto;
-    width: 80%;
+    width: 90%;
     max-width: 400px;
     margin: 0 auto;
   }
@@ -2611,6 +2732,7 @@ body {
   }
 
   .about-teaser-text {
+    padding: 30px;
     width: 100%;
     margin: 0;
   }
@@ -2631,10 +2753,12 @@ body {
   
 }
 
-/* ================================================================
-   TÉLÉPHONE — 560 PX
-   ================================================================ */
+ /* ========================================================= */
+/* RESPONSIVE — PROJETS SUR MOBILE                           */
+/* ========================================================= */
+
 @media (max-width: 560px) {
+
   .nav {
     min-height: 58px;
   }
@@ -2697,159 +2821,64 @@ body {
   }
 
   .projects-home-section {
-    padding-top: 70px;
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-
-  /* The old selector was wrong because .section-head was not inside
-     .projects-section. The heading is now inside #projects itself. */
-  #projects .section-head {
-    margin-top: 70px;
-    margin-bottom: 45px;
-    padding-left: 28px;
-  }
-
-  #projects .section-head h2 {
-    font-size: 2rem;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .projects-carousel-wrapper {
-    padding: 0 28px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
   }
 
   .projects-carousel {
-    gap: 18px;
-    padding: 20px 18px 45px;
-    overflow-y: visible;
-    scroll-padding-inline: 18px;
+  width: 100%;
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 20px 40px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  box-sizing: border-box;
+}
+
+  .projects-carousel::-webkit-scrollbar {
+    display: none;
   }
 
-  /* One project per slide, slightly smaller so the shadow has room. */
   .projects-carousel .featured-tile {
-    flex: 0 0 90%;
-    width: 90%;
-    min-width: 90%;
-    max-width: 90%;
-    padding: 12px;
-    margin: 0;
-    border-radius: 30px;
-    overflow: visible;
-    scroll-snap-align: center;
+    flex: 0 0 calc(100vw - 140px);
+    width: calc(100vw - 140px);
+    height: auto;
+    min-height: 0;
   }
 
   .projects-carousel .featured-art {
     width: 100%;
-    height: auto;
     aspect-ratio: 1 / 1;
-    border-radius: 26px;
-    overflow: hidden;
   }
 
   .projects-carousel .featured-art img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 26px;
+    border-radius: 0 !important;
   }
 
+  /* BAS DE LA CARTE */
   .projects-carousel .featured-meta {
-    min-height: 82px;
-    margin-top: 5px;
-    padding: 0 6px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
-  .projects-carousel .featured-title {
-    font-size: 1rem;
+  /* FLÈCHES */
+  .projects-carousel-wrapper .carousel-prev {
+    left: 12px;
   }
 
-  .projects-carousel .featured-cat {
-    font-size: 0.95rem;
-  }
-
-  .carousel-prev,
-  .carousel-next {
-    top: 46%;
-    width: 38px;
-    height: 38px;
-    background: transparent;
-    color: #111111;
-    font-size: 2rem;
-  }
-
-  .carousel-prev { left: 2px; }
-  .carousel-next { right: 2px; }
-
-  .marquee {
-    padding: 15px 0;
-  }
-
-  .marquee-set {
-    font-size: 1.2rem;
-  }
-
-  .about-teaser {
-    padding-left: 28px;
-    padding-right: 28px;
-    gap: 35px;
-  }
-
-  .about-teaser-portrait {
-    width: 86%;
-    max-width: 360px;
-  }
-
-  .about-teaser-text h2 {
-    font-size: 27px;
-    margin-bottom: 14px;
-  }
-
-  .about-teaser-text p {
-    font-size: 0.9rem;
-    line-height: 1.65;
-    margin-bottom: 32px;
-  }
-
-  .contact-info {
-    gap: 16px;
-  }
-
-  .contact-item {
-    font-size: 13px;
-  }
-
-  .site-footer {
-    padding-left: 28px;
-    padding-right: 28px;
-  }
-
-  .site-footer-links {
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-
-  .contact-hero,
-  .contact-body {
-    padding-left: 28px;
-    padding-right: 28px;
-  }
-
-  .contact-body {
-    grid-template-columns: 1fr;
-  }
-
-  .project-detail-page {
-    padding-left: 22px;
-    padding-right: 22px;
-  }
-
-  .project-header {
-    padding-top: 30px;
-    padding-bottom: 40px;
-  }
-
-  .project-title-block h1 {
-    font-size: 38px;
+  .projects-carousel-wrapper .carousel-next {
+    right: 12px;
   }
 
   .project-meta {
@@ -2878,21 +2907,6 @@ body {
 
   .elmer-illustrations {
     gap: 12px;
-  }
-}
-
-/* ================================================================
-   ACCESSIBILITY
-   ================================================================ */
-@media (prefers-reduced-motion: reduce) {
-  .page-transition,
-  .marquee-track,
-  .mobile-menu-overlay,
-  .mobile-menu-link,
-  .featured-tile,
-  .featured-art img {
-    animation: none !important;
-    transition: none !important;
   }
 }
 `;
