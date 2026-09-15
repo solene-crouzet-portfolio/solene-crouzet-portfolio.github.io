@@ -2873,15 +2873,15 @@ body {
   gap: 18px;
   overflow-x: auto;
   overflow-y: visible;
-  padding: 20px 40px;
+  padding: 20px;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   box-sizing: border-box;
 }
 
-.projects-carousel .featured-tile {
-  flex: 0 0 calc(100vw - 120px);
-  width: calc(100vw - 120px);
+.projects-carousel .featured-title {
+  flex: 0 0 calc(100vw - 40px);
+  width: calc(100vw - 40px);
   min-height: 0;
   scroll-snap-align: start;
   scroll-snap-stop: always;
