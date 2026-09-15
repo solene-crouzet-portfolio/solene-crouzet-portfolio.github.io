@@ -211,7 +211,7 @@ function Home({ go, openProject }) {
     if (!carousel) return;
 
     const amount = window.innerWidth <= 560
-      ? carousel.clientWidth * 1.05
+      ? carousel.clientWidth * 1.01
       : carousel.clientWidth * 0.34;
 
     carousel.scrollBy({ left: direction * amount, behavior: "smooth" });
