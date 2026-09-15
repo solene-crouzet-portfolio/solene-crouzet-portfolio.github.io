@@ -316,7 +316,7 @@ function Home({ go, openProject }) {
           
           <div className="contact-transition"></div>
           
-          <div className="contact-block">/div</div>
+          <div className="contact-block"></div>
           <h2 id="contact">Contact</h2>
           <div className="contact-info">
             <div className="contact-item">
@@ -1626,6 +1626,12 @@ body {
 .featured-tile:hover {
   transform: translateY(-8px) rotate(-1deg);
   box-shadow: 0 4px 5px rgba(0,0,0,0.25), 0 14px 18px rgba(0,0,0,0.18);
+}
+
+.contact-stars {
+
+  display: none;
+
 }
 
 .featured-art {
@@ -2960,7 +2966,7 @@ body {
   font-size: 1.8rem;
 }
   .about-teaser-text p {
-  margin-bottom: -60px;
+  margin-bottom: -16px;
   color: rgba(23,20,43,0.82);
   font-size: 0.8rem;
   font-weight: 400;
@@ -3005,15 +3011,15 @@ body {
 
 /* Remonte le bloc Contact */
 .contact-info {
-  margin-top: 0px;
-  margin-bottom: 20px;
+  margin-top: -20px;
+  margin-bottom: 160px;
 
 }
 
 /* Centre le titre Contact */
 h2#contact {
   text-align: center;
-  margin-top: -160px;
+  margin-top: -140px;
   margin-bottom: 40px;
 }
 
@@ -3022,13 +3028,19 @@ h2#contact {
 }
 
 .contact-stars {
+
+  display: flex;
+
+}
+
+.contact-stars {
   position: relative;
   height: 180px;
   width: 100%;
   overflow: hidden;
   pointer-events: none;
-  margin-top: 0px;
-  margin-bottom: -90px
+  margin-top: 40px;
+  margin-bottom: -240px
 }
 
 .contact-stars span {
@@ -3098,5 +3110,7 @@ h2#contact {
     transform: translateY(-150px) rotate(180deg);
     opacity: 0;
   }
+
+  
 }
 `;
