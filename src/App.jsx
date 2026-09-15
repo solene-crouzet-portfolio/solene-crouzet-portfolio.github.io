@@ -2870,19 +2870,22 @@ body {
 .projects-carousel {
   width: 100%;
   display: flex;
-  gap: 18px;
+  gap: 0;
   overflow-x: auto;
   overflow-y: visible;
   padding: 20px;
   scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scroll-padding-inline: 20px;
   scrollbar-width: none;
   box-sizing: border-box;
 }
 
-.projects-carousel .featured-title {
+.projects-carousel .featured-tile {
   flex: 0 0 calc(100vw - 40px);
   width: calc(100vw - 40px);
-  min-height: 0;
+  min-width: calc(100vw - 40px);
+  max-width: calc(100vw - 40px);
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
