@@ -207,45 +207,16 @@ function Footer({ go }) {
 
 function Home({ go, openProject }) {
   const scrollCarousel = (direction) => {
-  const carousel = document.querySelector(".projects-carousel");
-  if (!carousel) return;
-  const cards = carousel.querySelectorAll(".featured-tile");
-  if (!cards.length) return;
-  const carouselRect = carousel.getBoundingClientRect();
-  // Trouve la carte actuellement visible / la plus proche du centre
-  let currentIndex = 0;
-  let smallestDistance = Infinity;
+    const carousel = document.querySelector(".projects-carousel");
+    if (!carousel) return;
 
-  cards.forEach((card, index) => {
+    const amount = window.innerWidth <= 560
+      ? carousel.clientWidth * 1
+      : carousel.clientWidth * 0.34;
 
-    const rect = card.getBoundingClientRect();
-    const cardCenter = rect.left + rect.width / 2;
-    const carouselCenter = carouselRect.left + carouselRect.width / 2;
-    const distance = Math.abs(cardCenter - carouselCenter);
-    if (distance < smallestDistance) {
-      smallestDistance = distance;
-      currentIndex = index;
-    }
-  });
-  // Une seule carte en avant ou en arrière
-  let targetIndex = currentIndex + direction;
-  // Empêche de dépasser la première ou la dernière carte
-  targetIndex = Math.max(0, Math.min(targetIndex, cards.length - 1));
-  const targetCard = cards[targetIndex];
-  // Centre exactement la carte sélectionnée
-  const cardRect = targetCard.getBoundingClientRect();
-  const currentScroll = carousel.scrollLeft;
-  const cardCenter =
-    cardRect.left - carouselRect.left + currentScroll + cardRect.width / 2;
-  const targetScroll =
-    cardCenter - carousel.clientWidth / 2;
-  carousel.scrollTo({
-    left: targetScroll,
-    behavior: "smooth"
+    carousel.scrollBy({ left: direction * amount, behavior: "smooth" });
+  };
 
-  });
-
-};
   return (
     <div className="page">
       <section className="hero">
@@ -3145,5 +3116,4 @@ h2#contact {
     right: 0;
   }
 }
-
 `;
