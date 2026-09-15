@@ -2875,7 +2875,6 @@ body {
   overflow-y: visible;
   padding: 20px 40px;
   scroll-snap-type: x mandatory;
-  scroll-padding-left: 40px;
   scrollbar-width: none;
   box-sizing: border-box;
 }
