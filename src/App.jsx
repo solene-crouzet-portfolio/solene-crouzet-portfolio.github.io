@@ -335,15 +335,6 @@ function Home({ go, openProject }) {
               <span className="contact-icon"><img src="/images/icone_contact_4.svg" alt="" /></span>
               <span>213 rue de la Vié Croze, 43370 Bains</span>
             </div>
-
-            <div className="contact-stars">
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-          </div>
           </div>
         </div>
       </section>
@@ -1628,11 +1619,6 @@ body {
   box-shadow: 0 4px 5px rgba(0,0,0,0.25), 0 14px 18px rgba(0,0,0,0.18);
 }
 
-.contact-stars {
-
-  display: none;
-
-}
 
 .featured-art {
   position: relative;
@@ -3019,7 +3005,7 @@ body {
 /* Centre le titre Contact */
 h2#contact {
   text-align: center;
-  margin-top: -140px;
+  margin-top: -120px;
   margin-bottom: 40px;
 }
 
@@ -3027,90 +3013,4 @@ h2#contact {
   scroll-margin-top: 0px;
 }
 
-.contact-stars {
-
-  display: flex;
-
-}
-
-.contact-stars {
-  position: relative;
-  height: 180px;
-  width: 100%;
-  overflow: hidden;
-  pointer-events: none;
-  margin-top: 40px;
-  margin-bottom: -240px
-}
-
-.contact-stars span {
-  position: absolute;
-  bottom: 0px;
-  font-size: 16px;
-  opacity: 0;
-  animation: floatStar 5s ease-in-out infinite;
-}
-
-/* Position de chaque étoile */
-.contact-stars span:nth-child(1) {
-  left: 15%;
-  animation-delay: 0s;
-}
-
-.contact-stars span:nth-child(2) {
-  left: 32%;
-  font-size: 11px;
-  animation-delay: 1.2s;
-}
-
-.contact-stars span:nth-child(3) {
-  left: 50%;
-  font-size: 14px;
-  animation-delay: 2.4s;
-}
-
-.contact-stars span:nth-child(4) {
-  left: 68%;
-  font-size: 10px;
-  animation-delay: 0.8s;
-}
-
-.contact-stars span:nth-child(5) {
-  left: 82%;
-  font-size: 15px;
-  animation-delay: 3s;
-}
-
-.contact-stars span:nth-child(6) {
-  left: 42%;
-  font-size: 9px;
-  animation-delay: 3.8s;
-}
-
-@keyframes floatStar {
-  0% {
-    transform: translateY(20px) rotate(0deg);
-    opacity: 0;
-  }
-
-  20% {
-    opacity: 0.7;
-  }
-
-  50% {
-    transform: translateY(-70px) rotate(90deg);
-    opacity: 0.8;
-  }
-
-  80% {
-    opacity: 0.4;
-  }
-
-  100% {
-    transform: translateY(-150px) rotate(180deg);
-    opacity: 0;
-  }
-
-  
-}
 `;
