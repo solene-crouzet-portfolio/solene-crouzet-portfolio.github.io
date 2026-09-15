@@ -207,15 +207,20 @@ function Footer({ go }) {
 
 function Home({ go, openProject }) {
   const scrollCarousel = (direction) => {
-    const carousel = document.querySelector(".projects-carousel");
-    if (!carousel) return;
+  const carousel = document.querySelector(".projects-carousel");
+  if (!carousel) return;
 
-    const amount = window.innerWidth <= 560
-      ? carousel.clientWidth * 0.8
-      : carousel.clientWidth * 0.34;
+  const card = carousel.firstElementChild;
+  if (!card) return;
 
-    carousel.scrollBy({ left: direction * amount, behavior: "smooth" });
-  };
+  const gap = 18;
+  const amount = card.getBoundingClientRect().width + gap;
+
+  carousel.scrollBy({
+    left: direction * amount,
+    behavior: "smooth"
+  });
+};
 
   return (
     <div className="page">
@@ -2867,25 +2872,34 @@ body {
     position: relative;
   }
 
-.projects-carousel {
-  width: 100%;
-  display: flex;
-  gap: 18px;
-  overflow-x: auto;
-  overflow-y: visible;
-  padding: 20px 40px;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  box-sizing: border-box;
-}
+  .projects-carousel {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 18px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    padding: 20px 40px !important;
+    box-sizing: border-box !important;
+  }
 
-.projects-carousel .featured-tile {
-  flex: 0 0 calc(100vw - 120px);
-  width: calc(100vw - 120px);
-  min-height: 0;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
+  .projects-carousel > * {
+    flex: 0 0 calc(100vw - 80px) !important;
+    width: calc(100vw - 80px) !important;
+    max-width: calc(100vw - 80px) !important;
+    min-width: calc(100vw - 80px) !important;
+    scroll-snap-align: start !important;
+    box-sizing: border-box !important;
+  }
+
+  .projects-carousel .featured-title {
+    flex: 0 0 calc(100vw - 80px) !important;
+    width: calc(100vw - 80px) !important;
+    max-width: calc(100vw - 80px) !important;
+    min-width: calc(100vw - 80px) !important;
+  }
+
 
   .projects-carousel::-webkit-scrollbar {
     display: none;
