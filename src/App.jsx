@@ -492,7 +492,9 @@ function ProjectDetail({ project, go }) {
 
       <section className="project-header">
 
-        <div className="project-detail-content">
+        <div
+  className="project-detail-content"
+>
 
           {/* Retour aux projets */}
 
@@ -518,47 +520,36 @@ function ProjectDetail({ project, go }) {
           {/* TITRE À GAUCHE / INFOS À DROITE                        */}
           {/* ------------------------------------------------------ */}
 
-          <div
-            className="project-detail-top"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr auto",
-              alignItems: "start",
-              gap: "60px",
-              width: "100%",
-              marginBottom: "45px",
-            }}
-          >
+         <div className="project-detail-top">
 
-            {/* TITRE */}
+  <div className="project-title-block">
 
-            <div className="project-title-block">
+    <h1>{project.title}</h1>
 
-              <h1>{project.title}</h1>
+    <p className="project-tagline">
+      {project.tagline}
+    </p>
 
-              <p className="project-tagline">
-                {project.tagline}
-              </p>
+    <div className="project-tools">
+      <span>Logiciels utilisés :</span>
+      <p className="tools-text">
+        {project.tools.join(", ")}
+      </p>
+    </div>
 
-            </div>
-
-
-<div className="project-meta">
-
-  <div className="project-meta-year">
-    <span>Année :</span>
-    <p>{project.year}</p>
   </div>
 
-  <div className="project-tools">
-    <span>Logiciels utilisés :</span>
-    <p className="tools-text">{project.tools.join(", ")}</p>
+
+  <div className="project-meta">
+
+    <div className="project-meta-year">
+      <span>Année :</span>
+      <p>{project.year}</p>
+    </div>
+
   </div>
 
 </div>
-
-          </div>
-
 
           {/* ------------------------------------------------------ */}
           {/* GRANDE IMAGE                                            */}
@@ -858,7 +849,7 @@ function ProjectDetail({ project, go }) {
       {project.id === "ehpad" && (
         <>
 
-          <div className="project-gallery-two-v2">
+          <div className="ehpad-gallerie">
 
             <img
               src="/images/ehpad_site_page_1.png"
@@ -872,7 +863,7 @@ function ProjectDetail({ project, go }) {
 
           </div>
 
-          <div className="project-gallery-two-v2">
+          <div className="ehpad-gallerie">
 
             <img
               src="/images/ehpad_site_page_4.png"
@@ -885,7 +876,7 @@ function ProjectDetail({ project, go }) {
             />
           </div>
 
-          <div className="project-gallery-two-v2">
+          <div className="ehpad-gallerie">
 
             <img
               src="/images/ehpad_site_page_7.png"
@@ -1450,14 +1441,14 @@ body {
   display: block;
 }
 
-.project-gallery-two-v2 {
+.ehpad-gallerie {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
   margin-bottom: 30px;
 }
 
-.project-gallery-two-v2 img {
+.ehpad-gallerie img {
   width: 100%;
   height: 350px;
   object-fit: cover;
@@ -2183,21 +2174,6 @@ body {
   aspect-ratio: 2 / 1;
 }
 
-.project-gallery-two-v2 {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
-.project-gallery-two-v2 img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
 
 .project-gallery-two-v3 {
   width: 100%;
@@ -2575,11 +2551,6 @@ body {
     100% { transform: translate3d(-4px,6px,0) rotate(-2deg) scale(0.98); }
   }
 
-  /* Project detail becomes a clean vertical flow. */
-  .project-detail-page {
-    padding-left: 28px;
-    padding-right: 28px;
-  }
 
   .project-header {
     min-height: auto;
@@ -2649,10 +2620,6 @@ body {
     white-space: nowrap;
   }
 
-  .project-tools .tools-text {
-    display: none;
-  }
-
   .project-tools {
     align-items: center;
   }
@@ -2699,28 +2666,17 @@ body {
     line-height: 1.6;
   }
 
-
-  .pamparina-book-section {
-    margin: 0 auto 60px;
-  }
-
-  .pamparina-real-book {
-    transform: scale(0.85);
-    transform-origin: top center;
-    margin-bottom: -90px !important;
-  }
-
   .project-gallery-three {
   width: 100% !important;
   display: grid !important;
   grid-template-columns: 1fr !important;
-  gap: 20px !important;
+  gap: 30px !important;
   margin-top: 0 !important;
   }
 
   .elmer-illustrations {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 30px;
   }
 
   .elmer-illustrations img {
@@ -2729,12 +2685,12 @@ body {
   }
 
   .pokematch-creations {
-    gap: 20px;
+    gap: 30px;
   }
 
   .pokematch-row {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 30px;
   }
 
   .pokematch-row img:first-child,
@@ -2745,6 +2701,77 @@ body {
     transform: none;
     clip-path: none;
   }
+
+  .ehpad-gallerie {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.ehpad-gallerie img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0px;
+}
+
+.project-gallery-two-v3 {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.project-gallery-two-v3 img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+}
+
+.project-gallery-two {
+display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  width: 100%;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+  .project-gallery-two img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.project-gallery-two img:first-child {
+  aspect-ratio: 1 / 1;
+}
+
+.project-gallery-two img:nth-child(2) {
+  aspect-ratio: 2 / 1;
+}
+
+.project-gallery-two-reverse {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.project-gallery-two-reverse img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 18px;
+}
 
   .about-teaser {
     width: 100%;
@@ -2945,10 +2972,6 @@ body {
     font-size: 13.5px;
   }
 
-  .pamparina-real-book {
-    transform: scale(0.68);
-    margin-bottom: -195px !important;
-  }
 
   .elmer-illustrations {
     gap: 12px;
@@ -3018,5 +3041,16 @@ h2#contact {
 #contact {
   scroll-margin-top: 0px;
 }
+
+    .project-detail-page {
+    padding-left: 45px !important;
+    padding-right: 45px !important;
+    box-sizing: border-box;
+  }
+
+  .project-detail-page > * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
 
 `;
