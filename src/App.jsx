@@ -209,19 +209,43 @@ function Home({ go, openProject }) {
   const scrollCarousel = (direction) => {
   const carousel = document.querySelector(".projects-carousel");
   if (!carousel) return;
+  const cards = carousel.querySelectorAll(".featured-tile");
+  if (!cards.length) return;
+  const carouselRect = carousel.getBoundingClientRect();
+  // Trouve la carte actuellement visible / la plus proche du centre
+  let currentIndex = 0;
+  let smallestDistance = Infinity;
 
-  const card = carousel.firstElementChild;
-  if (!card) return;
+  cards.forEach((card, index) => {
 
-  const gap = 18;
-  const amount = card.getBoundingClientRect().width + gap;
-
-  carousel.scrollBy({
-    left: direction * amount,
-    behavior: "smooth"
+    const rect = card.getBoundingClientRect();
+    const cardCenter = rect.left + rect.width / 2;
+    const carouselCenter = carouselRect.left + carouselRect.width / 2;
+    const distance = Math.abs(cardCenter - carouselCenter);
+    if (distance < smallestDistance) {
+      smallestDistance = distance;
+      currentIndex = index;
+    }
   });
-};
+  // Une seule carte en avant ou en arrière
+  let targetIndex = currentIndex + direction;
+  // Empêche de dépasser la première ou la dernière carte
+  targetIndex = Math.max(0, Math.min(targetIndex, cards.length - 1));
+  const targetCard = cards[targetIndex];
+  // Centre exactement la carte sélectionnée
+  const cardRect = targetCard.getBoundingClientRect();
+  const currentScroll = carousel.scrollLeft;
+  const cardCenter =
+    cardRect.left - carouselRect.left + currentScroll + cardRect.width / 2;
+  const targetScroll =
+    cardCenter - carousel.clientWidth / 2;
+  carousel.scrollTo({
+    left: targetScroll,
+    behavior: "smooth"
 
+  });
+
+};
   return (
     <div className="page">
       <section className="hero">
@@ -2872,34 +2896,25 @@ body {
     position: relative;
   }
 
-  .projects-carousel {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    gap: 18px !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-snap-type: x mandatory !important;
-    padding: 20px 40px !important;
-    box-sizing: border-box !important;
-  }
+.projects-carousel {
+  width: 100%;
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 20px 40px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  box-sizing: border-box;
+}
 
-  .projects-carousel > * {
-    flex: 0 0 calc(100vw - 80px) !important;
-    width: calc(100vw - 80px) !important;
-    max-width: calc(100vw - 80px) !important;
-    min-width: calc(100vw - 80px) !important;
-    scroll-snap-align: start !important;
-    box-sizing: border-box !important;
-  }
-
-  .projects-carousel .featured-title {
-    flex: 0 0 calc(100vw - 80px) !important;
-    width: calc(100vw - 80px) !important;
-    max-width: calc(100vw - 80px) !important;
-    min-width: calc(100vw - 80px) !important;
-  }
-
+.projects-carousel .featured-tile {
+  flex: 0 0 calc(100vw - 120px);
+  width: calc(100vw - 120px);
+  min-height: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
 
   .projects-carousel::-webkit-scrollbar {
     display: none;
@@ -3024,6 +3039,111 @@ h2#contact {
 
 #contact {
   scroll-margin-top: 0px;
+}
+
+/* =========================================================
+   CARROUSEL MOBILE — 1 CARTE À LA FOIS
+   ========================================================= */
+
+@media (max-width: 560px) {
+
+  .projects-carousel-wrapper {
+    width: 100%;
+    padding: 0 18px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .projects-carousel {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+
+    padding: 20px 18px 45px;
+
+    overflow-x: auto;
+    overflow-y: visible;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scroll-padding: 0;
+
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+
+    box-sizing: border-box;
+  }
+
+  .projects-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .projects-carousel .featured-tile {
+    flex: 0 0 calc(100% - 36px) !important;
+    width: calc(100% - 36px) !important;
+    min-width: calc(100% - 36px) !important;
+    max-width: calc(100% - 36px) !important;
+
+    margin: 0 !important;
+    padding: 12px !important;
+
+    box-sizing: border-box;
+
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+
+    border-radius: 30px;
+  }
+
+  .projects-carousel .featured-art {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+
+    border-radius: 26px;
+    overflow: hidden;
+  }
+
+  .projects-carousel .featured-art img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 26px;
+  }
+
+  .projects-carousel .featured-meta {
+    width: 100%;
+    min-height: 82px;
+
+    margin-top: 5px;
+    padding: 0 6px;
+
+    box-sizing: border-box;
+  }
+
+  .carousel-prev,
+  .carousel-next {
+    top: 46%;
+    width: 40px;
+    height: 40px;
+
+    background: transparent;
+    color: #111111;
+
+    font-size: 2rem;
+    z-index: 20;
+  }
+
+  .carousel-prev {
+    left: 0;
+  }
+
+  .carousel-next {
+    right: 0;
+  }
 }
 
 `;
