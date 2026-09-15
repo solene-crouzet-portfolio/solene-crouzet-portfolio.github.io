@@ -86,21 +86,47 @@ function Nav({ page, go }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
 const handleNavClick = (id) => {
-  if (id === "projects" || id === "contact" || id === "about") {
+  if (id === "about" || id === "contact" || id === "projects") {
     if (page !== "home") {
       go("home");
 
       setTimeout(() => {
         const targetId = id === "about" ? "about-me" : id;
-        document.getElementById(targetId)?.scrollIntoView({
-          behavior: "smooth",
-        });
+
+        const element = document.getElementById(targetId);
+
+        if (element) {
+          const offset = id === "about" ? -300 : 0;
+
+          const y =
+            element.getBoundingClientRect().top +
+            window.scrollY +
+            offset;
+
+          window.scrollTo({
+            top: y,
+            behavior: "smooth",
+          });
+        }
       }, 100);
     } else {
       const targetId = id === "about" ? "about-me" : id;
-      document.getElementById(targetId)?.scrollIntoView({
-        behavior: "smooth",
-      });
+
+      const element = document.getElementById(targetId);
+
+      if (element) {
+        const offset = id === "about" ? -412 : 0;
+
+        const y =
+          element.getBoundingClientRect().top +
+          window.scrollY +
+          offset;
+
+        window.scrollTo({
+          top: y,
+          behavior: "smooth",
+        });
+      }
     }
   } else {
     go(id);
@@ -277,7 +303,7 @@ function Home({ go, openProject }) {
         </div>
       </div>
 
-      <section id="contact" className="section about-teaser">
+      <section className="section about-teaser">
         <div className="about-teaser-portrait">
           <img src="/images/photo_solene.png" alt="Solène Crouzet" className="about-teaser-image" />
         </div>
@@ -287,8 +313,11 @@ function Home({ go, openProject }) {
           <p>
             Moi, c’est Solène, j’ai 21 ans et je suis graphiste récemment diplômée. J’aime imaginer des univers, donner vie à des idées et créer des projets qui ont leur propre personnalité. Au fil de mes études et de mes expériences, j’ai eu l’occasion de travailler sur des projets très variés, qui m’ont permis d’expérimenter, de développer ma créativité et de construire petit à petit mon propre univers graphique.
           </p>
-
-          <h2>Contact</h2>
+          
+          <div className="contact-transition"></div>
+          
+          <div className="contact-block">/div</div>
+          <h2 id="contact">Contact</h2>
           <div className="contact-info">
             <div className="contact-item">
               <span className="contact-icon"><img src="/images/icone_contact_1.svg" alt="" /></span>
@@ -306,6 +335,15 @@ function Home({ go, openProject }) {
               <span className="contact-icon"><img src="/images/icone_contact_4.svg" alt="" /></span>
               <span>213 rue de la Vié Croze, 43370 Bains</span>
             </div>
+
+            <div className="contact-stars">
+            <span>★</span>
+            <span>★</span>
+            <span>★</span>
+            <span>★</span>
+            <span>★</span>
+            <span>★</span>
+          </div>
           </div>
         </div>
       </section>
@@ -2806,6 +2844,9 @@ body {
     margin-top: -180px;
     padding: 70px 25px;
   }
+    
+
+
 
   .presentation-home-text {
     width: 90%;
@@ -2819,6 +2860,11 @@ body {
     padding: 10px 28px;
     font-size: 0.75rem;
   }
+
+  .section-head h2 {
+  font-size: 1.8rem;
+  text-align: center;
+}
 
   .projects-home-section {
     padding-left: 0;
@@ -2843,15 +2889,15 @@ body {
   box-sizing: border-box;
 }
 
-  .projects-carousel::-webkit-scrollbar {
-    display: none;
+ .projects-carousel .featured-tile {
+    flex: 0 0 calc(100vw - 120px);
+    width: calc(100vw - 120px);
+    min-height: 0;
   }
 
-  .projects-carousel .featured-tile {
-    flex: 0 0 calc(100vw - 140px);
-    width: calc(100vw - 140px);
-    height: auto;
-    min-height: 0;
+
+  .projects-carousel::-webkit-scrollbar {
+    display: none;
   }
 
   .projects-carousel .featured-art {
@@ -2864,6 +2910,7 @@ body {
     height: 100%;
     object-fit: cover;
     border-radius: 0 !important;
+    aspect-ratio: 1 / 1;
   }
 
   /* BAS DE LA CARTE */
@@ -2907,6 +2954,149 @@ body {
 
   .elmer-illustrations {
     gap: 12px;
+  }
+
+    .about-teaser-text h2 {
+  font-size: 1.8rem;
+}
+  .about-teaser-text p {
+  margin-bottom: -60px;
+  color: rgba(23,20,43,0.82);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+
+.contact-transition {
+  position: relative;
+  width: 100vw;
+  height: 360px;
+  margin-left: calc(50% - 50vw);
+  margin-top: 40px;
+  margin-bottom: 150px;
+  background: #ff00a8;
+  overflow: hidden;
+}
+
+/* Arche blanche du haut */
+.contact-transition::before {
+  content: "";
+  position: absolute;
+  top: -300px;
+  left: -10%;
+  width: 120%;
+  height: 450px;
+  background: #f1f0f7;
+  border-radius: 0 0 50% 50%;
+}
+
+/* Arche blanche du bas */
+.contact-transition::after {
+  content: "";
+  position: absolute;
+  bottom: -300px;
+  left: -10%;
+  width: 120%;
+  height: 450px;
+  background: #f1f0f7;
+  border-radius: 50% 50% 0 0;
+}
+/* Partie Contact */
+
+/* Remonte le bloc Contact */
+.contact-info {
+  margin-top: 0px;
+  margin-bottom: 20px;
+
+}
+
+/* Centre le titre Contact */
+h2#contact {
+  text-align: center;
+  margin-top: -160px;
+  margin-bottom: 40px;
+}
+
+#contact {
+  scroll-margin-top: 0px;
+}
+
+.contact-stars {
+  position: relative;
+  height: 180px;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  margin-top: 0px;
+  margin-bottom: -90px
+}
+
+.contact-stars span {
+  position: absolute;
+  bottom: 0px;
+  font-size: 16px;
+  opacity: 0;
+  animation: floatStar 5s ease-in-out infinite;
+}
+
+/* Position de chaque étoile */
+.contact-stars span:nth-child(1) {
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.contact-stars span:nth-child(2) {
+  left: 32%;
+  font-size: 11px;
+  animation-delay: 1.2s;
+}
+
+.contact-stars span:nth-child(3) {
+  left: 50%;
+  font-size: 14px;
+  animation-delay: 2.4s;
+}
+
+.contact-stars span:nth-child(4) {
+  left: 68%;
+  font-size: 10px;
+  animation-delay: 0.8s;
+}
+
+.contact-stars span:nth-child(5) {
+  left: 82%;
+  font-size: 15px;
+  animation-delay: 3s;
+}
+
+.contact-stars span:nth-child(6) {
+  left: 42%;
+  font-size: 9px;
+  animation-delay: 3.8s;
+}
+
+@keyframes floatStar {
+  0% {
+    transform: translateY(20px) rotate(0deg);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translateY(-70px) rotate(90deg);
+    opacity: 0.8;
+  }
+
+  80% {
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: translateY(-150px) rotate(180deg);
+    opacity: 0;
   }
 }
 `;
