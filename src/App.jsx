@@ -211,7 +211,7 @@ function Home({ go, openProject }) {
     if (!carousel) return;
 
     const amount = window.innerWidth <= 560
-      ? carousel.clientWidth * 0.9
+      ? carousel.clientWidth * 1
       : carousel.clientWidth * 0.34;
 
     carousel.scrollBy({ left: direction * amount, behavior: "smooth" });
@@ -2861,65 +2861,81 @@ body {
     padding-right: 0;
   }
 
+  /* =====================================================
+   CARROUSEL MOBILE — 1 PROJET À LA FOIS
+   ===================================================== */
+
+@media (max-width: 560px) {
+
   .projects-carousel-wrapper {
     width: 100%;
     overflow: hidden;
     position: relative;
   }
 
-.projects-carousel {
-  width: 100%;
-  display: flex;
-  gap: 0;
-  overflow-x: auto;
-  overflow-y: visible;
-  padding: 20px;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  scroll-padding-inline: 20px;
-  scrollbar-width: none;
-  box-sizing: border-box;
-}
+  .projects-carousel {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
 
-.projects-carousel .featured-tile {
-  flex: 0 0 calc(100vw - 40px);
-  width: calc(100vw - 40px);
-  min-width: calc(100vw - 40px);
-  max-width: calc(100vw - 40px);
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
 
   .projects-carousel::-webkit-scrollbar {
     display: none;
   }
 
+  /* UNE CARTE = TOUTE LA LARGEUR */
+  .projects-carousel .featured-tile {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+
+    margin: 0 !important;
+    box-sizing: border-box;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  /* IMAGE */
   .projects-carousel .featured-art {
-    width: 100%;
-    aspect-ratio: 1 / 1;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
   }
 
   .projects-carousel .featured-art img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0 !important;
-    aspect-ratio: 1 / 1;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    aspect-ratio: 1 / 1 !important;
   }
 
-  /* BAS DE LA CARTE */
+  /* PARTIE INFÉRIEURE DE LA CARTE */
   .projects-carousel .featured-meta {
-    width: 100%;
+    width: 100% !important;
     box-sizing: border-box;
   }
 
-  /* FLÈCHES */
+  /* FLÈCHE GAUCHE */
   .projects-carousel-wrapper .carousel-prev {
-    left: 12px;
+    left: 12px !important;
   }
 
+  /* FLÈCHE DROITE */
   .projects-carousel-wrapper .carousel-next {
-    right: 12px;
+    right: 12px !important;
   }
 
   .project-meta {
