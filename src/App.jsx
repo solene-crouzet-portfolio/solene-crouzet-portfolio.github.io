@@ -236,9 +236,17 @@ function Home({ go, openProject }) {
         <p className="presentation-home-text">
           Bienvenue dans mon univers ! J’imagine et conçois des identités visuelles et des projets créatifs, du print au digital. Vous avez un projet ou une idée en tête ? N’hésitez pas à me contacter, je serais ravie d’en discuter avec vous !
         </p>
-        <button className="presentation-home-button" onClick={() => go("contact")}>
-          Me contacter
-        </button>
+        <button
+  className="presentation-home-button"
+  onClick={() => {
+    document.getElementById("contact")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }}
+>
+  Me contacter
+</button>
         <div className="tear tear-bottom"></div>
       </section>
 
@@ -1076,7 +1084,6 @@ export default function App() {
         {page === "projects" && <Projects openProject={openProject} />}
         {page === "project" && <ProjectDetail project={currentProject} go={go} />}
         {page === "about" && <About go={go} />}
-        {page === "contact" && <Contact />}
       </main>
     </div>
   );
@@ -3012,108 +3019,4 @@ h2#contact {
   scroll-margin-top: 0px;
 }
 
-/* =========================================================
-   CARROUSEL MOBILE — 1 CARTE À LA FOIS
-   ========================================================= */
-
-@media (max-width: 560px) {
-
-  .projects-carousel-wrapper {
-    width: 100%;
-    padding: 0 18px;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-
-  .projects-carousel {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    gap: 18px;
-
-    padding: 20px 18px 45px;
-
-    overflow-x: auto;
-    overflow-y: visible;
-
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    scroll-padding: 0;
-
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-
-    box-sizing: border-box;
-  }
-
-  .projects-carousel::-webkit-scrollbar {
-    display: none;
-  }
-
-  .projects-carousel .featured-tile {
-    flex: 0 0 calc(100% - 36px) !important;
-    width: calc(100% - 36px) !important;
-    min-width: calc(100% - 36px) !important;
-    max-width: calc(100% - 36px) !important;
-
-    margin: 0 !important;
-    padding: 12px !important;
-
-    box-sizing: border-box;
-
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
-
-    border-radius: 30px;
-  }
-
-  .projects-carousel .featured-art {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    height: auto;
-
-    border-radius: 26px;
-    overflow: hidden;
-  }
-
-  .projects-carousel .featured-art img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    border-radius: 26px;
-  }
-
-  .projects-carousel .featured-meta {
-    width: 100%;
-    min-height: 82px;
-
-    margin-top: 5px;
-    padding: 0 6px;
-
-    box-sizing: border-box;
-  }
-
-  .carousel-prev,
-  .carousel-next {
-    top: 46%;
-    width: 40px;
-    height: 40px;
-
-    background: transparent;
-    color: #111111;
-
-    font-size: 2rem;
-    z-index: 20;
-  }
-
-  .carousel-prev {
-    left: 0;
-  }
-
-  .carousel-next {
-    right: 0;
-  }
-}
 `;
