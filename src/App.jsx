@@ -2870,20 +2870,22 @@ body {
 .projects-carousel {
   width: 100%;
   display: flex;
-  gap: 0;
+  gap: 18px;
   overflow-x: auto;
   overflow-y: visible;
-  padding: 20px 0;
+  padding: 20px 40px;
   scroll-snap-type: x mandatory;
+  scroll-padding-left: 40px;
   scrollbar-width: none;
   box-sizing: border-box;
 }
 
 .projects-carousel .featured-tile {
-  flex: 0 0 100%;
-  width: 100%;
+  flex: 0 0 calc(100vw - 120px);
+  width: calc(100vw - 120px);
   min-height: 0;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
   .projects-carousel::-webkit-scrollbar {
